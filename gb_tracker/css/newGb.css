@@ -1,0 +1,74 @@
+.new-gb-form {
+  position: absolute;
+  top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  min-width: 33rem;
+  background: var(--section-background);
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+  /* do transition animation here */
+}
+
+.new-gb-form input {
+  font-size: 1rem;
+}
+
+.gb-row {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.gb-select {
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.level-input {
+  width: 5ch;
+  margin-right: 1rem;
+}
+
+.goal-input {
+  width: 9ch;
+}
+
+.p-row {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.p-row input {
+  width: 6ch;
+  margin-right: 1rem;
+}
+
+.save-btn {
+  background-color: green;
+  color: white;
+  border-radius: 25%;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.save-btn:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.select-label {
+  margin-right: 0.25rem;
+}
+
+.p-labels {
+  margin-left: 0.5rem;
+}
+/* media queries */
+@media screen and (max-width: 570px) {
+  .new-gb-form {
+    width: 100%;
+  }
+}

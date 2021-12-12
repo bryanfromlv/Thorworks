@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick FoE Calculators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="quick19.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <main>
+      <fieldset>
+        <legend>Quick FoE Calculator</legend>
+        <section>
+          <div class="display">
+            <div class="display-txt"></div>
+          </div>
+          <div class="radio-button-row">
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx19" id="mx19" checked />
+              <label for="mx19">1.9</label>
+            </div>
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx192" id="mx192" />
+              <label for="mx192">1.92</label>
+            </div>
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx194" id="mx194" />
+              <label for="mx194">1.94</label>
+            </div>
+          </div>
+          <div class="bottom-row">
+            <label for="fp_input">Enter FP</label>
+            <input type="text" name="FP" id="fp_input" />
+          </div>
+          <div class="bottom-button-row">
+            <button class="btn" id="calc_btn">Calc</button>
+            <button class="btn" id="clear_btn">Clear</button>
+          </div>
+        </section>
+      </fieldset>
+    </main>
+    <script src="quick19.js" defer></script>
+  </body>
+</html>

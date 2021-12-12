@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Import Google Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  </style>
+  <!-- Style sheets -->
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/nav.css" />
+  <link rel="stylesheet" href="./css/gbDisplay.css" />
+  <link rel="stylesheet" href="./css/newGb.css" />
+  <link rel="stylesheet" href="./css/calc.css">
+  <!-- favicon generator code -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>Forge of Empires GB Tracker</title>
+  <script>
+    onload = () => {
+      init();
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="../">
+          <img src="images/thor_bkg_logo.svg" height="30" alt="Thorworks Logo" />
+        </a>
+      </div>
+      <ul class="navItems">
+        <li id="home" class="nav-link-active">GB List</li>
+        <li id="newGb" class="nav-link">New GB</li>
+        <li id="calculator" class="nav-link">Calculator</li>
+      </ul>
+      <!-- <span class="copyright">© Thorworks 2021</span> -->
+    </nav>
+  </header>
+  <h1>Forge of Empires GB Tracker</h1>
+  <main>
+    <!--! Main gb list display section (cards) -->
+    <!-- content for the list display section is injected by gbDisplay.js -->
+    <section class="list-section" id="list_section">
+      <h4 class="title">Your saved GB's</h4>
+    </section>
+    <!--! New GB form -->
+    <form class="new-gb-form hide" id="new_gb_form" autocomplete="off">
+      <h2 class="title">New GB</h2>
+      <div class="gb-row">
+        <label for="gb_select" class="select-label">GB</label>
+        <select placeholder="Choose..." name="gb" class="gb-select" id="gb_select" required>
+          <option value="">Choose</option>
+          <!--! have to set value to empty for validation to work -->
+          <option value="Alcatraz" data-enabled=true>Alcatraz</option> <!-- testing data-enabled -->
+          <option value="The Arc">The Arc</option>
+          <option value="Arctic Orangery">Arctic Orangery</option>
+          <option value="Atlantis Museum">Atlantis Museum</option>
+          <option value="Atomium">Atomium</option>
+          <option value="The Blue Galaxy">The Blue Galaxy</option>
+          <option value="Cape Canaveral">Cape Canaveral</option>
+          <option value="Capitol">Capitol</option>
+          <option value="Castel del Monte">Castel del Monte</option>
+          <option value="Cathedral of Aachen">Cathedral of Aachen</option>
+          <option value="Château Frontenac">Château Frontenac</option>
+          <option value="Colosseum">Colosseum</option>
+          <option value="Deal Castle">Deal Castle</option>
+          <option value="Dynamic Tower">Dynamic Tower</option>
+          <option value="Frauenkirche of Dresden">Frauenkirche of Dresden</option>
+          <option value="Flying Island">Flying Island</option>
+          <option value="Gaea Statue">Gaea Statue</option>
+          <option value="Galata Tower">Galata Tower</option>
+          <option value="The Habitat">The Habitat</option>
+          <option value="Hagia Sophia">Hagia Sophia</option>
+          <option value="Himeji Castle">Himeji Castle</option>
+          <option value="Innovation Tower">Innovation Tower</option>
+          <option value="The Kraken">The Kraken</option>
+          <option value="Lighthouse of Alexandria">Lighthouse of Alexandria</option>
+          <option value="Lotus Temple">Lotus Temple</option>
+          <option value="Notre Dame">Notre Dame</option>
+          <option value="Observatory">Observatory</option>
+          <option value="Oracle of Delphi">Oracle of Delphi</option>
+          <option value="Rain Forest Project">Rain Forest Project</option>
+          <option value="Royal Albert Hall">Royal Albert Hall</option>
+          <option value="Saint Basil's Cathedral">Saint Basil's Cathedral</option>
+          <option value="Seed Vault">Seed Vault</option>
+          <option value="Space Needle">Space Needle</option>
+          <option value="St. Mark's Basilica">St. Mark's Basilica</option>
+          <option value="Star Gazer">Star Gazer</option>
+          <option value="Statue of Zeus">Statue of Zeus</option>
+          <option value="Temple of Relics">Temple of Relics</option>
+          <option value="Terracotta Army">Terracotta Army</option>
+          <option value="Tower of Babel">Tower of Babel</option>
+          <option value="The Virgo Project">The Virgo Project</option>
+          <option value="Voyager V1">Voyager V1</option>
+        </select>
+        <div>
+          <label for="level_input" class="level-label">Level</label>
+          <input type="number" name="level" placeholder="level" class="noNumArrows level-input" id="level_input" required>
+        </div>
+        <div>
+          <label for="goal_input" class="goal-label">Goal</label>
+          <input type="number" placeholder="FP to level" class="noNumArrows goal-input" name="goal" id="goal_input" required>
+        </div>
+      </div>
+      <div class='p-row'>
+        <div>
+          <label for="p1_input" class="p-labels">P1</label>
+          <input type="number" placeholder="FP" class="noNumArrows" value="" id="p1_input" required>
+        </div>
+        <div>
+          <label for="p2_input" class="p-labels">P2</label>
+          <input type="number" placeholder="FP" class="noNumArrows" value="" id="p2_input" required>
+        </div>
+        <div>
+          <label for="p3_input" class="p-labels">P3</label>
+          <input type="number" placeholder="FP" class="noNumArrows" value="" id="p3_input" required>
+        </div>
+        <div>
+          <label for="p4_input" class="p-labels">P4</label>
+          <input type="number" placeholder="FP" class="noNumArrows" value="" id="p4_input" required>
+        </div>
+        <div>
+          <label for="p5_input" class="p-labels">P5</label>
+          <input type="number" placeholder="FP" class="noNumArrows" value="" id="p5_input" required>
+        </div>
+      </div>
+      <div>
+        <button class="save-btn" id="saveButton" type="submit" value="submit">Save</button>
+      </div>
+    </form>
+    <!--! Calculator form  -->
+    <form class="calc-form hide" id="calc_form" autocomplete="off">
+      <div class="calc-header">
+        <h3 class="otheralert-txt hide-otheralert-txt" id="other_alert">Intruder!</h3>
+        <h2 class="title">Calculator</h2>
+        <h3 class="snipezone-txt hide-snipezone-txt" id="snipe_zone">Snipe Zone!</h3>
+      </div>
+      <div class="calc-top-row">
+        <div class="calc-name-row" id="calc_gbName"></div>
+        <div class="calc-stats-row">
+          <span id="calc_goal"></span>
+          <span id="calc_cur"></span>
+          <span id="calc_left"></span>
+        </div>
+      </div>
+      <!--! Begin main grid display -->
+      <div class="calc-main grid-container" id="calc_main">
+        <!-- title row -->       
+        <div>Pos</div>
+        <div>Reward</div>
+        <div></div>
+        <div>1.9</div>
+        <div></div>
+        <div>1.92</div>
+        <div></div>
+        <div>Current</div>
+        <div>Needed</div>
+        <div>Ready</div>
+        <div>Locked</div>
+        <!-- p1 row -->    
+        <div class="position">P1</div>
+        <div name="p1reward">0</div>
+        <input type="radio" name="p1" value="mx19" tabindex="-1" checked>
+        <div class="mx19btn">0</div>
+        <input type="radio" name="p1" value="mx192" tabindex="-1">
+        <div class="mx192btn">0</div>
+        <div></div>
+        <div><input type="number" class="cur-input noNumArrows" value="0" id="p1_cur"></input></div>
+        <div name="p1needed" id="p1n">0</div>
+        <div name="p1ready">✘</div>
+        <div name="p1locked">✘</div>
+        <!-- p2 row -->    
+        <div class="position">P2</div>
+        <div name="p2reward">0</div>
+        <input type="radio" name="p2" value="mx19" tabindex="-1" checked>
+        <div class="mx19btn">0</div>
+        <input type="radio" name="p2" value="mx192" tabindex="-1">
+        <div class="mx192btn">0</div>
+        <div></div>
+        <div><input type="number" class="cur-input noNumArrows" value="0" id="p2_cur"></input></div>
+        <div name="p2needed" id="p2n">0</div>
+        <div name="p2ready">✘</div>
+        <div name="p2locked">✘</div>
+        <!-- p3 row -->    
+        <div class="position">P3</div>
+        <div name="p3reward">0</div>
+        <input type="radio" name="p3" value="mx19" tabindex="-1" checked>
+        <div class="mx19btn">0</div>
+        <input type="radio" name="p3" value="mx192" tabindex="-1">
+        <div class="mx192btn">0</div>
+        <div></div>
+        <div><input type="number" class="cur-input noNumArrows" value="0" id="p3_cur"></input></div>
+        <div name="p3needed" id="p3n">0</div>
+        <div name="p3ready">✘</div>
+        <div name="p3locked">✘</div>
+        <!-- p4 row -->    
+        <div class="position">P4</div>
+        <div name="p4reward">0</div>
+        <input type="radio" name="p4" value="mx19" tabindex="-1" checked>
+        <div class="mx19btn">0</div>
+        <input type="radio" name="p4" value="mx192" tabindex="-1">
+        <div class="mx192btn">0</div>
+        <div></div>
+        <div><input type="number" class="cur-input noNumArrows" value="0" id="p4_cur"></input></div>
+        <div name="p4needed" id="p4n">0</div>
+        <div name="p4ready">✘</div>
+        <div name="p4locked">✘</div>
+        <!-- p5 row -->    
+        <div class="position">P5</div>
+        <div name="p5reward">0</div>
+        <input type="radio" name="p5" value="mx19" tabindex="-1" checked>
+        <div class="mx19btn">0</div>
+        <input type="radio" name="p5" value="mx192" tabindex="-1">
+        <div class="mx192btn">0</div>
+        <div></div>
+        <div><input type="number" class="cur-input noNumArrows" value="0" id="p5_cur"></input></div>
+        <div name="p5needed" id="p5n">0</div>
+        <div name="p5ready">✘</div>
+        <div name="p5locked">✘</div>
+      </div>
+      <!--! End main grid display -->
+      <!--! Bottom row -->
+      <div class="calc-bottom-row">
+        <div>Owner: </div>
+        <input type="number" name="calcOwner" class="calc-owner-input noNumArrows" value="" id="calc_owner_input">
+        <div>Other: </div>
+        <input type="number" name="calcOther" class="calc-other-input noNumArrows" value="" id="calc_other_input">
+        <!-- <div class="otheralert-txt hide-otheralert-txt" id="other_alert">Intruder!</div>
+        <div class="snipezone-txt hide-snipezone-txt" id="snipe_zone">Snipe Zone!</div> -->
+        <div class="calc-enable-tooltips">
+          <label>Tooltips</label>
+          <input type="checkbox" id="calc_enable_tooltips" tabindex="-1" />
+        </div>
+        <div class="calc-enable-audio">
+          <label>Audio</label>
+          <input type="checkbox" id="calc_enable_audio" tabindex="-1" />
+        </div>
+        <div class="calc-post-btn">Post</div>
+      </div>
+    </form>
+    <!--! Modals -->
+    <!-- post text new user modal -->
+    <div class="modal-bkg" id="newUser_modal_bkg"></div>
+    <div class="newUser-modal-container" id="newUser_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Enter your name</h2>
+        </div>
+        <div class="modal-body">
+          Enter the nickname you wish to use in your post text.<br/>
+        </div>
+        <div class="modal-footer">
+          <div class="postText-modal-option-row">
+            <input type="text" name="postName" id="postText_username">
+          </div>
+          <div class="modal-btn-row">
+            <button type="button" id="newUser_save_btn" class="modal-btn">Save</button>
+            <button type="button" id="newUser_cancel_btn" class="modal-btn">Cancel</button>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <!-- post text modal -->
+    <div class="modal-bkg" id="postText_modal_bkg"></div>
+    <div class="postText-modal-container" id="postText_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Post Text</h2>
+        </div>
+        <div class="modal-body" id="postText_modal_body">
+          insert copied text here
+        </div>
+        <div class="modal-footer">
+          <div class="postText-modal-option-row">
+            <input type="checkbox" name="includefp" id="include_fp">
+            Include FP
+          </div>
+          <div class="modal-btn-row">
+            <button type="button" id="postText_copy_btn" class="modal-btn">Copy</button>
+            <button type="button" id="postText_close_btn" class="modal-btn">Close</button>
+          </div>
+          <div class="modal-bottom-row">
+            <button type="button" id="postText_changeName_btn" class="modal-btn">Change Name</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- delete gb confirmation modal -->
+    <div class="modal-bkg" id="deleteGb_modal_bkg"></div>
+    <div class="deleteGb-modal-container" id="deleteGb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Delete GB?</h2>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this GB?.<br/><strong>This action cannot be undone!</strong>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="deleteGb_btn" class="modal-btn">Delete GB</button>
+            <button type="button" id="deleteGb_cancel_btn" class="modal-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- no gb modal -->
+    <div class="modal-bkg" id="nogb_modal_bkg"></div>
+    <div class="modal-container" id="nogb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">No Saved GB's</h2>
+        </div>
+        <div class="modal-body">
+          You have no saved GB's.<br/> Please create one.
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="newGb_btn" class="modal-btn">New GB</button>
+            <button type="button" id="newGb_close_btn" class="modal-btn">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- newGb modal -->
+    <div class="modal-bkg" id="newgb_modal_bkg"></div>
+    <div class="modal-container" id="newGb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Success!</h2>
+        </div>
+        <div class="modal-body">
+          <p><span id="newGb_confirm_gbName"></span><br> was saved to your browsers local storage
+          </p>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="close_btn" class="modal-btn">Close</button>
+            <button type="button" id="add_btn" class="modal-btn">Add GB</button>
+            <button type="button" id="calc_btn" class="modal-btn">Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- duplicate modal -->
+    <div class="modal-bkg" id="duplicate_modal_bkg"></div>
+    <div class="modal-container" id="duplicate_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Duplicate GB</h2>
+        </div>
+        <div class="modal-body">
+          <span id="duplicate_gb_name"></span> is already saved,<br/>do you want to replace it?
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="replace_btn" class="modal-btn">Replace</button>
+            <button type="button" id="cancel_btn" class="modal-btn">cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- orientation modal -->
+    <div class="orient-bkg"></div>
+    <div class="orient-modal-container">
+      <div class="orient-modal-body">
+        This site works best in landscape mode. Please change your device's orientation.
+      </div>
+      <div class="orient-modal-btn-row">
+        <button type="button" id="orient_ok_btn" class="modal-btn">Ok</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="copyright">© Thorworks 2021</div>
+  </footer>
+
+  <!-- audio -->
+  <audio id="snipeSnd">
+    <source src="./audio/star-trek-emergency.ogg" type="audio/ogg">
+    <source src="./audio/star-trek-emergency.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="otherSnd">
+    <source src="./audio/intruder-alert.ogg" type="audio/ogg">
+    <source src="./audio/intruder-alert.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- scripts -->
+  <script src="storage.js" defer></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <script src="gbDisplay.js" defer></script>
+  <script src="gb.js" defer></script>
+  <script src="calc.js" defer></script>
+  <script src="newGb.js" defer></script>
+  <!--! index.js needs to be loaded last to avoid errors -->
+  <script src="index.js" defer></script>
+</body>
+</html>

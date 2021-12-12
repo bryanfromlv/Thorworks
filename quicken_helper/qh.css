@@ -1,0 +1,175 @@
+/* reset base settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  /*! Google font Roboto: 400-regular, 500-medium, 700-bold */
+}
+
+/* define document variables */
+:root {
+  --background: #ffebcd;
+}
+
+/* disable selector arrows on number inputs */
+.noNumArrows::-webkit-inner-spin-button,
+.noNumArrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+/* added 9/24/21- old method doesn't work with newer Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+main {
+  width: 24rem;
+  margin: 1rem auto;
+}
+
+input[type='text'] {
+  width: 8ch;
+  height: 1.25rem;
+  text-align: right;
+  font-size: 1rem;
+}
+
+fieldset {
+  background-color: var(--background);
+}
+
+.main-grid {
+  margin: 1rem 1rem;
+  height: 20rem;
+  display: grid;
+  grid-template-columns: 10rem 12rem;
+  grid-template-rows: 0.65fr 1fr;
+  column-gap: 1rem;
+}
+
+.price-row {
+  margin-bottom: 0.5rem;
+}
+
+.bottom-cell {
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border: 4px ridge #1c6ea4;
+  border-radius: 25px;
+}
+
+.calc-display {
+  color: white;
+  background-color: black;
+  padding: 0.25rem 1rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  overflow-y: scroll;
+  /* firefox only */
+  scrollbar-width: thin;
+  scrollbar-color: coral rgba(255, 235, 205, 0.8);
+  /* end firefox only */
+  display: grid;
+  grid-template-rows: 1fr 1rem;
+  row-gap: 0.5rem;
+}
+
+/* Chrome */
+.calc-display::-webkit-scrollbar {
+  width: 10px;
+}
+
+.calc-display::-webkit-scrollbar-thumb {
+  background: rgba(255, 127, 80, 0.7);
+  border: 1px solid #525252;
+  border-radius: 10px;
+}
+
+.calc-display::-webkit-scrollbar-thumb:hover {
+  background: coral;
+}
+
+.calc-display::-webkit-scrollbar-track {
+  /* background: rgba(255, 235, 205, 0.8); */
+  background: whitesmoke;
+  border: 1px solid #525252;
+  border-radius: 10px;
+}
+
+.calc-display::-webkit-scrollbar-track:hover {
+  background: var(--background);
+}
+
+.calc-display::-webkit-scrollbar-track-piece {
+  background: black;
+}
+
+.calc-content {
+  text-align: right;
+}
+
+.total-display {
+  text-align: right;
+  font-weight: 700;
+}
+
+.tt-line {
+  margin: 0.5rem 0;
+}
+
+.tax-total {
+  display: inline-block;
+  width: 6ch;
+}
+
+.btn {
+  text-align: center;
+  margin: auto auto;
+  width: 4ch;
+  border: 2px ridge blue;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 217, 0);
+  font-weight: 700;
+  border: 2px ridge green;
+  transition: 0.4s ease-in-out;
+}
+
+.reset-btn {
+  justify-self: center;
+  text-align: center;
+  width: 6ch;
+  padding: 0 2px;
+  border: 3px ridge #1c6ea4;
+  border-radius: 15px;
+}
+
+.reset-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  font-weight: 700;
+  transition: 0.25s ease-in-out;
+}
+
+.copyright-row {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  justify-self: right;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+}

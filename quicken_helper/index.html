@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Import Google Font -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="qh.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <title>Quicken Helper</title>
+  </head>
+  <body>
+    <main>
+      <fieldset>
+        <legend><h2>Quicken Helper</h2></legend>
+        <div class="main-grid">
+          <div class="top-cell">
+            <div class="price-row">
+              <div">Price</label>
+              <input type="text" class="price-input" id="priceInput" inputmode="numeric" autoFocus/>
+            </div>
+            <div class="use-tax-row">
+              <span>Tax: 7.975%</span>
+              <input type="checkbox" name="taxCheck" class="use-tax-cb" id="useTax"/>
+            </div>
+          </div>
+          <div class="calc-display">
+            <div class="calc-content" id="calc_content"></div>
+            <div class="total-display">Total: <span id="total">$</span></div>
+          </div>
+          <div class="bottom-cell">
+            <div class="btn" id="clear_btn">C</div>
+            <div class="btn" id="clear_entry_btn">CE</div>
+            <div class="btn" id="plus_btn">+</div>
+            <div class="btn" id="equals_btn">=</div>
+          </div>
+          <div class="tt-line">Tax total: <span class="tax-total" id="tax_total">$</span></div>
+          <div class="reset-btn" id="reset_btn">Reset</div>
+          <div class="copyright-row">© 2021 Bryan Thompson</div>
+        </div>
+      </fieldset>
+    </main>
+    <script src="qh.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+/* ☑ ☒ ✓ ✗ ✔ ✘ */
+
+.calc-form {
+  position: absolute;
+  top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  min-width: 40rem;
+  background: var(--section-background);
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.calc-main input {
+  font-size: 1rem;
+}
+
+.calc-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--title-background);
+}
+
+.calc-top-row {
+  display: block;
+  text-align: left;
+  background: var(--subhead-background);
+  color: var(--light-grey);
+  border-bottom: 2px solid black;
+}
+
+.calc-top-row div {
+  margin-left: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.calc-name-row {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-top: 0.5rem;
+}
+
+.calc-stats-row span {
+  margin-right: 1rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto 2ch auto 2ch auto 2ch 7.5ch auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
+  grid-row-gap: 5px;
+  grid-column-gap: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+input[type='radio'] {
+  justify-self: center;
+  align-self: center;
+}
+
+.mx19btn,
+.mx192btn {
+  border: 1px solid var(--dark-orange);
+  border-radius: 25px;
+}
+
+.mx19btn:hover,
+.mx192btn:hover {
+  cursor: pointer;
+  background-color: var(--light-orange);
+}
+
+.mx19btn:active,
+.mx192btn:active {
+  color: white;
+  background-color: lightgreen;
+}
+
+/* .cur-inputs are inside grid so 100% works great */
+.cur-input {
+  width: 100%;
+}
+
+.calc-bottom-row {
+  display: grid;
+  grid-template-columns: auto 5rem auto 4rem auto auto auto;
+  align-items: center;
+  margin: 0.5rem 1rem;
+  /* column-gap: 0.25rem; */
+}
+
+.calc-bottom-row input {
+  font-size: 1em;
+}
+
+.calc-bottom-row div {
+  cursor: default;
+  user-select: none;
+}
+
+.calc-enable-tooltips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.calc-enable-tooltips input {
+  width: 15px;
+  height: 15px;
+}
+
+.calc-enable-audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.calc-enable-audio input {
+  width: 15px;
+  height: 15px;
+}
+
+/*! post button styles  */
+.calc-post-btn {
+  background-color: var(--section-background);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #1c6ea4;
+  border-radius: 20px;
+  margin: 0 0.5rem;
+  transition: 200ms;
+}
+
+.calc-post-btn:hover {
+  cursor: pointer;
+  font-weight: 700;
+  border-color: red;
+  background: #1c6ea4;
+  color: white;
+}
+
+.calc-post-btn:active {
+  background-color: green;
+  color: yellow;
+}
+
+.hide-post-btn {
+  visibility: hidden;
+}
+
+.otheralert-txt {
+  /* margin-right: 1rem; */
+  color: red;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.hide-otheralert-txt {
+  opacity: 0;
+}
+
+.snipezone-txt {
+  /* margin-right: 1rem; */
+  color: red;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.hide-snipezone-txt {
+  opacity: 0;
+}
+
+.hide-post-btn {
+  opacity: 0;
+}
+
+/* for flashing & highlighting snipeable position */
+.position-red {
+  color: red;
+  font-weight: 700;
+  opacity: 1;
+}
+.hide-position {
+  opacity: 0;
+}
+
+.calc-check-mark {
+  font-size: 0.9rem;
+  color: green;
+  transform: translateY(-0.2rem);
+}
+.calc-x-mark {
+  font-size: 0.9rem;
+  color: red;
+  transform: translateY(-0.2rem);
+}
+
+/* tippy styles */
+.tippy-box[data-theme~='bryan'] {
+  background-color: var(--dark-orange);
+  color: whitesmoke;
+}
+
+/* style the arrow */
+.tippy-box[data-theme~='bryan'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: tomato;
+}
+.tippy-box[data-theme~='bryan'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: tomato;
+}
+.tippy-box[data-theme~='bryan'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: tomato;
+}
+.tippy-box[data-theme~='bryan'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: tomato;
+}
+/* media queries */
+@media screen and (max-width: 700px) {
+  .calc-form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  /*! Google font Open Sans: 300,400,500,600,700,800 */
+}
+
+body {
+  background: hsl(210, 73%, 35%);
+  background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+}
+
+h1 {
+  cursor: default;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.25rem;
+  user-select: none;
+}

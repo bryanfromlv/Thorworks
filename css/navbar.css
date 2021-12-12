@@ -1,0 +1,181 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  /* top nav */
+  --topnav-bgclr: hsl(234, 80%, 31%);
+  --topnav-clr: white;
+  --topnav-hvrclr: tomato;
+  --topnav-active-clr: tomato;
+  /* bottom nav */
+  --botnav-bgclr: teal;
+  --botnav-clr: whitesmoke;
+  --botnav-hvrclr: bisque;
+  --botnav-active-clr: bisque;
+  /* dropdown */
+  --dropdown-bgclr: hsl(234, 80%, 31%);
+  --dropdown-clr: white;
+  --dropdown-hover-clr: tomato;
+  --dropdown-hover-bgclr: whitesmoke;
+}
+
+/*! utility classes  */
+.push-right {
+  margin-left: auto;
+}
+
+.push-left {
+  margin-right: auto;
+}
+
+.top-nav-item-active {
+  pointer-events: none;
+  color: var(--topnav-active-clr);
+}
+
+.bottom-nav-item-active {
+  color: var(--botnav-active-clr);
+  pointer-events: none;
+}
+
+/*! top navbar  */
+.top-nav {
+  background-color: var(--topnav-bgclr);
+  color: var(--topnav-clr);
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  user-select: none;
+}
+
+.top-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 0 1em;
+}
+
+.top-nav-list > li {
+  position: relative;
+  list-style-type: none;
+  padding: 0.5em 0.5em;
+  background-color: var(--topnav-bgclr);
+}
+
+.top-nav-list > li:hover {
+  color: var(--topnav-hvrclr);
+  background-color: var(--topnav-bgclr);
+  cursor: pointer;
+}
+
+.top-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  user-select: none;
+}
+
+.top-nav-logo:hover {
+  cursor: pointer;
+}
+
+.top-nav-logo-disabled {
+  pointer-events: none;
+}
+
+.top-nav-copyright {
+  pointer-events: none;
+}
+
+/*! dropdown list */
+.nav_dropdown_list_1 {
+  color: var(--dropdown-clr);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  width: max-content;
+}
+
+/*! dropdown list items  */
+.nav_dropdown_list_1 li {
+  list-style-type: none;
+  padding: 0.5em 1em;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0;
+  background-color: var(--dropdown-bgclr);
+  transition: all 500ms ease-in-out;
+}
+
+.nav-dropdown-1:hover ul li {
+  opacity: 1;
+  visibility: visible;
+  font-size: 100%;
+}
+
+.nav_dropdown_list_1 li:hover {
+  /* background-color: var(--dropdown-hover-bgclr); */
+  color: var(--dropdown-hover-clr);
+}
+
+/*! bottom navbar  */
+.bottom-nav {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: var(--botnav-bgclr);
+  color: var(--botnav-clr);
+  user-select: none;
+}
+
+.bottom-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 5em;
+  margin: 0 1em;
+  padding: 0.5em 0;
+}
+
+.bottom-nav-list li {
+  list-style-type: none;
+}
+
+.bottom-nav-list li:hover {
+  color: var(--botnav-hvrclr);
+  cursor: pointer;
+}
+
+.bottom-nav-list li:nth-of-type(1) {
+  margin-left: auto;
+}
+
+.bottom-nav-list li:nth-of-type(3) {
+  margin-right: auto;
+}
+
+/* media queries */
+@media screen and (max-width: 700px) {
+  .bottom-nav-list {
+    gap: 2em;
+  }
+}
+@media screen and (max-width: 570px) {
+  .bottom-nav-list {
+    gap: 1em;
+  }
+  .top-nav-copyright {
+    display: none;
+  }
+  /* we're removing the copyright from the DOM
+     so we need to adjust the auto margins */
+  .top-nav-list li:nth-of-type(4) {
+    margin-right: auto;
+  }
+}
