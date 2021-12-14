@@ -5,19 +5,29 @@ export default class quickSnipe {
     const currentInput = document.querySelector('#current_input')
     const rewardInput = document.querySelector('#reward_input')
     const allInputs = document.querySelectorAll('.qs-container input[type="text"]')
+    const myRewardDisplay = document.querySelector('#my_reward')
     const halfLeftDisplay = document.querySelector('#half_left')
     const profitDisplay = document.querySelector('#profit')
     const resultDisplay = document.querySelector('#result_txt')
     const calcBtn = document.querySelector('#qs_calc_btn')
     const clearBtn = document.querySelector('#qs_clear_btn')
-    // class methods
+
+    //! check localStorage for saved arcMx value (saved on first run of calculate() and when changed)
+    this.arcMx = localStorage.getItem('arcMx')
+    if (!this.arcMx) {
+      arcMxInput.focus()
+    } else {
+      arcMxInput.value = this.arcMx
+      goalInput.focus()
+    }
+
+    //! class methods
     const calculate = () => {
-      console.log(`calculate()`)
       if (!validate()) {
-        console.log(`invalid input`)
         return
       }
-      if (!this.arcMx) {
+      // save arcMx value if not set, or if it is different from saved value
+      if (this.arcMx !== arcMxInput.value) {
         this.arcMx = arcMxInput.value
         localStorage.setItem('arcMx', this.arcMx)
       }
@@ -27,12 +37,13 @@ export default class quickSnipe {
       let current = Number(currentInput.value)
       let reward = Number(rewardInput.value)
       // now we can calculate
-      //todo: still need to add mx into these calculations
       let halfLeft = (goal - current) / 2
-      let profit = reward - halfLeft
+      let myReward = Math.round(reward * mx)
+      let profit = myReward - halfLeft
+      myRewardDisplay.innerHTML = myReward
       halfLeftDisplay.innerHTML = halfLeft
       profitDisplay.innerHTML = profit
-      if (reward > halfLeft) {
+      if (profit > 0) {
         resultDisplay.innerHTML = 'Snipe it!'
       } else {
         resultDisplay.innerHTML = 'Give it up!'
@@ -73,7 +84,6 @@ export default class quickSnipe {
     }
 
     const resetStyles = () => {
-      console.log(`resetStyles()`)
       allInputs.forEach((el) => {
         el.style.borderColor = 'black'
         el.style.borderWidth = '1px'
@@ -91,21 +101,9 @@ export default class quickSnipe {
       goalInput.focus()
     }
 
-    //! check localStorage for saved arcMx value (saved on first run of calculate())
-    this.arcMx = localStorage.getItem('arcMx')
-    if (!this.arcMx) {
-      arcMxInput.focus()
-    } else {
-      arcMxInput.value = this.arcMx
-      goalInput.focus()
-    }
-
-    //! add event listener to calc button
+    //! add event listeners
     calcBtn.addEventListener('click', calculate)
-
-    //! add event listener to clear button
     clearBtn.addEventListener('click', clear)
-
     console.log(`quickSnipe_module loaded and initiated`)
   }
 }

@@ -92,7 +92,7 @@ legend {
   margin-bottom: 0.5rem;
 }
 
-input[type='radio']:hover {
+.mx-btn > *:hover {
   cursor: pointer;
 }
 
