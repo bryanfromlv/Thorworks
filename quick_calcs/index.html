@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick FoE Calculators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="quick_calcs.css" />
+    <script src="quick_calcs.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <!-- quick calc -->
+      <fieldset id="quick_calc_fs">
+        <legend>Quick 1.9+ Calculator</legend>
+        <div class="qc-container">
+          <div class="display">
+            <div class="display-txt"></div>
+          </div>
+          <div class="radio-button-row">
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx19" id="mx19" checked />
+              <label for="mx19">1.9</label>
+            </div>
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx192" id="mx192" />
+              <label for="mx192">1.92</label>
+            </div>
+            <div class="mx-btn">
+              <input type="radio" name="mx" value="mx194" id="mx194" />
+              <label for="mx194">1.94</label>
+            </div>
+          </div>
+          <div>
+            <label for="fp_input">Enter FP</label>
+            <input type="text" name="FP" id="fp_input" />
+          </div>
+          <div class="bottom-button-row">
+            <button class="btn" id="qc_calc_btn">Calc</button>
+            <button class="btn" id="qc_clear_btn">Clear</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- quick snipe -->
+      <fieldset id="quick_snipe_fs">
+        <legend>Quick Sniper Calculator</legend>
+        <div class="qs-container">
+          <div class="input-row">
+            <label for="arc_input">Arc multiplier</label>
+            <input type="text" name="arc_mx" class="push-right" id="arc_mx_input" required />
+          </div>
+          <div class="input-row">
+            <label for="goal_input">Target goal</label>
+            <input type="text" name="goal" class="push-right" id="goal_input" required />
+          </div>
+          <div class="input-row">
+            <label for="current_input">Target current</label>
+            <input type="text" name="current" class="push-right" id="current_input" required />
+          </div>
+          <div class="input-row">
+            <label for="pos_reward_input">Position reward</label>
+            <input type="text" name="reward" class="push-right" id="reward_input" required />
+          </div>
+          <div class="display-row" id="target_/2">left/2: <span id="half_left"></span></div>
+          <div class="display-row">Profit: <span id="profit"></span></div>
+          <div class="display-row hide" id="result_txt">Snipe it!</div>
+
+          <div class="bottom-button-row">
+            <button class="btn" id="qs_calc_btn">Calc</button>
+            <button class="btn" id="qs_clear_btn">Clear</button>
+          </div>
+        </div>
+      </fieldset>
+    </main>
+  </body>
+</html>
