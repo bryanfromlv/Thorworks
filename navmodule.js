@@ -45,7 +45,7 @@ export default class nav {
     dd1Item1.addEventListener('click', doDd1Item1)
 
     const doDd1Item2 = (evt) => {
-      window.open('./quick_19/', '_self')
+      window.open('quick_calcs/', '_self')
     }
     dd1Item2.addEventListener('click', doDd1Item2)
 

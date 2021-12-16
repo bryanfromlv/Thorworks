@@ -11,9 +11,9 @@
 
 body {
   background: #185a9d;
-  /* background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
-  background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%); */
+  background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   color: whitesmoke;
 }
 
@@ -24,10 +24,9 @@ main {
   gap: 1rem;
 }
 
-h1 {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+.aztecs-title {
+  font-size: 2rem;
+  font-weight: 700;
   color: coral;
 }
 
@@ -52,13 +51,22 @@ ul {
   color: red;
 }
 
-.layout {
-  margin-bottom: 0.5rem;
+.container {
+  max-width: 75%;
+  margin: 0 0.5rem;
 }
 
-.container {
-  max-width: 700px;
-  margin: 0 0.5rem;
+.layout {
+  padding-top: 0.25em;
+  text-align: center;
+  background-color: #185a9d;
+  color: coral;
+  font-weight: 700;
+}
+
+.layout img {
+  padding-top: 0.25em;
+  max-width: 100%;
 }
 
 :any-link {
@@ -114,4 +122,10 @@ header {
 
 .nav-list li:nth-of-type(5) {
   margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
 }
