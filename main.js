@@ -1,4 +1,4 @@
-import nav from './navmodule.js'
+import nav from './main_navmodule.js'
 
 console.log(`main.js loaded`)
-const navbar = new nav()
+const main_navbar = new nav()

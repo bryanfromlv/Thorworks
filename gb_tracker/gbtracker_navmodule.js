@@ -1,14 +1,10 @@
 export default class nav {
   constructor() {
-    console.log(`navmodule.js loaded`)
-    const navLogo = document.querySelector('.top-nav-logo')
-    // const topNav1 = document.querySelector('.top-nav-list > li:nth-of-type(2)')
-    const dd1Item1 = document.querySelector('.nav_dropdown_list_1  li:nth-of-type(1)')
-    const dd1Item2 = document.querySelector('.nav_dropdown_list_1  li:nth-of-type(2)')
-    const dd1Item3 = document.querySelector('.nav_dropdown_list_1  li:nth-of-type(3)')
+    // const navLogo = document.querySelector('.top-nav-logo')
+    const topNav1 = document.querySelector('.top-nav-list > li:nth-of-type(2)')
     const topNav2 = document.querySelector('.top-nav-list > li:nth-of-type(3)')
     const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4)')
-    const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
+    // const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
     const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
     const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
     const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
@@ -33,26 +29,16 @@ export default class nav {
 
     //! top nav
     // logo
-    const doNavLogo = (evt) => {
-      window.open('./', '_self')
-    }
-    navLogo.addEventListener('click', doNavLogo)
+    // const doNavLogo = (evt) => {
+    //   window.open('../', '_self')
+    // }
+    // navLogo.addEventListener('click', doNavLogo)
 
-    // dropdown items
-    const doDd1Item1 = (evt) => {
-      window.open('./gb_tracker/', '_self')
+    const doTopNav1 = (evt) => {
+      evt.target.classList.add('top-nav-item-active')
+      updateActive('top', evt.target)
     }
-    dd1Item1.addEventListener('click', doDd1Item1)
-
-    const doDd1Item2 = (evt) => {
-      window.open('quick_calcs/', '_self')
-    }
-    dd1Item2.addEventListener('click', doDd1Item2)
-
-    const doDd1Item3 = (evt) => {
-      window.open('./aztecs_guide/', '_self')
-    }
-    dd1Item3.addEventListener('click', doDd1Item3)
+    topNav1.addEventListener('click', doTopNav1)
 
     const doTopNav2 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
@@ -68,12 +54,12 @@ export default class nav {
     }
     topNav3.addEventListener('click', doTopNav3)
 
-    const doTopNav4 = (evt) => {
-      evt.target.classList.add('top-nav-item-active')
-      updateActive('top', evt.target)
-      window.open('./pi.html', '_self')
-    }
-    topNav4.addEventListener('click', doTopNav4)
+    // const doTopNav4 = (evt) => {
+    //   evt.target.classList.add('top-nav-item-active')
+    //   updateActive('top', evt.target)
+    //   window.open('./pi.html', '_self')
+    // }
+    // topNav4.addEventListener('click', doTopNav4)
 
     //! bottom nav
     const doBottomNav1 = (evt) => {
@@ -96,5 +82,6 @@ export default class nav {
       window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw')
     }
     bottomNav3.addEventListener('click', doBottomNav3)
+    console.log(`gbtracker_navmodule.js instantiated`)
   }
 }

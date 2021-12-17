@@ -46,7 +46,7 @@ main {
   display: flex;
 }
 
-footer {
+/* footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@ footer {
   padding: 0.25rem;
   background-color: black;
   color: white;
-}
+} */
 
 h1 {
   cursor: default;
