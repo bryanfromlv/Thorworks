@@ -16,56 +16,69 @@
   --dropdown-hover-bgclr: whitesmoke;
 }
 
-/* gb tracker nav */
-header {
-  width: 100%;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  z-index: 10;
-  top: 0;
+/*! utility classes  */
+.push-right {
+  margin-left: auto;
 }
 
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem;
-  background-color: var(--topnav-bgclr);
-  color: white;
+.push-left {
+  margin-right: auto;
 }
 
-.top-nav a {
-  text-decoration: none;
-  color: white;
-}
-
-.navItems {
-  display: flex;
-  margin-right: 1rem;
-}
-
-.nav-link {
-  margin: 0 2rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.nav-link:hover {
-  color: greenyellow;
-}
-
-.nav-link-active {
-  font-weight: 500;
-  color: lightskyblue;
-  margin: 0 2rem;
-  cursor: default;
+.top-nav-item-active {
   pointer-events: none;
+  color: var(--topnav-active-clr);
+}
+
+.bottom-nav-item-active {
+  color: var(--botnav-active-clr);
+  pointer-events: none;
+}
+
+/*! top navbar  */
+.top-nav {
+  background-color: var(--topnav-bgclr);
+  color: var(--topnav-clr);
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
   user-select: none;
 }
 
-.nav-link-disabled {
-  color: var(--dark-grey);
+.top-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 0 1em;
+}
+
+.top-nav-list > li {
+  position: relative;
+  list-style-type: none;
+  padding: 0.5em 0.5em;
+  background-color: var(--topnav-bgclr);
+}
+
+.top-nav-list > li:hover {
+  color: var(--topnav-hvrclr);
+  cursor: pointer;
+}
+
+.top-nav-logo {
+  user-select: none;
+}
+
+.top-nav-logo:hover {
+  cursor: pointer;
+}
+
+.top-nav-logo-disabled {
+  user-select: none;
   cursor: none;
+  pointer-events: none;
+}
+
+.top-nav-copyright {
   pointer-events: none;
 }
 
@@ -96,8 +109,30 @@ header {
   cursor: pointer;
 }
 
-/* @media screen and (max-width: 660px) {
-  .copyright {
+.bottom-nav-list li:nth-of-type(1) {
+  margin-left: auto;
+}
+
+.bottom-nav-list li:nth-of-type(3) {
+  margin-right: auto;
+}
+
+/* media queries */
+@media screen and (max-width: 700px) {
+  .bottom-nav-list {
+    gap: 2em;
+  }
+}
+@media screen and (max-width: 570px) {
+  .bottom-nav-list {
+    gap: 1em;
+  }
+  .top-nav-copyright {
     display: none;
   }
-} */
+  /* we're removing the copyright from the DOM
+     so we need to adjust the auto margins */
+  .top-nav-list li:nth-of-type(4) {
+    margin-right: auto;
+  }
+}

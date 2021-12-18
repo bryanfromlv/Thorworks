@@ -46,19 +46,6 @@ main {
   display: flex;
 }
 
-/* footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  position: fixed;
-  top: 100vh;
-  transform: translate(0, -100%);
-  padding: 0.25rem;
-  background-color: black;
-  color: white;
-} */
-
 h1 {
   cursor: default;
   color: white;

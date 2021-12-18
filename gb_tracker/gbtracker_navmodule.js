@@ -1,6 +1,6 @@
 export default class nav {
   constructor() {
-    // const navLogo = document.querySelector('.top-nav-logo')
+    const navLogo = document.querySelector('.top-nav-logo')
     const topNav1 = document.querySelector('.top-nav-list > li:nth-of-type(2)')
     const topNav2 = document.querySelector('.top-nav-list > li:nth-of-type(3)')
     const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4)')
@@ -28,11 +28,11 @@ export default class nav {
     }
 
     //! top nav
-    // logo
-    // const doNavLogo = (evt) => {
-    //   window.open('../', '_self')
-    // }
-    // navLogo.addEventListener('click', doNavLogo)
+    logo
+    const doNavLogo = (evt) => {
+      window.open('../', '_self')
+    }
+    navLogo.addEventListener('click', doNavLogo)
 
     const doTopNav1 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
@@ -43,14 +43,12 @@ export default class nav {
     const doTopNav2 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('./weblab.html', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
     const doTopNav3 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('./service.html', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
 

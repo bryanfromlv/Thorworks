@@ -21,7 +21,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <script src="navloader.js" type="module"></script>
+  <script src="module_loader.js" type="module"></script>
   <title>Forge of Empires GB Tracker</title>
   <script>
     onload = () => {
@@ -31,21 +31,17 @@
 </head>
 
 <body>
-  <header>
-    <nav class="top-nav">
-      <div class="logo">
-        <a href="../">
-          <img src="images/thor_bkg_logo.svg" height="30" alt="Home" title="Home" />
-        </a>
-      </div>
-      <ul class="navItems">
-        <li id="gb_list" class="nav-link-active">GB List</li>
-        <li id="newGb" class="nav-link">New GB</li>
-        <li id="calculator" class="nav-link">Calculator</li>
-      </ul>
-      <span class="copyright">© Thorworks 2021</span>
-    </nav>
-  </header>
+  <nav class="top-nav">
+    <ul class="top-nav-list">
+      <li class="top-nav-logo push-left">
+        <img src="images/thor_bkg_logo.svg" height="30" alt="Home" title="Home" />
+      </li>
+      <li>GB List</li>
+      <li>New GB</li>
+      <li>Calculator</li>
+      <li class="top-nav-copyright push-right">&#169; Thorworks 2021</li>
+    </ul>
+  </nav>
   <h1>Forge of Empires GB Tracker</h1>
   <main>
     <!--! Main gb list display section (cards) -->
