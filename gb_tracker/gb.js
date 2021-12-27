@@ -1,6 +1,5 @@
-//! note: getters and setters cannot be stringified by JSON so we simply can't use them.
-// class declaration
-class gb {
+//* note: functions cannot be stringified by JSON so we simply can't use them.
+export default class gb {
   constructor(name, level, goal, p1, p2, p3, p4, p5) {
     this.name = name
     this.level = level
@@ -61,6 +60,6 @@ class gb {
       locked: false,
       needed: null,
     }
-    // console.log(`${this.key} gb object constructed`)
+    console.log(`${this.key} gb object constructed`)
   }
 }

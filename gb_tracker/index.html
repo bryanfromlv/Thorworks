@@ -10,7 +10,7 @@
   <!-- Style sheets -->
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/gbTracker_navbar.css" />
-  <link rel="stylesheet" href="./css/gbDisplay.css" />
+  <link rel="stylesheet" href="./css/gbList.css" />
   <link rel="stylesheet" href="./css/newGb.css" />
   <link rel="stylesheet" href="./css/calc.css">
   <!-- favicon generator code -->
@@ -21,13 +21,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <script src="module_loader.js" type="module"></script>
   <title>Forge of Empires GB Tracker</title>
-  <script>
-    onload = () => {
-      init();
-    }
-  </script>
 </head>
 
 <body>
@@ -44,8 +38,8 @@
   </nav>
   <h1>Forge of Empires GB Tracker</h1>
   <main>
-    <!--! Main gb list display section (cards) -->
-    <!-- content for the list display section is injected by gbDisplay.js -->
+    <!--! Main gb list section (cards) -->
+    <!-- content for the list display section is injected by gbList.js -->
     <section class="list-section" id="list_section">
       <h4 class="title">Your saved GB's</h4>
     </section>
@@ -391,14 +385,19 @@
   </audio>
 
   <!-- scripts -->
-  <script src="storage.js" defer></script>
+  <!-- tippy first -->
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
-  <script src="gbDisplay.js" defer></script>
-  <script src="gb.js" defer></script>
-  <script src="calc.js" defer></script>
-  <script src="newGb.js" defer></script>
-  <!--! index.js needs to be loaded last to avoid errors -->
-  <script src="index.js" defer></script>
+  <!-- the rest will be modules -->
+  <script src="main.js" type="module"></script>
+  <script src="gb.js" type="module"></script>
+  <script src="storage.js" type="module"></script>
+  <script src="gbList.js" type="module"></script>
+  <script src="calc.js" type="module"></script>
+  <script src="newGb.js" type="module"></script>
+  <!--! main.js needs to be loaded last to have access to scripts above -->
+  <!-- responsible for import & instantiate -->
+  <!-- <script src="main.js" defer></script> -->
+  <!-- <script src="main.js" type="module"></script> -->
 </body>
 </html>

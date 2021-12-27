@@ -1,4 +1,4 @@
-// class declarations
+import { store, gb_list } from './main.js'
 class result {
   constructor(p) {
     this.p = p
@@ -8,7 +8,7 @@ class result {
     this.locked = false
   }
 }
-class calc {
+export default class calc {
   constructor() {
     this._initialized = false
     this._myGb = {}
@@ -30,7 +30,7 @@ class calc {
     this._audioEnabled
     this._postBtn = document.querySelector('.calc-post-btn')
     this._newUserField = document.querySelector('#postText_username')
-    this._userName = getPostName()
+    this._userName = store.getPostName()
     this._postTextArray = []
     this._postTextField = document.querySelector('#postText_modal_body')
     this._mxChoices = []
@@ -53,6 +53,7 @@ class calc {
     ]
     // console.table(this._mxrbGroups)
     this.init()
+    console.log(`calc instantiated`)
   }
 
   init = () => {
@@ -92,7 +93,7 @@ class calc {
       })
     )
     //! set tooltips checkbox to saved state
-    if (getTooltipsFlag() == 'true') {
+    if (store.getTooltipsFlag() == 'true') {
       this._tooltipCB.checked = true
       this._tooltipsEnabled = true
       this.toggleTooltips(true)
@@ -102,7 +103,7 @@ class calc {
       this.toggleTooltips(false)
     }
     //! set audio enabled property and checkbox to saved state
-    if (getAudioFlag() == 'true') {
+    if (store.getAudioFlag() == 'true') {
       this._audioCB.checked = true
       this._audioEnabled = true
     } else {
@@ -159,9 +160,9 @@ class calc {
       this.toggleTooltips(checked)
       // set localStorage flag
       if (checked) {
-        setTooltipsFlag(true)
+        store.setTooltipsFlag(true)
       } else {
-        setTooltipsFlag(false)
+        store.setTooltipsFlag(false)
       }
     })
     //! add event listener to audio checkbox
@@ -170,11 +171,11 @@ class calc {
       if (evt.target.checked) {
         this._audioEnabled = true
         // localStorage method
-        setAudioFlag(true)
+        store.setAudioFlag(true)
       } else {
         this._audioEnabled = false
         // localStorage method
-        setAudioFlag(false)
+        store.setAudioFlag(false)
       }
     })
     //! add event listener to post button
@@ -193,7 +194,7 @@ class calc {
       let userName = this._newUserField.value
       if (userName) {
         // console.log(`userName: ${userName}`)
-        savePostName(userName) // storage.js function
+        store.savePostName(userName) // storage.js function
         this._userName = userName
       } else {
         alert('You must enter a user name or nickname')
@@ -275,7 +276,7 @@ class calc {
       this.doNewUserModal()
     })
     //! current GB check
-    let curGbKey = getCurGbKey()
+    let curGbKey = store.getCurGbKey()
     if (curGbKey) {
       // found a curGbKey
       this._myGbKey = curGbKey
@@ -284,13 +285,14 @@ class calc {
       //put up no gb modal
       this.doNoGbModal()
     }
+    console.log(`calc initalized`)
   } //! end init()
   //! set curGbKey in localStorage and load the GB object from localStorage
   setGb = (gbKey) => {
     // console.log(`setGb(${gbKey})`)
-    saveCurGb(gbKey)
+    store.saveCurGb(gbKey)
     this._myGbKey = gbKey
-    this._myGb = getSavedGb(gbKey)
+    this._myGb = store.getSavedGb(gbKey)
     // console.log(this._myGb)
   }
   //! enable/disable tooltip instances
@@ -339,8 +341,8 @@ class calc {
     // first lets grab the nickname for this gb
     let postGbName = this._myGb.name
     let gbNickname = ''
-    // gbNameRef is defined in index.js
-    gbNameRef.forEach((nameObject) => {
+    // gbNameRef is defined in storage.js
+    store.gbNameRef.forEach((nameObject) => {
       if (postGbName === nameObject.name) {
         gbNickname = nameObject.nickname
         return
@@ -455,7 +457,7 @@ class calc {
   }
 
   /* this is called on input type=number change event as well as
-   from init(), gbDisplay calc method, gbDisplay delete method, and new gb.
+   from init(), gbList calc method, gbList delete method, and new gb.
    call without gbKey to avoid multiple setGb calls
    call with gbKey to load gb object
    all this does is update the gb object, updateForm() will handle the display */
@@ -1135,11 +1137,11 @@ class calc {
     this._postTextArray.reverse()
     // save the updated gb object to localStorage (also saves key as curGb)
     // console.log('calc is saving updated gb object, updating calc form, and updating display')
-    saveGb(this._myGbKey, this._myGb)
+    store.saveGb(this._myGbKey, this._myGb)
     // update the form display
     this.updateForm()
     // console.log(this._myGb)
-    gb_Display.update(this._myGb)
+    gb_list.update(this._myGb)
   }
   //! update the calc form
   updateForm = () => {
@@ -1258,7 +1260,7 @@ class calc {
     } else {
       this._otherAlertField.classList.add('hide-otheralert-txt')
     }
-    gb_Display.setOtherAlert(this._myGb, show)
+    gb_list.setOtherAlert(this._myGb, show)
   }
   //! show snipe zone display
   showSnipeZone = (pos) => {
@@ -1288,7 +1290,7 @@ class calc {
         thisPos.classList.remove('hide-position')
       }
     }, 100)
-    gb_Display.setSnipeZone(this._myGb, true, pos)
+    gb_list.setSnipeZone(this._myGb, true, pos)
   }
   //! hide snipe zone display and highlighted position
   hideSnipeZone = (pos) => {
@@ -1298,7 +1300,7 @@ class calc {
       this._posFields[x].classList.remove('position-red')
     }
     //! hide same in display card
-    gb_Display.setSnipeZone(this._myGb, false, pos)
+    gb_list.setSnipeZone(this._myGb, false, pos)
   }
   //! play snipe zone alert sound
   playSnipeZone = () => {
@@ -1322,3 +1324,4 @@ class calc {
     div.classList.add('calc-x-mark')
   }
 }
+console.log(`calc.js loaded`)

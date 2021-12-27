@@ -1,10 +1,12 @@
-// class declaration
-class gbDisplay {
+import { store, calculator, setCalculatorNav } from './main.js'
+// const store = new storage()
+export default class gbList {
   constructor(listSection) {
     this._listSection = listSection
     this._gbList = []
     this._gbToDelete = ''
     this.build()
+    console.log(`gbList instantiated`)
   }
 
   clearDisplay = () => {
@@ -155,7 +157,7 @@ class gbDisplay {
     clear the list first to handle deleted gb's */
     this._gbList = []
     let noGbsDiv = document.querySelector('#display-noGbs')
-    let storedKeys = getAllGbKeys()
+    let storedKeys = store.getAllGbKeys()
     if (storedKeys.length > 0) {
       if (noGbsDiv) {
         noGbsDiv.remove()
@@ -186,7 +188,7 @@ class gbDisplay {
       // console.log(`sorted: ${storedKeys}`)
       //! add the sorted keys to gbList
       storedKeys.forEach((key) => {
-        this._gbList.push(getSavedGb(key))
+        this._gbList.push(store.getSavedGb(key))
       })
     } else {
       let noGbs = document.createElement('div')
@@ -545,7 +547,7 @@ class gbDisplay {
   doDelete = (evt) => {
     let gbKey = this._gbToDelete
     // store a reference to curGbKey
-    let curKey = getCurGbKey()
+    let curKey = store.getCurGbKey()
     // remove the card from display
     this.removeCard(gbKey)
     // next, delete the gb from localStorage
@@ -568,7 +570,7 @@ class gbDisplay {
       deleteCurGbKey()
     }
     // disable calculator menu item if no gb's (this is an index.js function)
-    checkNoGbs()
+    setCalculatorNav()
     //! remove the event listeners (major bug fix)
     let cancelBtn = document.querySelector('#deleteGb_cancel_btn')
     evt.target.removeEventListener('click', this.doDelete)
@@ -619,3 +621,4 @@ class gbDisplay {
     div.classList.add('x-mark')
   }
 }
+console.log(`gbList.js loaded`)

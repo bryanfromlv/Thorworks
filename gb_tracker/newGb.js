@@ -1,14 +1,18 @@
+import { store, gb_list, setCalculatorNav } from './main.js'
+import gb from './gb.js'
+export { initNewGb, resetNewGbForm }
+
 let gbKey = ''
 let savedKeys = []
-const ngbForm = document.querySelector('#new_gb_form')
+
+const newGbForm = document.querySelector('#new_gb_form')
 const listDisplay = document.querySelector('#list_section')
-const loadSection = document.querySelector('#load_section')
 
 function initNewGb() {
-  savedKeys = getAllGbKeys()
+  savedKeys = store.getAllGbKeys()
   //! Major problem solved! preventDefault() here blocks submit event
   //! but only after validation (which requires the submit event)
-  ngbForm.addEventListener('submit', (evt) => {
+  newGbForm.addEventListener('submit', (evt) => {
     evt.preventDefault()
     //console.log('submit event detected')
   })
@@ -22,7 +26,7 @@ function initNewGb() {
       let name = document.querySelector('#gb_select').value
       let level = document.querySelector('#level_input').value
       let key = `${name}${level}`
-      let savedGbKeys = getAllGbKeys()
+      let savedGbKeys = store.getAllGbKeys()
       let duplicate = false
       let duplicateKey
       for (let x = 0; x < savedGbKeys.length; x++) {
@@ -44,7 +48,7 @@ function initNewGb() {
     }
   })
 
-  doDuplicateModal = (key) => {
+  const doDuplicateModal = (key) => {
     console.log('doDuplicateModal')
     // insert duplicate gb name/level
     let dupNameSpan = document.querySelector('#duplicate_gb_name')
@@ -59,7 +63,7 @@ function initNewGb() {
     duplicateModalContainer.classList.add('modal-container-show')
   }
 
-  doNewGbModal = (gb) => {
+  const doNewGbModal = (gb) => {
     // console.log('doNewGbModal()')
     // insert new gb name/level
     let gbNameSpan = document.querySelector('#newGb_confirm_gbName')
@@ -76,7 +80,7 @@ function initNewGb() {
   const closeButton = document.querySelector('#close_btn')
   closeButton.addEventListener('click', () => {
     // we have to reset the form here because we're blocking the submit event
-    ngbForm.reset()
+    newGbForm.reset()
     // all this code handles removing the modal (with animations)
     let modalBkg = document.querySelector('#newgb_modal_bkg')
     let confirmModalContainer = document.querySelector('#newGb_modal_container')
@@ -84,17 +88,17 @@ function initNewGb() {
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // now remove the newGb form, show main content, and change the nav button states
-    showHome()
-    setHomeNavActive()
+    showGbList()
+    setGbListActive()
     // and enable the calculator menu item if disabled
-    checkNoGbs()
+    setCalculatorNav()
   })
 
   const addButton = document.querySelector('#add_btn')
   addButton.addEventListener('click', () => {
     // console.log('add button clicked')
     // we have to reset the form here because we're blocking the submit event
-    ngbForm.reset()
+    newGbForm.reset()
     // all this code handles removing the modal (with animations)
     let modalBkg = document.querySelector('#newgb_modal_bkg')
     let confirmModalContainer = document.querySelector('#newGb_modal_container')
@@ -102,7 +106,7 @@ function initNewGb() {
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // enable the calculator menu item if disabled
-    checkNoGbs()
+    setCalculatorNav()
     // and this leaves us in the newGb form display so we can add more gb's
   })
 
@@ -123,7 +127,7 @@ function initNewGb() {
     showCalculator()
     setCalculatorNavActive()
     // and enable the calculator menu item if disabled
-    checkNoGbs()
+    setCalculatorNav()
   })
 
   const replaceButton = document.querySelector('#replace_btn')
@@ -133,7 +137,7 @@ function initNewGb() {
     let name = document.querySelector('#gb_select').value
     let level = document.querySelector('#level_input').value
     let deletedKey = `${name}${level}`
-    gb_Display.doDelete(deletedKey)
+    gb_list.doDelete(deletedKey)
     // and save the duplicate
     let newGb = buildGb()
     finalSave(newGb)
@@ -162,18 +166,12 @@ function initNewGb() {
     duplicateModalContainer.classList.add('modal-container-hide')
   })
 
-  validate = () => {
+  const validate = () => {
     // console.log('validate()')
-    return ngbForm.reportValidity()
+    return newGbForm.reportValidity()
   }
 
-  // this function needed for access by other code
-  resetNewGbForm = () => {
-    // console.log('resetNewGbForm()')
-    ngbForm.reset()
-  }
-
-  buildGb = () => {
+  const buildGb = () => {
     //console.log('saveBtnHandler()')
     // let's do the gb property assignments for now (maybe not here)
     let name = document.querySelector('#gb_select').value
@@ -191,14 +189,21 @@ function initNewGb() {
   //console.log('newGb initialized')
 }
 
-finalSave = (newGb) => {
+// this function needed for access by other code
+const resetNewGbForm = () => {
+  console.log('resetNewGbForm()')
+  newGbForm.reset()
+}
+
+const finalSave = (newGb) => {
   // console.log(`finalSave(${newGb.key})`)
   // save 'curGb' key
-  saveCurGb(newGb.key)
+  store.saveCurGb(newGb.key)
   // save the new GB
-  saveGb(newGb.key, newGb)
-  gb_Display.addGb(newGb)
+  store.saveGb(newGb.key, newGb)
+  gb_list.addGb(newGb)
   //! bug fix- we have to run calculate here so needed will show up in main display
   calculator.calculate(newGb.key)
   // console.log(`finalSave called, ${newGb.key} saved`)
 }
+console.log(`newGb.js loaded`)
