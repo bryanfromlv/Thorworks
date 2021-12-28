@@ -356,26 +356,26 @@ input[type='checkbox']:hover {
   50% {
     opacity: 0.6;
     /* top: 10rem; */
-    top: 52vh;
+    top: 42vh;
   }
   65% {
     opacity: 0.8;
     /* top: 9rem; */
-    top: 48vh;
+    top: 38vh;
   }
   80% {
     opacity: 0.9;
     /* top: 9.75rem; */
-    top: 51vh;
+    top: 41vh;
   }
   95% {
     /* top: 9.25rem; */
-    top: 49vh;
+    top: 39vh;
   }
   100% {
     background: coral;
     opacity: 1;
-    top: 50vh;
+    top: 40vh;
   }
 }
 

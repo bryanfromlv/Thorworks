@@ -2,10 +2,12 @@ import storage from './storage.js'
 import gbList from './gbList.js'
 import calc from './calc.js'
 import { initNewGb, resetNewGbForm } from './newGb.js'
+import nav from './gbtracker_navmodule.js'
+const navBar = new nav()
 const store = new storage()
 const gb_list = new gbList(document.querySelector('.list-section'))
 const calculator = new calc()
-export { store, gb_list, calculator }
+export { store, gb_list, calculator, showCalculator, showGbList, showNewGb, setCalculatorNav }
 
 const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
@@ -60,13 +62,14 @@ mqlOrient.addEventListener('change', checkOrientation)
 orientModalOkBtn.addEventListener('click', hideOrientContainer)
 
 //! check for no stored GB's and set calculator nav item active/inactive
-// this has to be a function, it is used by gbList & newGb scripts
-//todo: disable pointer events in nav-link-disabled (moved addEventListener to bottom)
-export const setCalculatorNav = () => {
+// export this function, it is used by gbList & newGb scripts
+const setCalculatorNav = () => {
+  console.log(`setCalculatorNav()`)
   if (!store.getCurGbKey()) {
-    calcLink.classList.add('nav-link-disabled')
+    calcLink.classList.remove('top-nav-item-active')
+    calcLink.classList.add('nav-item-disabled')
   } else {
-    calcLink.classList.remove('nav-link-disabled')
+    calcLink.classList.remove('nav-item-disabled')
   }
 }
 setCalculatorNav()
@@ -96,8 +99,6 @@ document.addEventListener('keydown', (evt) => {
 })
 
 const showGbList = () => {
-  // we need to disable the calculator menu if all GB's have been deleted?
-  //todo: skip for now, figure out after refactoring
   setCalculatorNav()
   listsection.classList.remove('hide')
   newGbForm.classList.add('hide')
@@ -117,42 +118,42 @@ const showCalculator = () => {
   newGbForm.classList.add('hide')
 }
 
-const setGbListActive = () => {
-  gbListLink.classList.add('nav-link-active')
-  gbListLink.classList.remove('nav-link')
-  newGbLink.classList.remove('nav-link-active')
-  newGbLink.classList.add('nav-link')
-  calcLink.classList.remove('nav-link-active')
-  calcLink.classList.add('nav-link')
-}
-const setNewGbNavActive = () => {
-  newGbLink.classList.add('nav-link-active')
-  newGbLink.classList.remove('nav-link')
-  calcLink.classList.remove('nav-link-active')
-  calcLink.classList.add('nav-link')
-  gbListLink.classList.remove('nav-link-active')
-  gbListLink.classList.add('nav-link')
-}
-const setCalculatorNavActive = () => {
-  calcLink.classList.add('nav-link-active')
-  calcLink.classList.remove('nav-link')
-  gbListLink.classList.remove('nav-link-active')
-  gbListLink.classList.add('nav-link')
-  newGbLink.classList.remove('nav-link-active')
-  newGbLink.classList.add('nav-link')
-}
+// const setGbListActive = () => {
+//   gbListLink.classList.add('nav-link-active')
+//   gbListLink.classList.remove('nav-link')
+//   newGbLink.classList.remove('nav-link-active')
+//   newGbLink.classList.add('nav-link')
+//   calcLink.classList.remove('nav-link-active')
+//   calcLink.classList.add('nav-link')
+// }
+// const setNewGbNavActive = () => {
+//   newGbLink.classList.add('nav-link-active')
+//   newGbLink.classList.remove('nav-link')
+//   calcLink.classList.remove('nav-link-active')
+//   calcLink.classList.add('nav-link')
+//   gbListLink.classList.remove('nav-link-active')
+//   gbListLink.classList.add('nav-link')
+// }
+// const setCalculatorNavActive = () => {
+//   calcLink.classList.add('nav-link-active')
+//   calcLink.classList.remove('nav-link')
+//   gbListLink.classList.remove('nav-link-active')
+//   gbListLink.classList.add('nav-link')
+//   newGbLink.classList.remove('nav-link-active')
+//   newGbLink.classList.add('nav-link')
+// }
 
 // handle nav links
-gbListLink.addEventListener('click', () => {
-  setGbListActive()
-  showGbList()
-})
-newGbLink.addEventListener('click', () => {
-  setNewGbNavActive()
-  showNewGb()
-})
-calcLink.addEventListener('click', () => {
-  setCalculatorNavActive()
-  showCalculator()
-})
+// gbListLink.addEventListener('click', () => {
+//   setGbListActive()
+//   showGbList()
+// })
+// newGbLink.addEventListener('click', () => {
+//   setNewGbNavActive()
+//   showNewGb()
+// })
+// calcLink.addEventListener('click', () => {
+//   setCalculatorNavActive()
+//   showCalculator()
+// })
 console.log(`main.js loaded`)

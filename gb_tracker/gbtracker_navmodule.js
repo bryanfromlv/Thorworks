@@ -1,3 +1,4 @@
+import { showCalculator, showGbList, showNewGb } from './main.js'
 export default class nav {
   constructor() {
     const navLogo = document.querySelector('.top-nav-logo')
@@ -28,7 +29,6 @@ export default class nav {
     }
 
     //! top nav
-    logo
     const doNavLogo = (evt) => {
       window.open('../', '_self')
     }
@@ -37,49 +37,46 @@ export default class nav {
     const doTopNav1 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
+      showGbList()
     }
     topNav1.addEventListener('click', doTopNav1)
 
     const doTopNav2 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
+      showNewGb()
     }
     topNav2.addEventListener('click', doTopNav2)
 
     const doTopNav3 = (evt) => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
+      showCalculator()
     }
     topNav3.addEventListener('click', doTopNav3)
-
-    // const doTopNav4 = (evt) => {
-    //   evt.target.classList.add('top-nav-item-active')
-    //   updateActive('top', evt.target)
-    //   window.open('./pi.html', '_self')
-    // }
-    // topNav4.addEventListener('click', doTopNav4)
 
     //! bottom nav
     const doBottomNav1 = (evt) => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('./about.html', '_self')
+      window.open('../', '_self')
     }
     bottomNav1.addEventListener('click', doBottomNav1)
 
     const doBottomNav2 = (evt) => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('./contact.html', '_self')
+      window.open('./construction.html', '_self')
     }
     bottomNav2.addEventListener('click', doBottomNav2)
 
     const doBottomNav3 = (evt) => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw')
+      window.open('./construction.html', '_self')
     }
     bottomNav3.addEventListener('click', doBottomNav3)
-    console.log(`gbtracker_navmodule.js instantiated`)
+    console.log(`gbtracker_navmodule instantiated`)
   }
 }
+console.log(`gbtracker_navmodule.js loaded`)

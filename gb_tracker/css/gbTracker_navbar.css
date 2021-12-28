@@ -6,9 +6,9 @@
   --topnav-active-clr: tomato;
   /* bottom nav */
   --botnav-bgclr: teal;
-  --botnav-clr: whitesmoke;
-  --botnav-hvrclr: bisque;
-  --botnav-active-clr: bisque;
+  --botnav-clr: white;
+  --botnav-hvrclr: coral;
+  --botnav-active-clr: coral;
   /* dropdown */
   --dropdown-bgclr: hsl(234, 80%, 31%);
   --dropdown-clr: white;
@@ -35,6 +35,12 @@
   pointer-events: none;
 }
 
+.nav-item-disabled {
+  color: grey;
+  pointer-events: none;
+  cursor: default;
+}
+
 /*! top navbar  */
 .top-nav {
   background-color: var(--topnav-bgclr);
@@ -42,6 +48,8 @@
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  z-index: 100;
   user-select: none;
 }
 

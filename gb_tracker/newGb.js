@@ -1,4 +1,4 @@
-import { store, gb_list, setCalculatorNav } from './main.js'
+import { store, gb_list, calculator, showCalculator, showGbList, setCalculatorNav } from './main.js'
 import gb from './gb.js'
 export { initNewGb, resetNewGbForm }
 
@@ -87,9 +87,9 @@ function initNewGb() {
     modalBkg.classList.remove('modal-show')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
-    // now remove the newGb form, show main content, and change the nav button states
+    // now remove the newGb form and show main content
     showGbList()
-    setGbListActive()
+    //todo: we probably have to set the gbList nav item active here
     // and enable the calculator menu item if disabled
     setCalculatorNav()
   })
@@ -114,7 +114,7 @@ function initNewGb() {
   calcButton.addEventListener('click', () => {
     // console.log('calculator button clicked')
     // tell the calculator to calculate the new gb (curGbKey is already saved at this point)
-    calculator.calculate(getCurGbKey())
+    calculator.calculate(store.getCurGbKey())
     // we have to reset the form here because we're blocking the submit event
     resetNewGbForm()
     // all this code handles removing the modal (with animations)
@@ -123,9 +123,8 @@ function initNewGb() {
     modalBkg.classList.remove('modal-show')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
-    // now remove the newGb form, show calculator content, and change the nav button states
+    // now remove the newGb form and show calculator content
     showCalculator()
-    setCalculatorNavActive()
     // and enable the calculator menu item if disabled
     setCalculatorNav()
   })

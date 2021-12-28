@@ -1,4 +1,4 @@
-import { store, calculator, setCalculatorNav } from './main.js'
+import { store, calculator, showCalculator, setCalculatorNav } from './main.js'
 // const store = new storage()
 export default class gbList {
   constructor(listSection) {
@@ -551,7 +551,7 @@ export default class gbList {
     // remove the card from display
     this.removeCard(gbKey)
     // next, delete the gb from localStorage
-    deleteGb(gbKey)
+    store.deleteGb(gbKey)
     // getStoredGbs() rebuilds _gbList, checks for 0 stored GB's, and handles noGb's display line
     this.getStoredGbs()
     // if deleted GB was curGb set curGb to first in list, if any
@@ -559,7 +559,7 @@ export default class gbList {
       let newGbKey
       if (gbKey == curKey) {
         newGbKey = this._gbList[0].key
-        saveCurGb(newGbKey)
+        store.saveCurGb(newGbKey)
       } else {
         newGbKey = curKey
       }
@@ -601,7 +601,7 @@ export default class gbList {
   doCalc = (gbKey) => {
     // console.log(`doCalc(${gbKey})`)
     calculator.calculate(gbKey)
-    setCalculatorNavActive()
+    setCalculatorNav()
     showCalculator()
   }
 

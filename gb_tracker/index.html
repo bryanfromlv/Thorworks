@@ -9,7 +9,7 @@
   </style>
   <!-- Style sheets -->
   <link rel="stylesheet" href="./css/index.css" />
-  <link rel="stylesheet" href="./css/gbTracker_navbar.css" />
+  <link rel="stylesheet" href="./css/gbtracker_navbar.css" />
   <link rel="stylesheet" href="./css/gbList.css" />
   <link rel="stylesheet" href="./css/newGb.css" />
   <link rel="stylesheet" href="./css/calc.css">
@@ -21,6 +21,18 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  <!-- scripts -->
+  <!-- tippy first -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <!-- the rest are modules -->
+  <script src="main.js" type="module"></script>
+  <script src="gb.js" type="module"></script>
+  <script src="gbtracker_navmodule.js" type="module"></script>
+  <script src="storage.js" type="module"></script>
+  <script src="gbList.js" type="module"></script>
+  <script src="calc.js" type="module"></script>
+  <script src="newGb.js" type="module"></script>
   <title>Forge of Empires GB Tracker</title>
 </head>
 
@@ -371,7 +383,11 @@
     </div>
   </main>
   <footer class="bottom-nav">
-    <!--todo: add home, about, & help  -->
+    <ul class="bottom-nav-list">
+      <li>Home</li>
+      <li>Help</li>
+      <li>About</li>
+    </ul>
   </footer>
 
   <!-- audio -->
@@ -383,21 +399,5 @@
     <source src="./audio/intruder-alert.ogg" type="audio/ogg">
     <source src="./audio/intruder-alert.mp3" type="audio/mpeg">
   </audio>
-
-  <!-- scripts -->
-  <!-- tippy first -->
-  <script src="https://unpkg.com/@popperjs/core@2"></script>
-  <script src="https://unpkg.com/tippy.js@6"></script>
-  <!-- the rest will be modules -->
-  <script src="main.js" type="module"></script>
-  <script src="gb.js" type="module"></script>
-  <script src="storage.js" type="module"></script>
-  <script src="gbList.js" type="module"></script>
-  <script src="calc.js" type="module"></script>
-  <script src="newGb.js" type="module"></script>
-  <!--! main.js needs to be loaded last to have access to scripts above -->
-  <!-- responsible for import & instantiate -->
-  <!-- <script src="main.js" defer></script> -->
-  <!-- <script src="main.js" type="module"></script> -->
 </body>
 </html>
