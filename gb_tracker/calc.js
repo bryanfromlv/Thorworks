@@ -277,6 +277,7 @@ export default class calc {
     })
     //! current GB check
     let curGbKey = store.getCurGbKey()
+    console.log(`current GB check: ${curGbKey}`)
     if (curGbKey) {
       // found a curGbKey
       this._myGbKey = curGbKey
@@ -463,7 +464,7 @@ export default class calc {
    all this does is update the gb object, updateForm() will handle the display */
   //! main calculations
   calculate = (gbKey) => {
-    // console.log(`calculate(${gbKey})`)
+    console.log(`calculate(${gbKey})`)
     if (gbKey) {
       this.setGb(gbKey)
     }

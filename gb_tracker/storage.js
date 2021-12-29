@@ -92,7 +92,7 @@ export default class storage {
 
   // save a gb object as JSON and set curGb
   saveGb = (key, gb) => {
-    // console.log(`storage- saveGb(${key})`)
+    console.log(`storage- saveGb(${key})`)
     // console.log(JSON.stringify(gb));
     localStorage.setItem(key, JSON.stringify(gb))
     this.saveCurGb(key)

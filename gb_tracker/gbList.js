@@ -567,7 +567,8 @@ export default class gbList {
       calculator.calculate(newGbKey)
     } else {
       //! bug fix-  we have to delete the curGb key
-      deleteCurGbKey()
+      console.log(`deleting final curGbKey`)
+      store.deleteCurGbKey()
     }
     // disable calculator menu item if no gb's (this is an index.js function)
     setCalculatorNav()
