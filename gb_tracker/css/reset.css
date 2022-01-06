@@ -1,0 +1,22 @@
+/* reset base settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* line-height: 1.5; */
+}
+
+/* disable selector arrows on number inputs */
+.noNumArrows::-webkit-inner-spin-button,
+.noNumArrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  margin: 0;
+}
+/* added 9/24/21- old method doesn't work with newer Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

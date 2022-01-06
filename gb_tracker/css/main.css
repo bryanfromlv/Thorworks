@@ -1,14 +1,3 @@
-/* reset base settings */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Roboto, sans-serif;
-  /*! Google font Roboto: 400-regular, 500-medium, 700-bold */
-}
-
 /* define document variables */
 :root {
   --light-background: #f0f0f0;
@@ -22,24 +11,13 @@
   --light-orange: #ffd17d;
 }
 
-/* disable selector arrows on number inputs */
-.noNumArrows::-webkit-inner-spin-button,
-.noNumArrows::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  appearance: none;
-  margin: 0;
-}
-/* added 9/24/21- old method doesn't work with newer Firefox */
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
 body {
   background: #185a9d;
   background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  font-family: Roboto, sans-serif;
+  /*! Google font Roboto: 400-regular, 500-medium, 700-bold */
 }
 
 main {

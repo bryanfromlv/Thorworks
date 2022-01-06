@@ -3,12 +3,12 @@ import gbList from './gbList.js'
 import calc from './calc.js'
 import { initNewGb, resetNewGbForm } from './newGb.js'
 import nav from './gbtracker_navmodule.js'
-// import devUtilities from './dev_utils.js' //!
+// import dev_utils from './dev_utils.js' //!
 const navBar = new nav()
 const store = new storage()
 const gb_list = new gbList(document.querySelector('.list-section'))
 const calculator = new calc()
-// const devUtils = new devUtilities() //!
+// const devUtils = new dev_utils() //!
 // devUtils.buildGbs() //! comment these out after first run, only use to create test gb's
 export { store, gb_list, calculator, showCalculator, showGbList, showNewGb, setCalculatorNav }
 
