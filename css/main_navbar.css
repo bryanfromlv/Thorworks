@@ -27,11 +27,19 @@
 
 .top-nav-item-active {
   pointer-events: none;
+  cursor: default;
   color: var(--topnav-active-clr);
 }
 
 .bottom-nav-item-active {
   color: var(--botnav-active-clr);
+  cursor: default;
+  pointer-events: none;
+}
+
+.dropdown-nav-item-active {
+  color: var(--topnav-active-clr);
+  cursor: default;
   pointer-events: none;
 }
 

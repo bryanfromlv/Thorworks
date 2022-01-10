@@ -9,44 +9,6 @@ body {
   /*! Google font Roboto: 300-light 400-regular, 500-medium, 700-bold, 900-black */
 }
 
-/*! navbar styles */
-header {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.logo:hover {
-  cursor: pointer;
-}
-
-.copyright {
-  user-select: none;
-}
-
-.nav {
-  background-color: hsl(27, 100%, 17%);
-  color: white;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin: 0 1em;
-  padding: 0.5em 0;
-}
-
-.nav-list li {
-  list-style-type: none;
-}
-
-.nav-list li:nth-of-type(2) {
-  margin-left: auto;
-}
-/*! end navbar styles  */
-
 main {
   display: flex;
   flex-direction: column;
@@ -59,11 +21,6 @@ h4 {
 }
 
 p {
-  margin-bottom: 0.5rem;
-}
-
-ul {
-  margin-left: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -90,6 +47,11 @@ figcaption {
   color: whitesmoke;
 }
 
+.aztecs-ul {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .thor-note {
   font-weight: 700;
   color: tomato;
@@ -100,15 +62,13 @@ figcaption {
 }
 
 .layout {
-  padding-top: 0.25em;
   text-align: center;
   background-color: #105aa354;
-  /* background-color: #185a9d; */
 }
 
 .layout img {
-  padding-top: 0.25em;
   max-width: 100%;
+  padding-top: 0.25em;
 }
 
 :any-link {

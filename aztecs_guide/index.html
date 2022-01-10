@@ -11,23 +11,37 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <!-- style sheets -->
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main_navbar.css" />
     <link rel="stylesheet" href="aztecs.css" />
+    <!-- import and instantiate nav class -->
+    <script type="module">
+      import nav from './aztecs_navmodule.js'
+      const navbar = new nav()
+    </script>
     <title>FoE Aztecs Guide</title>
   </head>
   <body>
-    <header>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="../index.html" title="Home">
-              <img class="logo-img" src="./images/thor_bkg_logo.svg" alt="logo" height="25" />
-            </a>
-          </li>
-          <li class="copyright">&#169; Thorworks 2021</li>
-        </ul>
-      </nav>
-    </header>
+    <nav class="top-nav">
+      <ul class="top-nav-list">
+        <li class="top-nav-logo push-left">
+          <img src="images/thor_bkg_logo.svg" alt="logo" height="30" />
+        </li>
+        <li class="nav-dropdown-1">
+          FoE
+          <ul class="nav_dropdown_list_1">
+            <li>GB Tracker</li>
+            <li>Quick Calculators</li>
+            <li class="dropdown-nav-item-active">Aztecs Guide</li>
+          </ul>
+        </li>
+        <li>Lab</li>
+        <li>Service</li>
+        <li>Pi</li>
+        <li class="top-nav-copyright push-right">&#169; Thorworks 2021</li>
+      </ul>
+    </nav>
     <main>
       <div class="aztecs-title">FoE Aztecs Guide</div>
       <div class="container">
@@ -37,7 +51,7 @@
         </h4>
         <p>
           My main strategy in this guide:
-          <ul>
+          <ul class="aztecs-ul">
             <li>
               Unlock the Courtyard Market as soon as possible.
             </li>
@@ -72,13 +86,13 @@
         <figure>
           <figcaption>Layout 1</figcaption>
           <div class="layout">
-            <img src="images/layout1_800.webp" alt="Layout 1">
+            <img loading="eager" src="images/layout1_800.webp" alt="Layout 1">
           </div>
         </figure><br>
         <figure>
           <figcaption>Layout 2</figcaption>
           <div class="layout">
-            <img src="images/layout2_800.webp" alt="Layout 2">
+            <img loading="eager" src="images/layout2_800.webp" alt="Layout 2">
           </div>
         </figure><br>
         <h4>Chapter 2 More Cocoa Beans &#40;16,000&#41; and Courtyard Market Games</h4>
@@ -90,7 +104,7 @@
           <figure>
             <figcaption>Impediment</figcaption>
             <div class="layout">
-              <img src="images/impediment_800.webp" alt="Impediment picture">
+              <img loading="lazy" src="images/impediment_800.webp" alt="Impediment picture">
             </div>
           </figure><br>
         </p>
@@ -103,7 +117,7 @@
         <figure>
           <figcaption>Layout 3</figcaption>
           <div class="layout">
-            <img src="images/layout3_800.webp" alt="Layout 3">
+            <img loading="lazy" src="images/layout3_800.webp" alt="Layout 3">
           </div>
         </figure><br>
         <p>
@@ -119,7 +133,7 @@
         <figure>
           <figcaption>Layout 4 &#40;cocoa producers: 3 Lg Residential, 2-4 huts, 12-14 shrines&#41;</figcaption>
           <div class="layout">
-            <img src="images/layout4_800.webp" alt="Layout 4">
+            <img loading="lazy" src="images/layout4_800.webp" alt="Layout 4">
           </div>
         </figure><br>
         <h4>Chapter 4: Cocoa until 25k and then back and forth between cocoa and goods.</h4>
@@ -131,7 +145,7 @@
         <figure>
           <figcaption>Layout 5</figcaption>
           <div class="layout">
-            <img src="images/layout5_800.webp" alt="Layout 5">
+            <img loading="lazy" src="images/layout5_800.webp" alt="Layout 5">
           </div>
         </figure><br>
         <p>
@@ -145,7 +159,7 @@
         <figure>
           <figcaption>Maize layout</figcaption>
           <div class="layout">
-            <img src="images/maize_layout.webp" alt="Maize layout">
+            <img loading="lazy" src="images/maize_layout.webp" alt="Maize layout">
           </div>
         </figure><br>
         <h4>Chapter 5: Alternate Cocoa and goods</h4>
@@ -172,7 +186,7 @@
         <figure>
           <figcaption>Layout 6</figcaption>
           <div class="layout">
-            <img src="images/layout6_800.webp" alt="Layout 6">
+            <img loading="lazy" src="images/layout6_800.webp" alt="Layout 6">
           </div>
         </figure><br>
         <p>
@@ -194,9 +208,9 @@
           7.4 Do about one day of goods productions
         </p>
         <p>
-          The last quest is Produce 20 of each good and 3000 Cocoa Beans. I did not keep the temple around, since my layout favored Texcotzingos for Cocoa Bean production. I also used the Courtyard Market to help with the 20 of each for the final quest.  Hope it helps, and suggestions are welcome!
+          The last quest is Produce 20 of each good and 3000 Cocoa Beans. I did not keep the temple around, since my layout favored Texcotzingos for Cocoa Bean production. I also used the Courtyard Market to help with the 20 of each for the final quest.  Hope this helps, and suggestions are welcome!
         </p>
-      </div>
+      </div><br><br>
     </main>
   </body>
 </html>
