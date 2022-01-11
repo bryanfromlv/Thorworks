@@ -26,9 +26,9 @@
 }
 
 .top-nav-item-active {
-  pointer-events: none;
-  cursor: default;
   color: var(--topnav-active-clr);
+  cursor: default;
+  pointer-events: none;
 }
 
 .bottom-nav-item-active {

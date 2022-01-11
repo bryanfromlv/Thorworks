@@ -104,6 +104,7 @@ export default class quickSnipe {
     //! add event listeners
     calcBtn.addEventListener('click', calculate)
     clearBtn.addEventListener('click', clear)
-    console.log(`quickSnipe_module loaded and initiated`)
+    console.log(`quickSnipe_module instantiated`)
   }
 }
+console.log(`quickSnipe_module loaded`)

@@ -50,7 +50,7 @@ export default class nav {
     dd1Item2.addEventListener('click', doDd1Item2)
 
     const doDd1Item3 = (evt) => {
-      window.open('./aztecs_guide/', '_self')
+      window.open('../aztecs_guide/', '_self')
     }
     dd1Item3.addEventListener('click', doDd1Item3)
 
@@ -96,7 +96,7 @@ export default class nav {
     //   window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw')
     // }
     // bottomNav3.addEventListener('click', doBottomNav3)
-    console.log(`aztecs_navmodule instantiated`)
+    console.log(`quick_calcs_navmodule instantiated`)
   }
 }
-console.log(`aztecs_navmodule.js loaded`)
+console.log(`quick_calcs_navmodule.js loaded`)

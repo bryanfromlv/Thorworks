@@ -67,6 +67,7 @@ export default class quick19 {
       displayText.innerHTML = ''
       fpField.value = ''
     })
-    console.log(`quick19_module loaded and initiated`)
+    console.log(`quick19_module instantiated`)
   }
 }
+console.log(`quick19_module loaded`)
