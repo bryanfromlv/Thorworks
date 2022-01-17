@@ -12,6 +12,8 @@ export default class nav {
     // const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
     // const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
     // const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
+    const scrollTopBtn = document.querySelector('#scroll_top_btn')
+    const scrollBtnTrigger = document.querySelector('#scroll_btn_trigger')
 
     // utility
     this.topActiveItem

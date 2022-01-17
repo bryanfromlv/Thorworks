@@ -15,10 +15,13 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/main_navbar.css" />
     <link rel="stylesheet" href="aztecs.css" />
-    <!-- import and instantiate nav class -->
+    <!-- import & instantiate navmodule & utilities -->
+    <!--! utilities handles scroll to top button and lazy loading images -->
     <script type="module">
       import nav from './aztecs_navmodule.js'
       const navbar = new nav()
+      import utilities from "./utilities.js"
+      const utils = new utilities()
     </script>
     <title>FoE Aztecs Guide</title>
   </head>
@@ -43,6 +46,9 @@
       </ul>
     </nav>
     <main>
+      <button class="scroll-btn" id="scroll_btn">
+        <img src="./images/chevron-double-up_2.svg" alt="scroll to top">
+      </button>
       <div class="aztecs-title">FoE Aztecs Guide</div>
       <div class="container">
         <!-- <h4 class="author-notice">
@@ -108,137 +114,144 @@
           1.13 Remove Vegetable Gardens, build 24 Sculptures, unlock Quetzal Aviary.<br>
           1.14 Build 1 Quetzal Aviary &#40;QA&#41;, just to complete Quest 6. This will also unlock your Courtyard Market. Hurray!
         </p>
-        <figure>
-          <figcaption>Layout 1</figcaption>
-          <div class="layout">
-            <img loading="eager" src="images/layout1_800.webp" alt="Layout 1">
-          </div>
-        </figure><br>
-        <figure>
-          <figcaption>Layout 2</figcaption>
-          <div class="layout">
-            <img loading="eager" src="images/layout2_800.webp" alt="Layout 2">
-          </div>
-        </figure><br>
-        <h4>Chapter 2 More Cocoa Beans &#40;16,000&#41; and Courtyard Market Games</h4>
-        <p>
-          2.1 Remove the Quetzal Aviary &#40;QA&#41;. Back to <span class="layout-highlight">layout 2</span> for Cocoa production &#40;Possibly with extra Huts/Shrines&#41;.<br>
-          2.2 Do Cocoa productions until you have 16K. This will take more than a full day probably.<br>
-          2.3 As it's a full day since Courtyard Market unlocked, do the games again. You should also be able to collect from your Embassy &#40;another 600 Cocoa&#41;.<br>
-          2.4 At this point there is a good chance that you can buy the first 2 expansions. Assuming 5 goods from each game, and 6 games played so far, you should have 2 different type of goods with 10 each.  Try to buy along the Long Side of starting rectangle.  Try to buy expansions where the impediment is off to side, though you can remove 1 impediment at this point if in the middle &#40;blue is good&#41;.
+        <div id="scroll_btn_trigger">
           <figure>
-            <figcaption>Impediment</figcaption>
+            <figcaption>Layout 1</figcaption>
             <div class="layout">
-              <img loading="lazy" src="images/impediment_800.webp" alt="Impediment picture">
+              <img data-src="images/layout1_800.webp" alt="Layout 1">
             </div>
           </figure><br>
-        </p>
-        <h4>Chapter 3: Different paths per person, but 4 Goods buildings and Huts &#40;no shrines&#41;</h4>
-        <p>
-          Example 1: You need 24 Vegetables and 36 Headdresses. Every building will give you 20 goods. If you build 2 of each type, you'll get 40 Vegs and 40 Heads.<br>
-          Example 2: You need 14 Vegetables and 46 Headdresses. Build 1 Veg Farm and 3 QAs, so you'll get 20 Vegs and 60 Heads.<br>
-          Example 3: You need 54 Vegetables and 6 Headdresses. Build 3 Veg Farm and 1 QA, so you'll get 60 Vegs and 20 Heads.<br>
-        </p>
-        <figure>
-          <figcaption>Layout 3</figcaption>
-          <div class="layout">
-            <img loading="lazy" src="images/layout3_800.webp" alt="Layout 3">
-          </div>
-        </figure><br>
-        <p>
-          3.1 Change to one of the layout 3 variants.<br>
-          3.2 Do 16 hours of goods productions &#40;8h+8h or 4h+8h+4h&#41;.<br>
-          3.3 When these are done, you can probably do the games at the Courtyard Market again.<br>
-          3.4 Remove all goods buildings. Build 39 Sculptures &#40;you might have to remove a hut&#41;. Quest 7 is done.<br>
-          3.5 Unlock Yaoteguihua Residence.<br>
-          3.6 After unlocking the tech, check if you can buy a 3rd expansion. If you can, do so now.<br>
-          3.7 Build 3 of these Residences. Quest 8 done.<br>
-          3.8 Change to layout 4 for Cocoa productions. Some remarks below.
-        </p>
-        <figure>
-          <figcaption>Layout 4 &#40;cocoa producers: 3 Lg Residential, 2-4 huts, 12-14 shrines&#41;</figcaption>
-          <div class="layout">
-            <img loading="lazy" src="images/layout4_800.webp" alt="Layout 4">
-          </div>
-        </figure><br>
-        <h4>Chapter 4: Cocoa until 25k and then back and forth between cocoa and goods.</h4>
-        <p>
-          4.1 We just switched to the Cocoa layout. Keep making Cocoa until you have  at least 25K. This can take a full day. &#40;Possibly less if you need less than 100 goods to unlock Maize Farms&#41;.<br>
-          4.2 When available, get the goods from the Courtyard Market again of course.<br>
-          4.3 Switch to <span class="layout-highlight">layout 5</span>, with 5 or 6 goods buildings. &#40;12x12, HQ in middle&#41;<br>
-        </p>
-        <figure>
-          <figcaption>Layout 5</figcaption>
-          <div class="layout">
-            <img loading="lazy" src="images/layout5_800.webp" alt="Layout 5">
-          </div>
-        </figure><br>
-        <p>
-          4.4 Do 8h+8h+4h goods productions &#40;in any order&#41; if you have 5 goods buildings. You can do 8h+8h &#40;or 8h+4h+4h&#41; if you have 6. Once you have enough goods to unlock the Maize farm, you can stop.<br>
-          4.5 Remove all goods buildings again and build 56 Sculptures. Quest 9 done.<br>
-          4.6 Unlock Maize Farms and build 2 for quest, demolish before construction is done.<br>
-        </p>
-        <p>
-          <span class="thor-note">* Thor's note: </span><em>This doesn't make sense because you need maize to proceed. Sell one maize unless you need more maize than other goods to unlock the next two techs. You will need at least one. Go to FoE Helper's city planner to see if you can fit two. Also note that you will need to build one more Yaouteguihua Residence. Here is a screenshot from my third playthrough &#40;I needed more headdresses than others&#41;.</em>
-        </p>
-        <figure>
-          <figcaption>Maize layout</figcaption>
-          <div class="layout">
-            <img loading="lazy" src="images/maize_layout.webp" alt="Maize layout">
-          </div>
-        </figure><br>
-        <h4>Chapter 5: Alternate Cocoa and goods</h4>
-        <p>
-          The next 2 techs will be unlocked at the same time. So add the costs of these two together to see how many goods you'll need of all 3 types.  Produce Cocoa first &#40;30k&#41; So buy the 4th, 5th and 6th expansion when you can. Try to get them for 10 goods. The next step, 15 goods, is fine too. Don't buy it for 28 or more, that will only slow you down.
-        </p>
-        <p>
-          <span class="thor-note">* Thor's note: </span><em>I've found that the cocoa requirements mentioned in this guide are estimates, and seem to change with each playthrough. It's easy to calculate though. Just write down the total goods you need to unlock whatever tech you're aiming for, divide that total by 5 then multipy by 1000 &#40;it costs 1000 cocoa to produce 5 goods in 4 hours&#41;. Also note in the above maize layout that I have roads that I don't really need. That's because roads cost cocoa so you never want to sell any unless absolutely necessary to make a layout work. Hold on to them if you can, you will need them later on.</em>
-        </p>
-        <p>
-          I set up this spreadsheet to help with planning. You can get a copy if you have a Google account. Click <a href="https://docs.google.com/spreadsheets/d/1chDoSVnNBW3y609GeD85-tk5jQw4-PUy4evJdpO-Sac/edit?usp=sharing" class="thor-note" target="_blank">here</a> to open it in Google Sheets. Select file/make a copy and an editable version will be saved to your Google Drive.
-        </p>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTByqHAUVu9HWLokJPmYFYFvtwifi6bdO_hGReTwxkttyauJT6KonkxFLVcIqrZvz6qo25jN8mosYIu/pubhtml?widget=true&amp;headers=false" height="320"></iframe>
-        <p><br>
-          5.1 Switch to Cocoa production layout.<br>
-          5.2 Do Cocoa productions until you have about 30K.<br>
-          5.3 Switch to goods production layout.<br>
-          5.4 Produce goods for about a full day &#40;probably 8h+8h+4h&#41;<br>
-          5.5 If you have enough goods to unlock both Decorative Statues and Texcotzingo, move on. Otherwise go back to step 5.1 and repeat.<br>
-          5.6 Remove all goods buildings. Build 75 Statues to get 375 Diplomacy. Unlock Decorative Statues.<br>
-          5.7 Remove the 1x1 Statues. Build 16 Decorative Statues or Ornamental Statues. Quest 11 done.<br>
-          5.8 When they are finished, quest 12 is done too. Now unlock Texcotzingos as well.<br>
-        </p><br>
-        <h4>Chapter 6: Texcotzingo productions</h4>
-        <p>
-          12 high by 14 wide layout - total 6 expansions. 6th will cost 66 vegetables I believe. Now that we can build Texcotzingo's, we'll need a new layout with mainly those for Cocoa production because they are more efficient than Shrines.
-        </p>
-        <figure>
-          <figcaption>Layout 6</figcaption>
-          <div class="layout">
-            <img loading="lazy" src="images/layout6_800.webp" alt="Layout 6">
-          </div>
-        </figure><br>
-        <p>
-          6.1 Switch to the new Cocoa production layout &#40;using Texcotzingos&#41;<br>
-          6.2 Do Cocoa productions until you have about 30K.<br>
-          6.3 Switch to goods production layout.<br>
-          6.4 Produce goods until you can unlock Stone Carver &#40;might take a full day again&#41;.<br>
-          6.5 To reach enough Diplomacy to unlock the Stone Carver, you'll have to build Decorations or Texcotzingos.<br>
-          6.6 Unlock Stone Carver.<br>
-        </p><br>
-        <h4>Chapter 7: All the rest &#40;gather goods to unlock last 3 techs&#41;</h4>
-        <p>
-          Basically we keep repeating &#40;cocoa &#8596; goods&#41; until you can unlock the last 3 techs all at once &#40;saves repeating diplomacy&#41;. Just make sure that you don't get too many of one type of good since you can get some free ones from the Courtyard Market.
-        </p>
-        <p>
-          7.1 Switch to Texcotzingo layout &#40;above in Chapter 6&#41;<br>
-          7.2 Do about one day of Cocoa Productions<br>
-          7.3 Switch to good production layout<br>
-          7.4 Do about one day of goods productions
-        </p>
-        <p>
-          The last quest is Produce 20 of each good and 3000 Cocoa Beans. I did not keep the temple around, since my layout favored Texcotzingos for Cocoa Bean production. I also used the Courtyard Market to help with the 20 of each for the final quest.  Hope this helps, and suggestions are welcome!
-        </p>
+          <figure>
+            <figcaption>Layout 2</figcaption>
+            <div class="layout">
+              <img data-src="images/layout2_800.webp" alt="Layout 2">
+            </div>
+          </figure><br>
+          <h4>Chapter 2 More Cocoa Beans &#40;16,000&#41; and Courtyard Market Games</h4>
+          <p>
+            2.1 Remove the Quetzal Aviary &#40;QA&#41;. Back to <span class="layout-highlight">layout 2</span> for Cocoa production &#40;Possibly with extra Huts/Shrines&#41;.<br>
+            2.2 Do Cocoa productions until you have 16K. This will take more than a full day probably.<br>
+            2.3 As it's a full day since Courtyard Market unlocked, do the games again. You should also be able to collect from your Embassy &#40;another 600 Cocoa&#41;.<br>
+            2.4 At this point there is a good chance that you can buy the first 2 expansions. Assuming 5 goods from each game, and 6 games played so far, you should have 2 different type of goods with 10 each.  Try to buy along the Long Side of starting rectangle.  Try to buy expansions where the impediment is off to side, though you can remove 1 impediment at this point if in the middle &#40;blue is good&#41;.
+            <figure>
+              <figcaption>Impediment</figcaption>
+              <div class="layout">
+                <img data-src="images/impediment_800.webp" alt="Impediment picture">
+              </div>
+            </figure><br>
+          </p>
+          <h4>Chapter 3: Different paths per person, but 4 Goods buildings and Huts &#40;no shrines&#41;</h4>
+          <p>
+            Example 1: You need 24 Vegetables and 36 Headdresses. Every building will give you 20 goods. If you build 2 of each type, you'll get 40 Vegs and 40 Heads.<br>
+            Example 2: You need 14 Vegetables and 46 Headdresses. Build 1 Veg Farm and 3 QAs, so you'll get 20 Vegs and 60 Heads.<br>
+            Example 3: You need 54 Vegetables and 6 Headdresses. Build 3 Veg Farm and 1 QA, so you'll get 60 Vegs and 20 Heads.<br>
+          </p>
+          <figure>
+            <figcaption>Layout 3</figcaption>
+            <div class="layout">
+              <img data-src="images/layout3_800.webp" alt="Layout 3">
+            </div>
+          </figure><br>
+          <p>
+            3.1 Change to one of the layout 3 variants.<br>
+            3.2 Do 16 hours of goods productions &#40;8h+8h or 4h+8h+4h&#41;.<br>
+            3.3 When these are done, you can probably do the games at the Courtyard Market again.<br>
+            3.4 Remove all goods buildings. Build 39 Sculptures &#40;you might have to remove a hut&#41;. Quest 7 is done.<br>
+            3.5 Unlock Yaoteguihua Residence.<br>
+            3.6 After unlocking the tech, check if you can buy a 3rd expansion. If you can, do so now.<br>
+            3.7 Build 3 of these Residences. Quest 8 done.<br>
+            3.8 Change to layout 4 for Cocoa productions. Some remarks below.
+          </p>
+          <figure>
+            <figcaption>Layout 4 &#40;cocoa producers: 3 Lg Residential, 2-4 huts, 12-14 shrines&#41;</figcaption>
+            <div class="layout">
+              <img data-src="images/layout4_800.webp" alt="Layout 4">
+            </div>
+          </figure><br>
+          <h4>Chapter 4: Cocoa until 25k and then back and forth between cocoa and goods.</h4>
+          <p>
+            4.1 We just switched to the Cocoa layout. Keep making Cocoa until you have  at least 25K. This can take a full day. &#40;Possibly less if you need less than 100 goods to unlock Maize Farms&#41;.<br>
+            4.2 When available, get the goods from the Courtyard Market again of course.<br>
+            4.3 Switch to <span class="layout-highlight">layout 5</span>, with 5 or 6 goods buildings. &#40;12x12, HQ in middle&#41;<br>
+          </p>
+          <figure>
+            <figcaption>Layout 5</figcaption>
+            <div class="layout">
+              <img data-src="images/layout5_800.webp" alt="Layout 5">
+            </div>
+          </figure><br>
+          <p>
+            4.4 Do 8h+8h+4h goods productions &#40;in any order&#41; if you have 5 goods buildings. You can do 8h+8h &#40;or 8h+4h+4h&#41; if you have 6. Once you have enough goods to unlock the Maize farm, you can stop.<br>
+            4.5 Remove all goods buildings again and build 56 Sculptures. Quest 9 done.<br>
+            4.6 Unlock Maize Farms and build 2 for quest, demolish before construction is done.<br>
+          </p>
+          <p>
+            <span class="thor-note">* Thor's note: </span><em>This doesn't make sense because you need maize to proceed. Sell one maize unless you need more maize than other goods to unlock the next two techs. You will need at least one. Go to FoE Helper's city planner to see if you can fit two. Also note that you will need to build one more Yaouteguihua Residence. Here is a screenshot from my third playthrough &#40;I needed more headdresses than others&#41;.</em>
+          </p>
+          <figure>
+            <figcaption>Maize layout</figcaption>
+            <div class="layout">
+              <img data-src="images/maize_layout.webp" alt="Maize layout">
+            </div>
+          </figure><br>
+          <h4>Chapter 5: Alternate Cocoa and goods</h4>
+          <p>
+            The next 2 techs will be unlocked at the same time. So add the costs of these two together to see how many goods you'll need of all 3 types.  Produce Cocoa first &#40;30k&#41; So buy the 4th, 5th and 6th expansion when you can. Try to get them for 10 goods. The next step, 15 goods, is fine too. Don't buy it for 28 or more, that will only slow you down.
+          </p>
+          <p>
+            <span class="thor-note">* Thor's note: </span><em>I've found that the cocoa requirements mentioned in this guide are estimates, and seem to change with each playthrough. It's easy to calculate though. Just write down the total goods you need to unlock whatever tech you're aiming for, divide that total by 5 then multipy by 1000 &#40;it costs 1000 cocoa to produce 5 goods in 4 hours&#41;. Also note in the above maize layout that I have roads that I don't really need. That's because roads cost cocoa so you never want to sell any unless absolutely necessary to make a layout work. Hold on to them if you can, you will need them later on.</em>
+          </p>
+          <p>
+            I set up this spreadsheet to help with planning. You can get a copy if you have a Google account. Click <a href="https://docs.google.com/spreadsheets/d/1chDoSVnNBW3y609GeD85-tk5jQw4-PUy4evJdpO-Sac/edit?usp=sharing" class="thor-note" target="_blank">here</a> to open it in Google Sheets. Select file/make a copy and an editable version will be saved to your Google Drive.
+          </p>
+          <figure>
+            <figcaption>Settlement Calculator: Aztecs</figcaption>
+            <div class="layout">
+              <img data-src="images/settlement_calc.webp" alt="Settlement Calculator: Aztecs">
+            </div>
+          </figure><br>
+          <p>
+            5.1 Switch to Cocoa production layout.<br>
+            5.2 Do Cocoa productions until you have about 30K.<br>
+            5.3 Switch to goods production layout.<br>
+            5.4 Produce goods for about a full day &#40;probably 8h+8h+4h&#41;<br>
+            5.5 If you have enough goods to unlock both Decorative Statues and Texcotzingo, move on. Otherwise go back to step 5.1 and repeat.<br>
+            5.6 Remove all goods buildings. Build 75 Statues to get 375 Diplomacy. Unlock Decorative Statues.<br>
+            5.7 Remove the 1x1 Statues. Build 16 Decorative Statues or Ornamental Statues. Quest 11 done.<br>
+            5.8 When they are finished, quest 12 is done too. Now unlock Texcotzingos as well.<br>
+          </p><br>
+          <h4>Chapter 6: Texcotzingo productions</h4>
+          <p>
+            12 high by 14 wide layout - total 6 expansions. 6th will cost 66 vegetables I believe. Now that we can build Texcotzingo's, we'll need a new layout with mainly those for Cocoa production because they are more efficient than Shrines.
+          </p>
+          <figure>
+            <figcaption>Layout 6</figcaption>
+            <div class="layout">
+              <img data-src="images/layout6_800.webp" alt="Layout 6">
+            </div>
+          </figure><br>
+          <p>
+            6.1 Switch to the new Cocoa production layout &#40;using Texcotzingos&#41;<br>
+            6.2 Do Cocoa productions until you have about 30K.<br>
+            6.3 Switch to goods production layout.<br>
+            6.4 Produce goods until you can unlock Stone Carver &#40;might take a full day again&#41;.<br>
+            6.5 To reach enough Diplomacy to unlock the Stone Carver, you'll have to build Decorations or Texcotzingos.<br>
+            6.6 Unlock Stone Carver.<br>
+          </p><br>
+          <h4>Chapter 7: All the rest &#40;gather goods to unlock last 3 techs&#41;</h4>
+          <p>
+            Basically we keep repeating &#40;cocoa &#8596; goods&#41; until you can unlock the last 3 techs all at once &#40;saves repeating diplomacy&#41;. Just make sure that you don't get too many of one type of good since you can get some free ones from the Courtyard Market.
+          </p>
+          <p>
+            7.1 Switch to Texcotzingo layout &#40;above in Chapter 6&#41;<br>
+            7.2 Do about one day of Cocoa Productions<br>
+            7.3 Switch to good production layout<br>
+            7.4 Do about one day of goods productions
+          </p>
+          <p>
+            The last quest is Produce 20 of each good and 3000 Cocoa Beans. I did not keep the temple around, since my layout favored Texcotzingos for Cocoa Bean production. I also used the Courtyard Market to help with the 20 of each for the final quest.  Hope this helps, and suggestions are welcome!
+          </p>
+        </div> 
       </div><br><br>
     </main>
   </body>
