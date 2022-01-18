@@ -13,9 +13,10 @@
     />
     <!-- style sheets -->
     <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="quick_calcs.css" />
     <link rel="stylesheet" href="../css/main_navbar.css" />
+    <link rel="stylesheet" href="quick_calcs.css" />
     <!-- scripts -->
+    <!--! quick_calcs.js imports nav and other required modules  -->
     <script src="quick_calcs.js" type="module"></script>
     <title>Quick FoE Calculators</title>
   </head>
@@ -92,8 +93,21 @@
             <label for="pos_reward_input">Position reward</label>
             <input type="text" name="reward" class="push-right" id="reward_input" required />
           </div>
+          <div class="input-row">
+            <label for="first_place_input">First Place</label>
+            <input
+              type="text"
+              name="firstPlace"
+              class="push-right"
+              id="first_place_input"
+              required
+            />
+          </div>
+          <div class="display-row">1.9: <span id="mx19display"></span></div>
           <div class="display-row">My reward: <span id="my_reward"></span></div>
-          <div class="display-row">left/2: <span id="half_left"></span></div>
+          <div class="display-row">Left: <span id="left"></span></div>
+          <div class="display-row">Left/2: <span id="half_left"></span></div>
+          <div class="display-row">To lock: <span id="to_lock"></span></div>
           <div class="display-row">Profit: <span id="profit"></span></div>
           <div class="display-row hide" id="result_txt">Snipe it!</div>
 
