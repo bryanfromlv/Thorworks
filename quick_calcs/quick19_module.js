@@ -3,6 +3,8 @@ export default class quick19 {
     const myFs = document.querySelector('#quick_calc_fs')
     const displayText = document.querySelector('.display-txt')
     const mxrbGroup = document.querySelectorAll('input[name="mx"]')
+    const myArcInput = document.querySelector('#arc_mx_input')
+    const mineDisplay = document.querySelector('#mine')
     const fpField = document.querySelector('#fp_input')
     const calcBtn = document.querySelector('#qc_calc_btn')
     const clearBtn = document.querySelector('#qc_clear_btn')
@@ -31,6 +33,15 @@ export default class quick19 {
         displayText.innerHTML = '0'
         return
       }
+
+      let myArc = Number(myArcInput.value)
+      console.log(myArc)
+      if (myArc <= 0 || myArc == '') {
+        mineDisplay.innerHTML = 'Enter arc multiplier'
+      } else {
+        mineDisplay.innerHTML = Math.round(fpField.value * myArc)
+      }
+
       switch (mx) {
         case 'mx19':
           displayText.innerHTML = Math.round(fpField.value * 1.9)
@@ -65,6 +76,7 @@ export default class quick19 {
     //! add event listener to clear button
     clearBtn.addEventListener('click', () => {
       displayText.innerHTML = ''
+      mineDisplay.innerHTML = 'My Arc'
       fpField.value = ''
     })
     console.log(`quick19_module instantiated`)

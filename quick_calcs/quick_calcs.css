@@ -60,8 +60,9 @@ legend {
 }
 
 .hide {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
+  /* opacity: 0;
+  visibility: hidden; */
 }
 
 /* quick 1.9 styles */
@@ -88,7 +89,18 @@ legend {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+}
+
+.mine-row {
+  font-weight: 600;
+}
+
+.mine-row span {
+  border: 1px solid black;
+  color: white;
+  background-color: blue;
+  padding: 0 0.25em;
+  margin-left: 0.25em;
 }
 
 .mx-btn > *:hover {
@@ -106,7 +118,6 @@ legend {
   padding: 0.5rem 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   width: 15em;
 }
 
@@ -125,9 +136,10 @@ legend {
 
 #result_txt {
   align-self: center;
-  font-weight: 700;
-  padding: 0.25em 0.5em;
+  padding: 0.1em 0.25em;
+  margin-bottom: 0.25em;
   background-color: white;
   color: red;
+  border: 1px solid black;
   border-radius: 25px;
 }

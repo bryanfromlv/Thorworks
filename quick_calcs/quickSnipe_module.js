@@ -3,7 +3,7 @@ export default class quickSnipe {
     const arcMxInput = document.querySelector('#arc_mx_input')
     const goalInput = document.querySelector('#goal_input')
     const currentInput = document.querySelector('#current_input')
-    const rewardInput = document.querySelector('#reward_input')
+    const rewardInput = document.querySelector('#pos_reward_input')
     const firstPlaceInput = document.querySelector('#first_place_input')
     const allInputs = document.querySelectorAll('.qs-container input[type="text"]')
     const mx19Display = document.querySelector('#mx19display')
@@ -38,7 +38,7 @@ export default class quickSnipe {
         localStorage.setItem('arcMx', this.arcMx)
       }
       // first we have to convert the inputs to numbers
-      let mx = Number(arcMxInput.value)
+      let mymx = Number(arcMxInput.value)
       let goal = Number(goalInput.value)
       let current = Number(currentInput.value)
       let reward = Number(rewardInput.value)
@@ -47,9 +47,9 @@ export default class quickSnipe {
       let mx19 = Math.round(reward * 1.9)
       let left = goal - current
       let halfLeft = Math.ceil(left / 2)
-      let myReward = Math.round(reward * mx)
-      let toLock = halfLeft + firstPlace
-      let profit = myReward - halfLeft
+      let myReward = Math.round(reward * mymx)
+      let toLock = halfLeft + firstPlace / 2
+      let profit = myReward - toLock
       mx19Display.innerHTML = mx19
       myRewardDisplay.innerHTML = myReward
       leftDisplay.innerHTML = left
@@ -84,10 +84,14 @@ export default class quickSnipe {
       leftDisplay.innerHTML = left
       halfLeftDisplay.innerHTML = halfLeft
       let reward = Number(rewardInput.value)
-      let mx19 = Math.round(reward * 1.9)
       if (reward > 0) {
+        let mx19 = Math.round(reward * 1.9)
+        let mymx = Number(arcMxInput.value)
+        let myReward = Math.round(reward * mymx)
         mx19Display.innerHTML = mx19
+        myRewardDisplay.innerHTML = myReward
       }
+      resetStyles()
     }
 
     const validate = () => {
@@ -142,7 +146,11 @@ export default class quickSnipe {
       currentInput.value = ''
       rewardInput.value = ''
       firstPlaceInput.value = ''
+      mx19Display.innerHTML = ''
+      myRewardDisplay.innerHTML = ''
+      leftDisplay.innerHTML = ''
       halfLeftDisplay.innerHTML = ''
+      toLockDisplay.innerHTML = ''
       profitDisplay.innerHTML = ''
       resultDisplay.classList.add('hide')
       goalInput.focus()
