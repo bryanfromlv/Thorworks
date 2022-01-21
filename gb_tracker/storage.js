@@ -47,7 +47,7 @@ export default class storage {
   }
 
   // confirm browser allows local storage
-  storageAvailable = (type) => {
+  storageAvailable = type => {
     let storage
     try {
       storage = window[type]
@@ -81,7 +81,7 @@ export default class storage {
   getAllGbKeys = () => {
     let gbKeys = []
     for (let i = 0; i < localStorage.length; i++) {
-      this.gbNameRef.forEach((gb) => {
+      this.gbNameRef.forEach(gb => {
         if (localStorage.key(i).includes(gb.name)) {
           gbKeys.push(localStorage.key(i))
         }
@@ -92,18 +92,18 @@ export default class storage {
 
   // save a gb object as JSON and set curGb
   saveGb = (key, gb) => {
-    console.log(`storage- saveGb(${key})`)
+    // console.log(`storage- saveGb(${key})`)
     // console.log(JSON.stringify(gb));
     localStorage.setItem(key, JSON.stringify(gb))
     this.saveCurGb(key)
   }
 
-  saveCurGb = (key) => {
+  saveCurGb = key => {
     // console.log(`storage- saveCurGb(${key})`)
     localStorage.setItem('curGb', key)
   }
 
-  setTooltipsFlag = (bool) => {
+  setTooltipsFlag = bool => {
     localStorage.setItem('tooltip', bool)
   }
 
@@ -111,7 +111,7 @@ export default class storage {
     return localStorage.getItem('tooltip')
   }
 
-  setAudioFlag = (bool) => {
+  setAudioFlag = bool => {
     localStorage.setItem('audio', bool)
   }
 
@@ -119,7 +119,7 @@ export default class storage {
     return localStorage.getItem('audio')
   }
 
-  savePostName = (name) => {
+  savePostName = name => {
     localStorage.setItem('postName', name)
   }
 
@@ -142,7 +142,7 @@ export default class storage {
     }
   }
 
-  getSavedGb = (key) => {
+  getSavedGb = key => {
     if (key === undefined) {
       console.log('no GB found, key: ' + key)
       return false
@@ -156,7 +156,7 @@ export default class storage {
     localStorage.removeItem('curGb')
   }
 
-  deleteGb = (key) => {
+  deleteGb = key => {
     // console.log(`deleteGb(${key})`)
     localStorage.removeItem(key)
   }

@@ -1,4 +1,4 @@
-import { store, calculator, showCalculator, setCalculatorNav } from './main.js'
+import { store, navBar, calculator, showCalculator, checkCalcNav } from './main.js'
 // const store = new storage()
 export default class gbList {
   constructor(listSection) {
@@ -11,12 +11,12 @@ export default class gbList {
 
   clearDisplay = () => {
     let allCards = document.querySelectorAll('.display-card')
-    allCards.forEach((card) => {
+    allCards.forEach(card => {
       card.remove()
     })
   }
 
-  addGb = (gb) => {
+  addGb = gb => {
     //! bug fix- clear the display first to avoid duplicate cards
     this.clearDisplay()
     if (this._gbList.length == 0) {
@@ -31,7 +31,7 @@ export default class gbList {
     this.build()
   }
 
-  removeCard = (gbKey) => {
+  removeCard = gbKey => {
     // console.log(`removeCard(${gbKey})`)
     let foundCard = this.findCard(gbKey)
     // console.log(`foundCard = ${foundCard.id}`)
@@ -42,7 +42,7 @@ export default class gbList {
     }
   }
 
-  update = (gb) => {
+  update = gb => {
     // console.log('update()')
     // console.log(gb)
     //! find the card for this gb
@@ -131,7 +131,7 @@ export default class gbList {
     }
   }
 
-  findCard = (gbKey) => {
+  findCard = gbKey => {
     // console.log(`findCard(${gbKey})`)
     let cards = document.querySelectorAll('.display-card')
     // console.log(cards)
@@ -187,7 +187,7 @@ export default class gbList {
       storedKeys.sort(sorter)
       // console.log(`sorted: ${storedKeys}`)
       //! add the sorted keys to gbList
-      storedKeys.forEach((key) => {
+      storedKeys.forEach(key => {
         this._gbList.push(store.getSavedGb(key))
       })
     } else {
@@ -209,12 +209,12 @@ export default class gbList {
   }
 
   buildDisplay() {
-    this._gbList.forEach((gb) => {
+    this._gbList.forEach(gb => {
       this.buildCard(gb)
     })
   }
 
-  buildCard = (gb) => {
+  buildCard = gb => {
     // console.log('buildCard called')
     // console.log(gb)
     //! First we build and attach the card
@@ -490,7 +490,7 @@ export default class gbList {
     deleteButton.name = gb.key
     deleteButton.id = gb.key
     deleteButton.classList.add('delete-btn')
-    deleteButton.addEventListener('click', (evt) => {
+    deleteButton.addEventListener('click', evt => {
       this.confirmDelete(gb.key)
     })
     let calcButton = document.createElement('button')
@@ -514,7 +514,7 @@ export default class gbList {
   }
 
   //! put up new gb modal
-  doNewGbModal = (gb) => {
+  doNewGbModal = gb => {
     console.log('doNewGbModal()')
     // fade in modal background and slide in the modal
     let modalBkg = document.querySelector('#newgb_modal_bkg')
@@ -525,7 +525,7 @@ export default class gbList {
   }
 
   //! put up delete confirmation modal
-  confirmDelete = (gbKey) => {
+  confirmDelete = gbKey => {
     // console.log(`confirmDelete(${gbKey})`)
     // console.log(this._gbList)
     //! important, we have to store a permanent reference to the gbKey (major bug fix)
@@ -544,7 +544,7 @@ export default class gbList {
   }
 
   //! internal utility methods
-  doDelete = (evt) => {
+  doDelete = evt => {
     let gbKey = this._gbToDelete
     // store a reference to curGbKey
     let curKey = store.getCurGbKey()
@@ -567,11 +567,11 @@ export default class gbList {
       calculator.calculate(newGbKey)
     } else {
       //! bug fix-  we have to delete the curGb key
-      console.log(`deleting final curGbKey`)
+      // console.log(`deleting final curGbKey`)
       store.deleteCurGbKey()
     }
-    // disable calculator menu item if no gb's (this is an index.js function)
-    setCalculatorNav()
+    // disable calculator menu item if no gb's (this is a main.js function)
+    checkCalcNav()
     //! remove the event listeners (major bug fix)
     let cancelBtn = document.querySelector('#deleteGb_cancel_btn')
     evt.target.removeEventListener('click', this.doDelete)
@@ -582,7 +582,7 @@ export default class gbList {
     this.hideConfirmDeleteModal()
   }
 
-  doCancel = (evt) => {
+  doCancel = evt => {
     //! remove the event listeners (major bug fix)
     let confirmDeleteBtn = document.querySelector('#deleteGb_btn')
     confirmDeleteBtn.removeEventListener('click', this.doDelete)
@@ -599,14 +599,13 @@ export default class gbList {
     confirmDeleteModalContainer.classList.add('deleteGb-modal-container-hide')
   }
 
-  doCalc = (gbKey) => {
-    // console.log(`doCalc(${gbKey})`)
+  doCalc = gbKey => {
+    console.log(`doCalc(${gbKey})`)
     calculator.calculate(gbKey)
-    setCalculatorNav()
-    showCalculator()
+    navBar.activateCalc()
   }
 
-  addCheck = (div) => {
+  addCheck = div => {
     if (div.innerText == '✘' || div.innerText == '') {
       div.innerText = '✔'
     }
@@ -614,7 +613,7 @@ export default class gbList {
     div.classList.add('check-mark')
   }
 
-  addX = (div) => {
+  addX = div => {
     if (div.innerText == '✔' || div.innerText == '') {
       div.innerText = '✘'
     }

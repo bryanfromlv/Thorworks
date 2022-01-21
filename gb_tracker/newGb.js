@@ -1,4 +1,12 @@
-import { store, gb_list, calculator, showCalculator, showGbList, setCalculatorNav } from './main.js'
+import {
+  store,
+  gb_list,
+  navBar,
+  calculator,
+  showCalculator,
+  showGbList,
+  checkCalcNav,
+} from './main.js'
 import gb from './gb.js'
 export { initNewGb, resetNewGbForm }
 
@@ -12,14 +20,14 @@ function initNewGb() {
   savedKeys = store.getAllGbKeys()
   //! Major problem solved! preventDefault() here blocks submit event
   //! but only after validation (which requires the submit event)
-  newGbForm.addEventListener('submit', (evt) => {
+  newGbForm.addEventListener('submit', evt => {
     evt.preventDefault()
     //console.log('submit event detected')
   })
 
   // handle the save button just as a button click, activate submit action manually to reset the form
   let saveBtn = document.querySelector('#saveButton')
-  saveBtn.addEventListener('click', (evt) => {
+  saveBtn.addEventListener('click', evt => {
     if (validate()) {
       // console.log('validity passed, saving new gb')
       //check for duplicate and put up modal
@@ -48,7 +56,7 @@ function initNewGb() {
     }
   })
 
-  const doDuplicateModal = (key) => {
+  const doDuplicateModal = key => {
     console.log('doDuplicateModal')
     // insert duplicate gb name/level
     let dupNameSpan = document.querySelector('#duplicate_gb_name')
@@ -63,7 +71,7 @@ function initNewGb() {
     duplicateModalContainer.classList.add('modal-container-show')
   }
 
-  const doNewGbModal = (gb) => {
+  const doNewGbModal = gb => {
     // console.log('doNewGbModal()')
     // insert new gb name/level
     let gbNameSpan = document.querySelector('#newGb_confirm_gbName')
@@ -89,9 +97,7 @@ function initNewGb() {
     confirmModalContainer.classList.add('modal-container-hide')
     // now remove the newGb form and show main content
     showGbList()
-    //todo: we probably have to set the gbList nav item active here
-    // and enable the calculator menu item if disabled
-    setCalculatorNav()
+    navBar.activateGbList()
   })
 
   const addButton = document.querySelector('#add_btn')
@@ -106,7 +112,7 @@ function initNewGb() {
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // enable the calculator menu item if disabled
-    setCalculatorNav()
+    checkCalcNav()
     // and this leaves us in the newGb form display so we can add more gb's
   })
 
@@ -126,7 +132,9 @@ function initNewGb() {
     // now remove the newGb form and show calculator content
     showCalculator()
     // and enable the calculator menu item if disabled
-    setCalculatorNav()
+    checkCalcNav()
+    // finally set the calculator nav to active
+    navBar.activateCalc()
   })
 
   const replaceButton = document.querySelector('#replace_btn')
@@ -194,7 +202,7 @@ const resetNewGbForm = () => {
   newGbForm.reset()
 }
 
-const finalSave = (newGb) => {
+const finalSave = newGb => {
   // console.log(`finalSave(${newGb.key})`)
   // save 'curGb' key
   store.saveCurGb(newGb.key)

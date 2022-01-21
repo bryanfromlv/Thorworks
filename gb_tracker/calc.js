@@ -1,4 +1,4 @@
-import { store, gb_list } from './main.js'
+import { store, navBar, gb_list, showNewGb } from './main.js'
 class result {
   constructor(p) {
     this.p = p
@@ -111,21 +111,21 @@ export default class calc {
       this._audioEnabled = false
     }
     //! add event listeners to all number inputs
-    this._ownerField.addEventListener('change', (evt) => {
+    this._ownerField.addEventListener('change', evt => {
       this.inputChange(evt)
     })
-    this._otherField.addEventListener('change', (evt) => {
+    this._otherField.addEventListener('change', evt => {
       this.inputChange(evt)
     })
     for (let x = 0; x < this._curInputs.length; x++) {
-      this._curInputs[x].addEventListener('change', (evt) => {
+      this._curInputs[x].addEventListener('change', evt => {
         this.inputChange(evt)
       })
     }
     //! add event listeners to 1.9 & 1.92 fields
     const chEvt = new Event('change') //! bug fix- we have to manually trigger change event
     for (let i = 0; i < 5; i++) {
-      this._19Fields[i].addEventListener('click', (evt) => {
+      this._19Fields[i].addEventListener('click', evt => {
         if (this._curInputs[i].value == 0) {
           this._curInputs[i].value = evt.target.innerText
         } else if (this._curInputs[i].value !== evt.target.innerText) {
@@ -135,7 +135,7 @@ export default class calc {
         }
         this._curInputs[i].dispatchEvent(chEvt)
       })
-      this._192Fields[i].addEventListener('click', (evt) => {
+      this._192Fields[i].addEventListener('click', evt => {
         if (this._curInputs[i].value == 0) {
           this._curInputs[i].value = evt.target.innerText
         } else if (this._curInputs[i].value !== evt.target.innerText) {
@@ -147,15 +147,15 @@ export default class calc {
       })
     }
     //! add change event listeners to mx radio buttons (requires looping through groups)
-    this._mxrbGroups.forEach((group) => {
+    this._mxrbGroups.forEach(group => {
       for (let x = 0; x < group.length; x++) {
-        group[x].addEventListener('change', (evt) => {
+        group[x].addEventListener('change', evt => {
           this.mxrbChange(evt)
         })
       }
     })
     //! add event listener to tooltips checkbox
-    this._tooltipCB.addEventListener('change', (evt) => {
+    this._tooltipCB.addEventListener('change', evt => {
       let checked = evt.target.checked
       this.toggleTooltips(checked)
       // set localStorage flag
@@ -166,7 +166,7 @@ export default class calc {
       }
     })
     //! add event listener to audio checkbox
-    this._audioCB.addEventListener('change', (evt) => {
+    this._audioCB.addEventListener('change', evt => {
       // set audio flags
       if (evt.target.checked) {
         this._audioEnabled = true
@@ -209,7 +209,7 @@ export default class calc {
     })
     //! add event listener to post modal new user input
     //! convert enter key to button click
-    this._newUserField.addEventListener('keyup', (evt) => {
+    this._newUserField.addEventListener('keyup', evt => {
       if (evt.key === 'Enter' || evt.keyCode === 13) {
         evt.preventDefault()
         document.querySelector('#newUser_save_btn').click()
@@ -235,7 +235,7 @@ export default class calc {
       document.querySelector('#postText_copy_btn').style.display = 'block'
     })
     //! add event listener to post modal copy button
-    document.querySelector('#postText_copy_btn').addEventListener('click', (evt) => {
+    document.querySelector('#postText_copy_btn').addEventListener('click', evt => {
       let textToCopy = this._postTextField.innerText
       // write to clipboard
       navigator.clipboard.writeText(textToCopy).then(
@@ -277,7 +277,7 @@ export default class calc {
     })
     //! current GB check
     let curGbKey = store.getCurGbKey()
-    console.log(`current GB check: ${curGbKey}`)
+    // console.log(`current GB check: ${curGbKey}`)
     if (curGbKey) {
       // found a curGbKey
       this._myGbKey = curGbKey
@@ -289,7 +289,7 @@ export default class calc {
     console.log(`calc initalized`)
   } //! end init()
   //! set curGbKey in localStorage and load the GB object from localStorage
-  setGb = (gbKey) => {
+  setGb = gbKey => {
     // console.log(`setGb(${gbKey})`)
     store.saveCurGb(gbKey)
     this._myGbKey = gbKey
@@ -297,8 +297,8 @@ export default class calc {
     // console.log(this._myGb)
   }
   //! enable/disable tooltip instances
-  toggleTooltips = (enable) => {
-    this._pTooltips.forEach((tooltip) => {
+  toggleTooltips = enable => {
+    this._pTooltips.forEach(tooltip => {
       if (enable) {
         tooltip[0].enable()
       } else {
@@ -308,7 +308,7 @@ export default class calc {
   }
   //! post text new user modal
   doNewUserModal = () => {
-    console.log(`doNewUserModal`)
+    // console.log(`doNewUserModal`)
     // fade in modal background and slide in the new user modal
     let modalBkg = document.querySelector('#newUser_modal_bkg')
     let modalContainer = document.querySelector('#newUser_modal_container')
@@ -343,7 +343,7 @@ export default class calc {
     let postGbName = this._myGb.name
     let gbNickname = ''
     // gbNameRef is defined in storage.js
-    store.gbNameRef.forEach((nameObject) => {
+    store.gbNameRef.forEach(nameObject => {
       if (postGbName === nameObject.name) {
         gbNickname = nameObject.nickname
         return
@@ -354,13 +354,13 @@ export default class calc {
     let positionText = ''
     if (isChecked) {
       // add 'P' to position and fp amount in parentheses
-      this._postTextArray.forEach((obj) => {
+      this._postTextArray.forEach(obj => {
         positionText += `P${obj.p}(${obj.amnt}) `
       })
       finalPostText = `${this._userName} ${gbNickname} ${positionText}`
     } else {
       // just use position, no 'P', no amount
-      this._postTextArray.forEach((obj) => {
+      this._postTextArray.forEach(obj => {
         positionText += `${obj.p} `
       })
       finalPostText = `${this._userName} ${gbNickname} ${positionText}`
@@ -388,8 +388,8 @@ export default class calc {
     let newgbBtn = document.querySelector('#newGb_btn')
     newgbBtn.addEventListener('click', () => {
       // console.log('newgbBtn clicked, launch newGb form')
-      setNewGbNavActive()
       showNewGb()
+      navBar.activateNewGb()
       // all this code handles removing the modal (with animations)
       modalBkg.classList.remove('modal-show')
       modalContainer.classList.remove('modal-container-show')
@@ -397,7 +397,7 @@ export default class calc {
     })
   }
   //! handle mx radio button change events
-  mxrbChange = (evt) => {
+  mxrbChange = evt => {
     switch (evt.target.name) {
       case 'p1':
         this._myGb.p1.mxChoice = evt.target.value
@@ -422,7 +422,7 @@ export default class calc {
     this.calculate()
   }
   //! set gb object values to changed value on input element change
-  inputChange = (evt) => {
+  inputChange = evt => {
     // console.log(`${evt.target.id} changed`)
     //! enable audio only after user has interacted with the page
     this._snipeSoundFlag = false
@@ -463,8 +463,8 @@ export default class calc {
    call with gbKey to load gb object
    all this does is update the gb object, updateForm() will handle the display */
   //! main calculations
-  calculate = (gbKey) => {
-    console.log(`calculate(${gbKey})`)
+  calculate = gbKey => {
+    // console.log(`calculate(${gbKey})`)
     if (gbKey) {
       this.setGb(gbKey)
     }
@@ -481,7 +481,7 @@ export default class calc {
     this._pArray = [this._myGb.p1, this._myGb.p2, this._myGb.p3, this._myGb.p4, this._myGb.p5]
     //! calculate current and left, update current GB object
     let pTotal = 0
-    this._pArray.forEach((p) => {
+    this._pArray.forEach(p => {
       pTotal += Number(p.current)
     })
     let current = Number(this._myGb.owner) + Number(this._myGb.other) + pTotal
@@ -1194,7 +1194,7 @@ export default class calc {
     }
   }
   //! builds and returns array of position elements
-  getSiblings = (el) => {
+  getSiblings = el => {
     let siblings = []
     let sibling = el.nextElementSibling
     siblings.push(sibling)
@@ -1252,7 +1252,7 @@ export default class calc {
     }
   }
   //! show/hide other alert display & handle intruder sound
-  setOtherAlert = (show) => {
+  setOtherAlert = show => {
     if (show) {
       this._otherAlertField.classList.remove('hide-otheralert-txt')
       if (!this._otherSoundFlag && this._audioEnabled) {
@@ -1264,7 +1264,7 @@ export default class calc {
     gb_list.setOtherAlert(this._myGb, show)
   }
   //! show snipe zone display
-  showSnipeZone = (pos) => {
+  showSnipeZone = pos => {
     // console.log(`showSnipeZone(${pos})`)
     let thisPos = this._posFields[pos - 1]
     // console.log(thisPos)
@@ -1294,7 +1294,7 @@ export default class calc {
     gb_list.setSnipeZone(this._myGb, true, pos)
   }
   //! hide snipe zone display and highlighted position
-  hideSnipeZone = (pos) => {
+  hideSnipeZone = pos => {
     // console.log(`hideSnipeZone`)
     this._snipeField.classList.add('hide-snipezone-txt')
     for (let x = 0; x < this._posFields.length; x++) {
@@ -1309,7 +1309,7 @@ export default class calc {
     this._snipeSound.play()
   }
   //! add check symbol to div parameter
-  addCheck = (div) => {
+  addCheck = div => {
     if (div.innerText == '✘' || div.innerText == '') {
       div.innerText = '✔'
     }
@@ -1317,7 +1317,7 @@ export default class calc {
     div.classList.add('calc-check-mark')
   }
   //! add X symbol to div parameter
-  addX = (div) => {
+  addX = div => {
     if (div.innerText == '✔' || div.innerText == '') {
       div.innerText = '✘'
     }
