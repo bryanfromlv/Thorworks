@@ -11,7 +11,7 @@ export default class nav {
     // const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
     const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
     const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
-    const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
+    // const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
     // utility
     this.topActiveItem
     this.botActiveItem
@@ -94,12 +94,12 @@ export default class nav {
     }
     bottomNav2.addEventListener('click', doBottomNav2)
 
-    const doBottomNav3 = evt => {
-      evt.target.classList.add('bottom-nav-item-active')
-      updateActive('bot', evt.target)
-      window.open('./construction.html', '_self')
-    }
-    bottomNav3.addEventListener('click', doBottomNav3)
+    // const doBottomNav3 = evt => {
+    //   evt.target.classList.add('bottom-nav-item-active')
+    //   updateActive('bot', evt.target)
+    //   window.open('./construction.html', '_self')
+    // }
+    // bottomNav3.addEventListener('click', doBottomNav3)
     console.log(`gbtracker_navmodule instantiated`)
   }
 }

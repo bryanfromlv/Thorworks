@@ -1,3 +1,4 @@
+import { doAbout, doContact } from './main.js'
 export default class nav {
   constructor() {
     // const navLogo = document.querySelector('.top-nav-logo')
@@ -16,7 +17,7 @@ export default class nav {
     this.topActiveItem
     this.botActiveItem
     const updateActive = (loc, el) => {
-      console.log(`${el.innerText} clicked`)
+      // console.log(`${el.innerText} clicked`)
       if (this.topActiveItem) {
         this.topActiveItem.classList.remove('top-nav-item-active')
       }
@@ -30,6 +31,16 @@ export default class nav {
       }
     }
 
+    this.updateAbout = () => {
+      bottomNav1.classList.remove('bottom-nav-item-active')
+      this.botActiveItem = null
+    }
+
+    this.updateContact = () => {
+      bottomNav2.classList.remove('bottom-nav-item-active')
+      this.botActiveItem = null
+    }
+
     //! top nav
     // logo
     // const doNavLogo = (evt) => {
@@ -38,36 +49,36 @@ export default class nav {
     // navLogo.addEventListener('click', doNavLogo)
 
     // dropdown items
-    const doDd1Item1 = (evt) => {
+    const doDd1Item1 = evt => {
       window.open('./gb_tracker/', '_self')
     }
     dd1Item1.addEventListener('click', doDd1Item1)
 
-    const doDd1Item2 = (evt) => {
+    const doDd1Item2 = evt => {
       window.open('quick_calcs/', '_self')
     }
     dd1Item2.addEventListener('click', doDd1Item2)
 
-    const doDd1Item3 = (evt) => {
+    const doDd1Item3 = evt => {
       window.open('./aztecs_guide/', '_self')
     }
     dd1Item3.addEventListener('click', doDd1Item3)
 
-    const doTopNav2 = (evt) => {
+    const doTopNav2 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('./construction.html', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
-    const doTopNav3 = (evt) => {
+    const doTopNav3 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('./construction.html', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
 
-    const doTopNav4 = (evt) => {
+    const doTopNav4 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('./construction.html', '_self')
@@ -75,24 +86,24 @@ export default class nav {
     topNav4.addEventListener('click', doTopNav4)
 
     //! bottom nav
-    const doBottomNav1 = (evt) => {
+    const doBottomNav1 = evt => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('./construction.html', '_self')
+      doAbout()
     }
     bottomNav1.addEventListener('click', doBottomNav1)
 
-    const doBottomNav2 = (evt) => {
+    const doBottomNav2 = evt => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('./construction.html', '_self')
+      doContact()
     }
     bottomNav2.addEventListener('click', doBottomNav2)
 
-    const doBottomNav3 = (evt) => {
+    const doBottomNav3 = evt => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw')
+      window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw', '_blank')
     }
     bottomNav3.addEventListener('click', doBottomNav3)
     console.log(`main_navmodule instantiated`)

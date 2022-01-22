@@ -1,3 +1,10 @@
+:root {
+  --primary-clr: coral;
+  --primary-bkg-clr: whitesmoke;
+  --sectiontxt-clr: hsl(0, 0%, 10%);
+  /* --sectiontxt-bkg-clr: whitesmoke; */
+}
+
 body {
   background: hsl(210, 73%, 35%);
   background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
@@ -8,12 +15,72 @@ body {
   /*! Google font Open Sans: 300,400,500,600,700,800 */
 }
 
+nav {
+  z-index: 100;
+}
+
 h1 {
-  cursor: default;
-  color: white;
-  font-size: 1.5rem;
+  color: var(--primary-clr);
+  /* font-size: 1.5rem; */
   font-weight: 700;
   text-align: center;
   margin-top: 0.25rem;
   user-select: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  color: var(--sectiontxt-clr);
+  background-color: var(--primary-bkg-clr);
+  width: 80%;
+  margin-top: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+article {
+  padding: 0.2em 1em;
+}
+
+article > p {
+  margin-bottom: 0.5em;
+}
+
+.hide-section {
+  display: none;
+}
+
+.about-section {
+  position: relative;
+}
+
+.contact-section {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.close-btn:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.video {
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 400px;
+  height: 200px;
+  margin-bottom: 4rem;
 }
