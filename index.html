@@ -48,7 +48,7 @@
       </ul>
     </nav>
     <main>
-      <section class="main-section">
+      <section class="main-section hide-section">
         <h1>Welcome to Thorworks!</h1>
         <article>
           <p>I am proud to announce that after months of hard work, thordarsen.net is now live.</p>
@@ -111,7 +111,7 @@
           </p>
         </article>
       </section>
-      <section class="contact-section hide-section">
+      <section class="contact-section">
         <h1>Contact Thorworks</h1>
         <img
           src="images/close-btn.svg"
@@ -120,7 +120,35 @@
           class="close-btn"
           id="contact_close_btn"
         />
-        <h1>This section is still being developed.</h1>
+        <p class="form-title">E-Mail Thordarsen</p>
+        <form class="contact-form" action="contactForm.php" method="post">
+          <div class="form-group">
+            <label for="name">Name or game name</label>
+            <input type="text" name="name" id="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your email (optional)</label>
+            <input type="email" name="email" id="email" placeholder="Your email address" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Message"
+              cols="40"
+              rows="10"
+              required
+            ></textarea>
+          </div>
+          <div class="contact-btn-row">
+            <button type="submit" name="submit" class="send-btn" id="send_btn">SEND</button>
+          </div>
+        </form>
       </section>
     </main>
     <nav class="bottom-nav">

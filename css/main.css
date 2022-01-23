@@ -37,7 +37,7 @@ main {
 section {
   color: var(--sectiontxt-clr);
   background-color: var(--primary-bkg-clr);
-  width: 80%;
+  width: fit-content;
   margin-top: 1rem;
   position: relative;
   display: flex;
@@ -53,16 +53,9 @@ article > p {
   margin-bottom: 0.5em;
 }
 
+/* utility styles */
 .hide-section {
   display: none;
-}
-
-.about-section {
-  position: relative;
-}
-
-.contact-section {
-  position: relative;
 }
 
 .close-btn {
@@ -76,6 +69,45 @@ article > p {
   cursor: pointer;
 }
 
+/* main section styles */
+.main-section {
+  width: 75%;
+}
+
+/* about section styles */
+.about-section {
+  position: relative;
+  width: 75%;
+}
+
+/* contact form styles */
+.contact-section {
+  position: relative;
+}
+
+.contact-form {
+  padding: 1rem;
+}
+
+.contact-btn-row {
+  display: flex;
+  justify-content: center;
+}
+
+.send-btn {
+  background-color: var(--primary-bkg-clr);
+  cursor: pointer;
+  user-select: none;
+  border-radius: 25px;
+  padding: 0 0.5em;
+}
+
+.send-btn:hover {
+  background-color: var(--primary-clr);
+  color: white;
+}
+
+/* video section styles */
 .video {
   text-align: center;
   background-color: black;
