@@ -112,7 +112,7 @@
         </article>
       </section>
       <section class="contact-section">
-        <h1>Contact Thorworks</h1>
+        <h2 id="msg_display">Contact Thorworks</h2>
         <img
           src="images/close-btn.svg"
           alt="close button"
@@ -120,33 +120,47 @@
           class="close-btn"
           id="contact_close_btn"
         />
-        <p class="form-title">E-Mail Thordarsen</p>
+        <p class="contact-form-title">E-Mail Thordarsen</p>
         <form class="contact-form" action="contactForm.php" method="post">
-          <div class="form-group">
-            <label for="name">Name or game name</label>
-            <input type="text" name="name" id="name" placeholder="Your Name" required />
+          <div class="contact-form-group">
+            <label for="name" class="contact-form-label">Name or Game Name</label>
+            <input
+              type="text"
+              name="name"
+              class="contact-form-control"
+              id="name"
+              placeholder="Name or Game Name"
+              tabindex="1"
+              required
+            />
           </div>
-          <div class="form-group">
-            <label for="email">Your email (optional)</label>
-            <input type="email" name="email" id="email" placeholder="Your email address" />
+          <div class="contact-form-group">
+            <label for="email" class="contact-form-label">Email (optional)</label>
+            <input
+              type="email"
+              name="email"
+              class="contact-form-control"
+              id="email"
+              placeholder="Email (optional)"
+              tabindex="2"
+            />
           </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" name="subject" id="subject" placeholder="Subject" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
+          <div class="contact-form-group">
+            <label for="message" class="contact-form-label">Message</label>
             <textarea
               name="message"
+              class="contact-form-control"
               id="message"
               placeholder="Message"
-              cols="40"
               rows="10"
+              minlength="5"
+              maxlength="300"
+              tabindex="3"
               required
             ></textarea>
           </div>
           <div class="contact-btn-row">
-            <button type="submit" name="submit" class="send-btn" id="send_btn">SEND</button>
+            <button type="submit" name="submit" class="contact-send-btn">SEND MESSAGE</button>
           </div>
         </form>
       </section>
