@@ -1,6 +1,6 @@
 :root {
   --primary-clr: coral;
-  --primary-bkg-clr: whitesmoke;
+  --primary-bkg-clr: #fffdea;
   --sectiontxt-clr: hsl(0, 0%, 10%);
   /* --sectiontxt-bkg-clr: whitesmoke; */
 }
@@ -107,6 +107,7 @@ article > p {
   border-radius: 0;
   border-color: #ccc;
   border-style: none none solid none;
+  transition: all 0.6s;
 }
 
 .contact-form-control::placeholder {
@@ -119,18 +120,33 @@ article > p {
   border-color: var(--primary-clr);
 }
 
+.contact-form-group:focus-within {
+  transform: scale(1.05, 1.05);
+}
+
+.contact-form-control:invalid:focus {
+  border-color: red;
+}
+
+.contact-form-control:valid:focus {
+  border-color: green;
+}
+
+.contact-form-group-focused {
+  /*todo: utility class to transition labels using javascript */
+}
+
 .contact-form textarea {
   resize: none;
 }
 
 .contact-form-label {
   color: var(--primary-clr);
-  /* display: block; */
-  font-size: 0.75em;
+  /* font-size: 0.75em; */
   position: absolute;
   top: 2px;
   left: 2px;
-  opacity: 0;
+  opacity: 1;
   transition: all 300ms ease-in;
 }
 
