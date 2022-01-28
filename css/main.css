@@ -1,5 +1,6 @@
 :root {
   --primary-clr: coral;
+  --secondary-clr: blue;
   --primary-bkg-clr: #fffdea;
   --sectiontxt-clr: hsl(0, 0%, 10%);
   /* --sectiontxt-bkg-clr: whitesmoke; */
@@ -80,7 +81,8 @@ article > p {
 /* contact form styles */
 .contact-section {
   position: relative;
-  width: 400px;
+  width: 500px;
+  user-select: none;
 }
 
 .contact-form {
@@ -95,13 +97,29 @@ article > p {
 
 .contact-form-group {
   position: relative;
-  margin-bottom: 1em;
+  padding: 1em 0 0.5em;
+}
+
+.contact-form-label {
+  color: var(--secondary-clr);
+  font-size: 1.2em;
+  position: absolute;
+  top: 10px;
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+
+/* applied via javascript */
+.contact-form-control-focused {
+  /*todo: utility class to transition labels using javascript */
+  opacity: 1;
+  top: -10px;
 }
 
 .contact-form-control {
   width: 100%;
   margin-bottom: 0.5em;
-  font-size: 1.25em;
+  font-size: 1.2em;
   background-color: var(--primary-bkg-clr);
   box-shadow: none;
   border-radius: 0;
@@ -132,22 +150,8 @@ article > p {
   border-color: green;
 }
 
-.contact-form-group-focused {
-  /*todo: utility class to transition labels using javascript */
-}
-
 .contact-form textarea {
   resize: none;
-}
-
-.contact-form-label {
-  color: var(--primary-clr);
-  /* font-size: 0.75em; */
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  opacity: 1;
-  transition: all 300ms ease-in;
 }
 
 .contact-btn-row {

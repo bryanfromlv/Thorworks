@@ -7,7 +7,9 @@ const aboutSection = document.querySelector('.about-section')
 const contactSection = document.querySelector('.contact-section')
 const aboutCloseBtn = document.querySelector('#about_close_btn')
 const contactCloseBtn = document.querySelector('#contact_close_btn')
+const contactFormControls = document.querySelectorAll('.contact-form-control')
 
+//! navigation
 const doAbout = () => {
   mainSection.classList.add('hide-section')
   aboutSection.classList.remove('hide-section')
@@ -40,4 +42,20 @@ const closeContact = mainFlag => {
 }
 contactCloseBtn.addEventListener('click', evt => {
   closeContact(true)
+})
+
+//! contact form code
+contactFormControls.forEach(control => {
+  control.addEventListener('focus', evt => {
+    let myLabel = evt.target.labels[0]
+    // console.log(`focus: ${myLabel.innerText}`)
+    myLabel.classList.add('contact-form-control-focused')
+    evt.target.placeholder = ''
+  })
+  control.addEventListener('blur', evt => {
+    let myLabel = evt.target.labels[0]
+    // console.log(`blur: ${myLabel.innerText}`)
+    myLabel.classList.remove('contact-form-control-focused')
+    evt.target.placeholder = myLabel.innerText
+  })
 })
