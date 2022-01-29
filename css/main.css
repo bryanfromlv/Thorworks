@@ -143,7 +143,7 @@ article > p {
 }
 
 .contact-form-control:invalid:focus {
-  border-color: red;
+  outline: 2px solid red;
 }
 
 .contact-form-control:valid:focus {

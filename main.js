@@ -44,7 +44,7 @@ contactCloseBtn.addEventListener('click', evt => {
   closeContact(true)
 })
 
-//! contact form code
+//! contact form- label animation and placeholder text show/hide
 contactFormControls.forEach(control => {
   control.addEventListener('focus', evt => {
     let myLabel = evt.target.labels[0]
