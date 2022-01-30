@@ -8,6 +8,12 @@ const contactSection = document.querySelector('.contact-section')
 const aboutCloseBtn = document.querySelector('#about_close_btn')
 const contactCloseBtn = document.querySelector('#contact_close_btn')
 const contactFormControls = document.querySelectorAll('.contact-form-control')
+//! url parameter processing for contact form
+const queryString = window.location.search
+console.log(`queryString: ${queryString}`)
+const urlParams = new URLSearchParams(queryString)
+const messageSent = urlParams.get('messageSent')
+console.log(`messageSent = ${messageSent}`)
 
 //! navigation
 const doAbout = () => {
