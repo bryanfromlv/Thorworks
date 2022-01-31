@@ -173,6 +173,10 @@ article > p {
   color: white;
 }
 
+.red {
+  color: red;
+}
+
 /* video section styles */
 .video {
   text-align: center;

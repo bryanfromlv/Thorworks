@@ -8,12 +8,7 @@ const contactSection = document.querySelector('.contact-section')
 const aboutCloseBtn = document.querySelector('#about_close_btn')
 const contactCloseBtn = document.querySelector('#contact_close_btn')
 const contactFormControls = document.querySelectorAll('.contact-form-control')
-//! url parameter processing for contact form
-const queryString = window.location.search
-console.log(`queryString: ${queryString}`)
-const urlParams = new URLSearchParams(queryString)
-const messageSent = urlParams.get('messageSent')
-console.log(`messageSent = ${messageSent}`)
+const contactFormTitle = document.querySelector('.contact-form-title')
 
 //! navigation
 const doAbout = () => {
@@ -49,6 +44,29 @@ const closeContact = mainFlag => {
 contactCloseBtn.addEventListener('click', evt => {
   closeContact(true)
 })
+
+//! url parameter processing for contact form
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString)
+const messageSent = urlParams.get('messageSent')
+console.log(`messageSent = ${messageSent}`)
+if (messageSent == 1) {
+  // this means that the contact form was successfully submitted, processed,
+  // and redirected to index.html, which means a full reload.
+  // so we need to reactivate the contact form (hiding other sections)
+  // and put up a success message using .contact-form-title
+  contactFormTitle.innerHTML = 'Thank you, your message has been sent!'
+  contactFormTitle.classList.remove('red')
+  doContact()
+} else if (messageSent !== null) {
+  contactFormTitle.innerHTML = 'Sorry, there was an error sending your message!'
+  contactFormTitle.classList.add('red')
+  doContact()
+} else {
+  // messageSent must be null so restore title to default
+  contactFormTitle.innerHTML = 'E-Mail Thordarsen'
+  contactFormTitle.classList.remove('red')
+}
 
 //! contact form- label animation and placeholder text show/hide
 contactFormControls.forEach(control => {
