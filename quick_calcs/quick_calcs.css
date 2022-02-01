@@ -25,6 +25,8 @@ fieldset {
   margin: 1vh 0 2vh;
   background-color: skyblue;
   user-select: none;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
 }
 
 legend {
@@ -33,6 +35,21 @@ legend {
   font-weight: 600;
   border-radius: 25px;
   padding: 0 1em;
+}
+
+.arc-input {
+  margin: 0.5rem 0;
+}
+
+.arc-input > label {
+  background-color: blue;
+  color: white;
+  border-radius: 25px;
+  padding: 0.2rem 0.5rem;
+}
+
+.arc-input > input {
+  width: 6ch;
 }
 
 .bottom-button-row {
@@ -61,8 +78,6 @@ legend {
 
 .hide {
   display: none;
-  /* opacity: 0;
-  visibility: hidden; */
 }
 
 /* quick 1.9 styles */
@@ -91,10 +106,6 @@ legend {
   gap: 1rem;
 }
 
-.mine-row {
-  font-weight: 600;
-}
-
 .mine-row span {
   border: 1px solid black;
   color: white;
@@ -107,7 +118,7 @@ legend {
   cursor: pointer;
 }
 
-#fp_input {
+.fp-input {
   background-color: var(--field-bkg);
   width: 5rem;
 }
@@ -134,9 +145,17 @@ legend {
   font-weight: 600;
 }
 
-#result_txt {
+.input-valid {
+  outline-color: green;
+}
+
+.input-invalid {
+  outline-color: red;
+}
+
+.result-txt {
   align-self: center;
-  padding: 0.1em 0.25em;
+  padding: 0 0.5em;
   margin-bottom: 0.25em;
   background-color: white;
   color: red;

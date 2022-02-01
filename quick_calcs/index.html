@@ -41,6 +41,10 @@
       </ul>
     </nav>
     <main>
+      <div class="arc-input">
+        <label for="arc_input">Enter your Arc multiplier</label>
+        <input type="text" name="arc_mx" id="arc_mx_input" required />
+      </div>
       <!-- quick calc -->
       <fieldset id="quick_calc_fs">
         <legend>Quick 1.9+ Calculator</legend>
@@ -68,7 +72,7 @@
           </div>
           <div>
             <label for="fp_input">Enter FP</label>
-            <input type="text" name="FP" id="fp_input" />
+            <input type="text" name="FP" class="fp-input" id="fp_input" />
           </div>
           <div class="bottom-button-row">
             <button class="btn" id="qc_calc_btn">Calc</button>
@@ -81,10 +85,6 @@
       <fieldset id="quick_snipe_fs">
         <legend>Quick Sniper Calculator</legend>
         <div class="qs-container">
-          <div class="input-row">
-            <label for="arc_input">My Arc multiplier</label>
-            <input type="text" name="arc_mx" class="push-right" id="arc_mx_input" required />
-          </div>
           <div class="input-row">
             <label for="goal_input">Target goal</label>
             <input type="text" name="goal" class="push-right" id="goal_input" required />
@@ -113,7 +113,7 @@
           <div class="display-row">Left/2: <span id="half_left"></span></div>
           <div class="display-row">To lock: <span id="to_lock"></span></div>
           <div class="display-row">Profit: <span id="profit"></span></div>
-          <div class="display-row hide" id="result_txt">Snipe it!</div>
+          <div class="display-row hide result-txt" id="result_txt">Snipe it!</div>
 
           <div class="bottom-button-row">
             <button class="btn" id="qs_calc_btn">Calc</button>

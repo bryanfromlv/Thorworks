@@ -1,6 +1,7 @@
+import { myArcObj } from './quick_calcs.js'
 export default class quickSnipe {
   constructor() {
-    const arcMxInput = document.querySelector('#arc_mx_input')
+    // const arcMxInput = document.querySelector('#arc_mx_input')
     const goalInput = document.querySelector('#goal_input')
     const currentInput = document.querySelector('#current_input')
     const rewardInput = document.querySelector('#pos_reward_input')
@@ -15,16 +16,7 @@ export default class quickSnipe {
     const resultDisplay = document.querySelector('#result_txt')
     const calcBtn = document.querySelector('#qs_calc_btn')
     const clearBtn = document.querySelector('#qs_clear_btn')
-    const container = document.querySelector('#quick_snipe_fs')
-
-    //! check localStorage for saved arcMx value (saved on first run of calculate() and when changed)
-    this.arcMx = localStorage.getItem('arcMx')
-    if (!this.arcMx) {
-      arcMxInput.focus()
-    } else {
-      arcMxInput.value = this.arcMx
-      goalInput.focus()
-    }
+    const quickSnipeFs = document.querySelector('#quick_snipe_fs')
 
     //! class methods
     // called on calc button click & enter key
@@ -32,13 +24,8 @@ export default class quickSnipe {
       if (!validate()) {
         return
       }
-      // save arcMx value if not set, or if it is different from saved value
-      if (this.arcMx !== arcMxInput.value) {
-        this.arcMx = arcMxInput.value
-        localStorage.setItem('arcMx', this.arcMx)
-      }
       // first we have to convert the inputs to numbers
-      let mymx = Number(arcMxInput.value)
+      // let mymx = Number(arcMxInput.value)
       let goal = Number(goalInput.value)
       let current = Number(currentInput.value)
       let reward = Number(rewardInput.value)
@@ -47,7 +34,7 @@ export default class quickSnipe {
       let mx19 = Math.round(reward * 1.9)
       let left = goal - current
       let halfLeft = Math.ceil(left / 2)
-      let myReward = Math.round(reward * mymx)
+      let myReward = Math.round(reward * myArcObj.val)
       let toLock = halfLeft + firstPlace / 2
       let profit = myReward - toLock
       mx19Display.innerHTML = mx19
@@ -65,15 +52,13 @@ export default class quickSnipe {
     }
 
     // called on keyup
-    const update = (evt) => {
-      // console.log(evt.key)
+    const update = evt => {
       if (evt.key !== 'Tab' && evt.key !== 'Enter') {
         return
       } else if (evt.key == 'Enter') {
         calculate()
         return
       }
-      // console.log(evt.key)
       let goal = Number(goalInput.value)
       let current = Number(currentInput.value)
       if (goal == 0 || current == 0) {
@@ -86,8 +71,7 @@ export default class quickSnipe {
       let reward = Number(rewardInput.value)
       if (reward > 0) {
         let mx19 = Math.round(reward * 1.9)
-        let mymx = Number(arcMxInput.value)
-        let myReward = Math.round(reward * mymx)
+        let myReward = Math.round(reward * myArcObj.val)
         mx19Display.innerHTML = mx19
         myRewardDisplay.innerHTML = myReward
       }
@@ -95,37 +79,27 @@ export default class quickSnipe {
     }
 
     const validate = () => {
-      if (arcMxInput.value === '') {
-        arcMxInput.style.borderColor = 'red'
-        arcMxInput.style.borderWidth = '3px'
-        arcMxInput.focus()
-        return false
-      }
-      if (goalInput.value === '') {
+      if (goalInput.value == '') {
         resetStyles()
-        goalInput.style.borderColor = 'red'
-        goalInput.style.borderWidth = '3px'
+        goalInput.classList.add('input-invalid')
         goalInput.focus()
         return false
       }
-      if (currentInput.value === '') {
+      if (currentInput.value == '') {
         resetStyles()
-        currentInput.style.borderColor = 'red'
-        currentInput.style.borderWidth = '3px'
+        currentInput.classList.add('input-invalid')
         currentInput.focus()
         return false
       }
-      if (rewardInput.value === '') {
+      if (rewardInput.value == '') {
         resetStyles()
-        rewardInput.style.borderColor = 'red'
-        rewardInput.style.borderWidth = '3px'
+        rewardInput.classList.add('input-invalid')
         rewardInput.focus()
         return false
       }
-      if (firstPlaceInput.value === '') {
+      if (firstPlaceInput.value == '') {
         resetStyles()
-        firstPlaceInput.style.borderColor = 'red'
-        firstPlaceInput.style.borderWidth = '3px'
+        firstPlaceInput.classList.add('input-invalid')
         firstPlaceInput.focus()
         return false
       }
@@ -134,9 +108,9 @@ export default class quickSnipe {
     }
 
     const resetStyles = () => {
-      allInputs.forEach((el) => {
-        el.style.borderColor = 'black'
-        el.style.borderWidth = '1px'
+      allInputs.forEach(el => {
+        el.classList.remove('input-valid')
+        el.classList.remove('input-invalid')
       })
     }
 
@@ -156,11 +130,19 @@ export default class quickSnipe {
       goalInput.focus()
     }
 
+    const focusGoalInput = () => {
+      if (goalInput.value == '') {
+        goalInput.focus()
+      }
+      return
+    }
+
     //! add event listeners
-    container.addEventListener('keyup', update)
+    quickSnipeFs.addEventListener('keyup', update)
+    quickSnipeFs.addEventListener('click', focusGoalInput)
     calcBtn.addEventListener('click', calculate)
     clearBtn.addEventListener('click', clear)
-    console.log(`quickSnipe_module instantiated`)
+    // console.log(`quickSnipe_module instantiated`)
   }
 }
-console.log(`quickSnipe_module loaded`)
+// console.log(`quickSnipe_module loaded`)

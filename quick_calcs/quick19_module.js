@@ -1,28 +1,28 @@
+import { myArcObj } from './quick_calcs.js'
 export default class quick19 {
   constructor() {
     const myFs = document.querySelector('#quick_calc_fs')
     const displayText = document.querySelector('.display-txt')
     const mxrbGroup = document.querySelectorAll('input[name="mx"]')
-    const myArcInput = document.querySelector('#arc_mx_input')
+    // const myArcInput = document.querySelector('#arc_mx_input')
     const mineDisplay = document.querySelector('#mine')
     const fpField = document.querySelector('#fp_input')
     const calcBtn = document.querySelector('#qc_calc_btn')
     const clearBtn = document.querySelector('#qc_clear_btn')
     fpField.focus()
     let mx = 'mx19'
-
     //! add event listener to fieldset, focus fp input
     myFs.addEventListener('click', () => {
       fpField.focus()
     })
 
     //! add event listeners to the radio buttons
-    mxrbGroup.forEach((rb) => {
-      rb.addEventListener('change', (evt) => {
+    mxrbGroup.forEach(rb => {
+      rb.addEventListener('change', evt => {
         checkMxRbs(evt)
       })
     })
-    const checkMxRbs = (evt) => {
+    const checkMxRbs = evt => {
       mx = evt.target.value
       calculate()
     }
@@ -34,12 +34,10 @@ export default class quick19 {
         return
       }
 
-      let myArc = Number(myArcInput.value)
-      console.log(myArc)
-      if (myArc <= 0 || myArc == '') {
+      if (myArcObj.val <= 0 || myArcObj.val == '') {
         mineDisplay.innerHTML = 'Enter arc multiplier'
       } else {
-        mineDisplay.innerHTML = Math.round(fpField.value * myArc)
+        mineDisplay.innerHTML = Math.round(fpField.value * myArcObj.val)
       }
 
       switch (mx) {
@@ -53,7 +51,7 @@ export default class quick19 {
           displayText.innerHTML = Math.round(fpField.value * 1.94)
           break
         default:
-          alert(`calculate() error: ${mx}`)
+          alert(`calculate() error: mx=${mx}`)
           break
       }
       // select the text in fpField
@@ -61,7 +59,7 @@ export default class quick19 {
     }
 
     //! add event listener to fp input, handle enter key
-    fpField.addEventListener('keydown', (evt) => {
+    fpField.addEventListener('keydown', evt => {
       if (evt.key !== 'Enter' && evt.key !== 'Tab') {
         return
       }
@@ -79,7 +77,7 @@ export default class quick19 {
       mineDisplay.innerHTML = 'My Arc'
       fpField.value = ''
     })
-    console.log(`quick19_module instantiated`)
+    // console.log(`quick19_module instantiated`)
   }
 }
-console.log(`quick19_module loaded`)
+// console.log(`quick19_module loaded`)
