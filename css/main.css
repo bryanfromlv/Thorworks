@@ -113,7 +113,6 @@ article > p {
 
 /* applied via javascript */
 .contact-form-control-focused {
-  /*todo: utility class to transition labels using javascript */
   opacity: 1;
   top: -10px;
 }

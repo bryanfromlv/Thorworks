@@ -1,12 +1,11 @@
 import { store, navBar, calculator, showCalculator, checkCalcNav } from './main.js'
-// const store = new storage()
 export default class gbList {
   constructor(listSection) {
     this._listSection = listSection
     this._gbList = []
     this._gbToDelete = ''
     this.build()
-    console.log(`gbList instantiated`)
+    // console.log(`gbList instantiated`)
   }
 
   clearDisplay = () => {
@@ -621,4 +620,4 @@ export default class gbList {
     div.classList.add('x-mark')
   }
 }
-console.log(`gbList.js loaded`)
+// console.log(`gbList.js loaded`)

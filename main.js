@@ -1,6 +1,5 @@
 export { doAbout, doContact }
 import nav from './main_navmodule.js'
-console.log(`main.js loaded`)
 const mainNavbar = new nav()
 const mainSection = document.querySelector('.main-section')
 const aboutSection = document.querySelector('.about-section')
@@ -49,7 +48,6 @@ contactCloseBtn.addEventListener('click', evt => {
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString)
 const messageSent = urlParams.get('messageSent')
-console.log(`messageSent = ${messageSent}`)
 if (messageSent == 1) {
   // this means that the contact form was successfully submitted, processed,
   // and redirected to index.html, which means a full reload.

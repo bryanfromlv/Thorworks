@@ -53,7 +53,7 @@ export default class calc {
     ]
     // console.table(this._mxrbGroups)
     this.init()
-    console.log(`calc instantiated`)
+    // console.log(`calc instantiated`)
   }
 
   init = () => {
@@ -286,7 +286,7 @@ export default class calc {
       //put up no gb modal
       this.doNoGbModal()
     }
-    console.log(`calc initalized`)
+    // console.log(`calc initalized`)
   } //! end init()
   //! set curGbKey in localStorage and load the GB object from localStorage
   setGb = gbKey => {
@@ -1325,4 +1325,4 @@ export default class calc {
     div.classList.add('calc-x-mark')
   }
 }
-console.log(`calc.js loaded`)
+// console.log(`calc.js loaded`)

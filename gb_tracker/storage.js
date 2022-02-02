@@ -43,7 +43,7 @@ export default class storage {
       { name: 'The Virgo Project', nickname: 'Virgo', sort: 'Virgo' },
       { name: 'Voyager V1', nickname: 'Voyager', sort: 'Voyager' },
     ]
-    console.log(`storage instantiated`)
+    // console.log(`storage instantiated`)
   }
 
   // confirm browser allows local storage
@@ -175,4 +175,4 @@ export default class storage {
     return noGbs
   }
 }
-console.log(`storage.js loaded`)
+// console.log(`storage.js loaded`)

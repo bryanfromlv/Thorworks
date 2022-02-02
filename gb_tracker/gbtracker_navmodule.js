@@ -100,7 +100,7 @@ export default class nav {
     //   window.open('./construction.html', '_self')
     // }
     // bottomNav3.addEventListener('click', doBottomNav3)
-    console.log(`gbtracker_navmodule instantiated`)
+    // console.log(`gbtracker_navmodule instantiated`)
   }
 }
-console.log(`gbtracker_navmodule.js loaded`)
+// console.log(`gbtracker_navmodule.js loaded`)

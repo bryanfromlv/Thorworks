@@ -5,7 +5,7 @@ export default class utilities {
     const scrollBtnTrigger = document.querySelector('#scroll_btn_trigger')
 
     //! lazy load images
-    const preloadImage = (img) => {
+    const preloadImage = img => {
       const src = img.getAttribute('data-src')
       if (!src) {
         return
@@ -16,7 +16,7 @@ export default class utilities {
 
     const imgOptions = { threshold: 0, rootMargin: '300px' }
     const imgObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) {
           return
         } else {
@@ -26,7 +26,7 @@ export default class utilities {
       })
     }, imgOptions)
 
-    images.forEach((image) => {
+    images.forEach(image => {
       imgObserver.observe(image)
     })
 
@@ -46,7 +46,7 @@ export default class utilities {
     }
     const observer = new IntersectionObserver(scrollMethod)
     observer.observe(scrollBtnTrigger)
-    console.log(`utilities.js instantiated`)
+    // console.log(`utilities.js instantiated`)
   }
 }
-console.log(`utilities.js loaded`)
+// console.log(`utilities.js loaded`)

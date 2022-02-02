@@ -35,42 +35,42 @@ export default class nav {
 
     //! top nav
     // logo
-    const doNavLogo = (evt) => {
+    const doNavLogo = evt => {
       window.open('../', '_self')
     }
     navLogo.addEventListener('click', doNavLogo)
 
     // dropdown items
-    const doDd1Item1 = (evt) => {
+    const doDd1Item1 = evt => {
       window.open('../gb_tracker/', '_self')
     }
     dd1Item1.addEventListener('click', doDd1Item1)
 
-    const doDd1Item2 = (evt) => {
+    const doDd1Item2 = evt => {
       window.open('../quick_calcs/', '_self')
     }
     dd1Item2.addEventListener('click', doDd1Item2)
 
-    const doDd1Item3 = (evt) => {
+    const doDd1Item3 = evt => {
       window.open('./aztecs_guide/', '_self')
     }
     dd1Item3.addEventListener('click', doDd1Item3)
 
-    const doTopNav2 = (evt) => {
+    const doTopNav2 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('../construction.html', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
-    const doTopNav3 = (evt) => {
+    const doTopNav3 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('../construction.html', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
 
-    const doTopNav4 = (evt) => {
+    const doTopNav4 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
       window.open('../construction.html', '_self')
@@ -98,7 +98,7 @@ export default class nav {
     //   window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw')
     // }
     // bottomNav3.addEventListener('click', doBottomNav3)
-    console.log(`aztecs_navmodule instantiated`)
+    // console.log(`aztecs_navmodule instantiated`)
   }
 }
-console.log(`aztecs_navmodule.js loaded`)
+// console.log(`aztecs_navmodule.js loaded`)

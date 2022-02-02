@@ -15,11 +15,8 @@ export { store, gb_list, navBar, calculator, showCalculator, showGbList, showNew
 const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
-// const navLogo = document.querySelector('.top-nav-logo')
-// const gbListLink = document.querySelector('.top-nav-list > li:nth-of-type(2)')
-// const newGbLink = document.querySelector('.top-nav-list > li:nth-of-type(3)')
 const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
-// dynamic media query using window.matchMedia
+//! dynamic media query using window.matchMedia
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
 const orientModalContainer = document.querySelector('.orient-modal-container')
@@ -73,7 +70,7 @@ const checkCalcNav = () => {
     calcLink.classList.add('nav-item-disabled')
     return true
   }
-  console.log(`enabling calc nav`)
+  // console.log(`enabling calc nav`)
   calcLink.classList.remove('nav-item-disabled')
   return false
 }
@@ -123,4 +120,4 @@ const showCalculator = () => {
   newGbForm.classList.add('hide')
 }
 
-console.log(`main.js loaded`)
+// console.log(`main.js loaded`)

@@ -140,17 +140,17 @@ legend {
   width: 8ch;
 }
 
-.display-row {
-  width: fit-content;
-  font-weight: 600;
-}
-
-.input-valid {
+.input-row input:valid {
   outline-color: green;
 }
 
-.input-invalid {
+.input-row input:invalid {
   outline-color: red;
+}
+
+.display-row {
+  width: fit-content;
+  font-weight: 600;
 }
 
 .result-txt {

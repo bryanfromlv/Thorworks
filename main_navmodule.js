@@ -106,7 +106,7 @@ export default class nav {
       window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw', '_blank')
     }
     bottomNav3.addEventListener('click', doBottomNav3)
-    console.log(`main_navmodule instantiated`)
+    // console.log(`main_navmodule instantiated`)
   }
 }
-console.log(`main_navmodule.js loaded`)
+// console.log(`main_navmodule.js loaded`)

@@ -198,7 +198,7 @@ function initNewGb() {
 
 // this function needed for access by other code
 const resetNewGbForm = () => {
-  console.log('resetNewGbForm()')
+  // console.log('resetNewGbForm()')
   newGbForm.reset()
 }
 
@@ -213,4 +213,4 @@ const finalSave = newGb => {
   calculator.calculate(newGb.key)
   // console.log(`finalSave called, ${newGb.key} saved`)
 }
-console.log(`newGb.js loaded`)
+// console.log(`newGb.js loaded`)

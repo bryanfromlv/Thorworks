@@ -1,7 +1,6 @@
 import { myArcObj } from './quick_calcs.js'
 export default class quickSnipe {
   constructor() {
-    // const arcMxInput = document.querySelector('#arc_mx_input')
     const goalInput = document.querySelector('#goal_input')
     const currentInput = document.querySelector('#current_input')
     const rewardInput = document.querySelector('#pos_reward_input')
@@ -25,7 +24,6 @@ export default class quickSnipe {
         return
       }
       // first we have to convert the inputs to numbers
-      // let mymx = Number(arcMxInput.value)
       let goal = Number(goalInput.value)
       let current = Number(currentInput.value)
       let reward = Number(rewardInput.value)
@@ -75,47 +73,29 @@ export default class quickSnipe {
         mx19Display.innerHTML = mx19
         myRewardDisplay.innerHTML = myReward
       }
-      resetStyles()
     }
 
     const validate = () => {
       if (goalInput.value == '') {
-        resetStyles()
-        goalInput.classList.add('input-invalid')
         goalInput.focus()
         return false
       }
       if (currentInput.value == '') {
-        resetStyles()
-        currentInput.classList.add('input-invalid')
         currentInput.focus()
         return false
       }
       if (rewardInput.value == '') {
-        resetStyles()
-        rewardInput.classList.add('input-invalid')
         rewardInput.focus()
         return false
       }
       if (firstPlaceInput.value == '') {
-        resetStyles()
-        firstPlaceInput.classList.add('input-invalid')
         firstPlaceInput.focus()
         return false
       }
-      resetStyles()
       return true
     }
 
-    const resetStyles = () => {
-      allInputs.forEach(el => {
-        el.classList.remove('input-valid')
-        el.classList.remove('input-invalid')
-      })
-    }
-
     const clear = () => {
-      resetStyles()
       goalInput.value = ''
       currentInput.value = ''
       rewardInput.value = ''
