@@ -514,7 +514,7 @@ export default class gbList {
 
   //! put up new gb modal
   doNewGbModal = gb => {
-    console.log('doNewGbModal()')
+    // console.log('doNewGbModal()')
     // fade in modal background and slide in the modal
     let modalBkg = document.querySelector('#newgb_modal_bkg')
     let confirmModalContainer = document.querySelector('#newGb_modal_container')
@@ -599,7 +599,7 @@ export default class gbList {
   }
 
   doCalc = gbKey => {
-    console.log(`doCalc(${gbKey})`)
+    // console.log(`doCalc(${gbKey})`)
     calculator.calculate(gbKey)
     navBar.activateCalc()
   }

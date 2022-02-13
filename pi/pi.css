@@ -26,6 +26,10 @@ h1 {
   user-select: none;
 }
 
+h2 {
+  color: var(--primary-bkg-clr);
+}
+
 main {
   display: flex;
   flex-direction: column;

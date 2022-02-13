@@ -60,6 +60,6 @@ export default class gb {
       locked: false,
       needed: null,
     }
-    console.log(`${this.key} gb object constructed`)
+    // console.log(`${this.key} gb object constructed`)
   }
 }
