@@ -8,7 +8,6 @@
   background: var(--section-background);
   -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
-  /* do transition animation here */
 }
 
 .new-gb-form input {
@@ -49,13 +48,14 @@
 .save-btn {
   background-color: green;
   color: white;
-  border-radius: 25%;
-  padding: 0.2rem;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 0.2em 0.5em;
   margin-bottom: 1rem;
+  transition: background-color 200ms ease-in;
 }
 
 .save-btn:hover {
-  cursor: pointer;
   background-color: red;
 }
 

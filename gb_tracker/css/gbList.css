@@ -77,28 +77,30 @@ b {
 }
 
 .delete-btn {
-  width: 3rem;
   background-color: green;
   color: white;
-  border-radius: 25%;
-  padding: 0.2rem;
+  border-radius: 15px;
+  padding: 0 0.5em;
+  cursor: pointer;
+  border: none;
+  transition: background-color 250ms ease-in;
 }
 
 .delete-btn:hover {
-  cursor: pointer;
   background-color: red;
 }
 
 .calc-btn {
-  width: 2.5rem;
   background-color: green;
   color: white;
-  border-radius: 25%;
-  padding: 0.2rem;
+  border-radius: 15px;
+  padding: 0 0.5em;
+  cursor: pointer;
+  border: none;
+  transition: background-color 250ms ease-in;
 }
 
 .calc-btn:hover {
-  cursor: pointer;
   background-color: blue;
 }
 
