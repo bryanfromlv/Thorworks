@@ -1,0 +1,37 @@
+:root {
+  --primary-clr: hsl(350, 80%, 75%);
+  --secondary-clr: blue;
+  --primary-bkg-clr: #fffdea;
+  --sectiontxt-clr: hsl(0, 0%, 10%);
+  /* --sectiontxt-bkg-clr: whitesmoke; */
+}
+
+body {
+  background: hsl(210, 73%, 35%);
+  background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
+  /* font-size: 18px; */
+  font-family: 'Open Sans', sans-serif;
+  /*! Google font Open Sans: 300,400,500,600,700,800 */
+}
+
+nav {
+  z-index: 100;
+}
+
+h1 {
+  color: var(--primary-clr);
+  margin-top: 0.25rem;
+  user-select: none;
+}
+
+h2 {
+  color: var(--primary-bkg-clr);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
