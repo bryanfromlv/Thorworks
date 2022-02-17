@@ -1,0 +1,11 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  /*! Google font Open Sans: 300,400,500,600,700,800 */
+}
+
+.swiper {
+  width: 800px;
+  /* height: 450px; */
+  background-color: lightskyblue;
+  user-select: none;
+}

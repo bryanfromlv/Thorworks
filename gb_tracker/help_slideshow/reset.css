@@ -1,0 +1,34 @@
+/* reset base settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /*! we don't set the font family here, but it does need to be set on all elements */
+  /*! so copy this format to individual css files  */
+  /* note- quotes are only required for fonts with spaces in the name */
+  /* font-family: 'Open Sans', sans-serif; */
+  /*! Google font Open Sans: 300,400,500,600,700,800 */
+  line-height: 1.4;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* disable selector arrows on number inputs */
+/* .noNumArrows::-webkit-inner-spin-button,
+.noNumArrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  margin: 0;
+} */
+/* added 9/24/21- old method doesn't work with newer Firefox */
+/* input[type='number'] {
+  -moz-appearance: textfield;
+} */

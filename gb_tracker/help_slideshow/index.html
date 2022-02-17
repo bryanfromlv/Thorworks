@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- import google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="swiper.css" />
+    <script type="module">
+      import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+      const settings = {
+        // Optional parameters
+        // loop: true, // don't use this, it's messed up
+        // cssMode: true, // enables snapping but disables drag with mouse
+        // effect: 'cube',
+        // effect: 'flip',
+        // effect: 'cards',
+        // effect: 'coverFlow',
+        // effect: 'fade',
+        speed: 600, // default 300
+        autoplay: {
+          // disabled after user interaction
+          delay: 10000,
+        },
+        // centeredSlides: true, // doesn't work, even with width turned off
+        autoHeight: true,
+        rewind: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      }
+      const swiper = new Swiper('.swiper', settings)
+    </script>
+    <title>Swiper Test</title>
+  </head>
+  <body>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="slides/slide1.png" alt="slide 1" /></div>
+        <div class="swiper-slide"><img src="slides/slide2.png" alt="slide 2" /></div>
+        <div class="swiper-slide"><img src="slides/slide3.png" alt="slide 3" /></div>
+        <div class="swiper-slide"><img src="slides/slide4.gif" alt="slide 4" /></div>
+        <div class="swiper-slide"><img src="slides/slide5.png" alt="slide 5" /></div>
+        <div class="swiper-slide"><img src="slides/slide6.png" alt="slide 6" /></div>
+        <div class="swiper-slide"><img src="slides/slide7.png" alt="slide 7" /></div>
+        <div class="swiper-slide"><img src="slides/slide8.png" alt="slide 8" /></div>
+        <div class="swiper-slide"><img src="slides/slide9.png" alt="slide 9" /></div>
+        <div class="swiper-slide"><img src="slides/slide10.png" alt="slide 10" /></div>
+        <div class="swiper-slide"><img src="slides/slide11.gif" alt="slide 11" /></div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </body>
+</html>
