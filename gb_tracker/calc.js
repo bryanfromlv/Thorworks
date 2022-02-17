@@ -1065,6 +1065,10 @@ export default class calc {
           if (p5Needed < 0) {
             p5Needed = 0
           }
+          // bug fix added 2/17/22
+          if (this._pArray[4].mx19 <= 0) {
+            p5Needed = resultsArray[3].needed
+          }
           p5Result.needed = p5Needed
           //! calculate p5 ready
           mx = this._pArray[4].mx19
@@ -1077,7 +1081,8 @@ export default class calc {
             p5Result.ready = false
           }
           //! calculate p5 locked
-          if (left <= this._pArray[4].current) {
+          // bug fix added 2/17/22
+          if (left <= this._pArray[4].current || this._pArray[4].mx19 <= 0) {
             p5Result.locked = true
           } else {
             p5Result.locked = false

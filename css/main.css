@@ -3,7 +3,6 @@
   --secondary-clr: blue;
   --primary-bkg-clr: #fffdea;
   --sectiontxt-clr: hsl(0, 0%, 10%);
-  /* --sectiontxt-bkg-clr: whitesmoke; */
 }
 
 body {
@@ -11,7 +10,6 @@ body {
   background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
-  /* font-size: 18px; */
   font-family: 'Open Sans', sans-serif;
   /*! Google font Open Sans: 300,400,500,600,700,800 */
 }
@@ -33,14 +31,15 @@ main {
 }
 
 section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--sectiontxt-clr);
   background-color: var(--primary-bkg-clr);
   width: fit-content;
   margin-top: 1rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 15px;
   -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
 }
@@ -60,8 +59,8 @@ article > p {
 
 .close-btn {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
 }
 
 .close-btn:hover {

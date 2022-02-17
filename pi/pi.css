@@ -1,5 +1,5 @@
 :root {
-  --primary-clr: hsl(350, 80%, 75%);
+  --primary-clr: #e30b5c;
   --secondary-clr: blue;
   --primary-bkg-clr: #fffdea;
   --sectiontxt-clr: hsl(0, 0%, 10%);
@@ -11,7 +11,6 @@ body {
   background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: linear-gradient(to right, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
-  /* font-size: 18px; */
   font-family: 'Open Sans', sans-serif;
   /*! Google font Open Sans: 300,400,500,600,700,800 */
 }

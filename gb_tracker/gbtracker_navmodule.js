@@ -90,7 +90,8 @@ export default class nav {
     const doBottomNav2 = evt => {
       evt.target.classList.add('bottom-nav-item-active')
       updateActive('bot', evt.target)
-      window.open('./construction.html', '_self')
+      //todo: this is the help nav, needs to slide up the help slideshow
+      console.log('Do slideshow here')
     }
     bottomNav2.addEventListener('click', doBottomNav2)
 
