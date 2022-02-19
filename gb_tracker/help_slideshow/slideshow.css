@@ -6,6 +6,6 @@ body {
 .swiper {
   width: 800px;
   margin-top: 2rem;
-  /* height: 500px; */
+  height: 500px;
   user-select: none;
 }

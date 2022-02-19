@@ -13,28 +13,27 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="swiper.css" />
+    <link rel="stylesheet" href="slideshow.css" />
     <script type="module">
       import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
       const settings = {
         // Optional parameters
-        // loop: true, // don't use this, it's messed up
-        // cssMode: true, // enables snapping but disables drag with mouse
         effect: 'cube',
-        // effect: 'flip',
-        // effect: 'cards',
-        // effect: 'coverFlow',
-        // effect: 'fade',
         speed: 600, // default 300
-        // autoplay: {
-        //   // disabled after user interaction
-        //   delay: 10000,
-        // },
-        // centeredSlides: true, // doesn't work, even with width turned off
         autoHeight: true,
         rewind: true,
+        // disable preloading of all images for lazy loading
+        preloadImages: false,
+        // enable lazy loading
+        lazy: {
+          enabled: true,
+          checkInView: true,
+          loadOnTransitionStart: true,
+          loadPrevNext: true,
+        },
+        checkInView: true,
 
-        // If we need pagination
+        // nav dots
         pagination: {
           el: '.swiper-pagination',
         },
@@ -55,28 +54,78 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide"><img src="slides/slide1.webp" alt="slide 1" /></div>
-        <div class="swiper-slide"><img src="slides/slide2.webp" alt="slide 2" /></div>
-        <div class="swiper-slide"><img src="slides/slide3.webp" alt="slide 3" /></div>
-        <div class="swiper-slide"><img src="slides/slide4.webp" alt="slide 4" /></div>
-        <div class="swiper-slide"><img src="slides/slide5.webp" alt="slide 5" /></div>
-        <div class="swiper-slide"><img src="slides/slide6.webp" alt="slide 6" /></div>
-        <div class="swiper-slide"><img src="slides/slide7.webp" alt="slide 7" /></div>
-        <div class="swiper-slide"><img src="slides/slide8.webp" alt="slide 8" /></div>
-        <div class="swiper-slide"><img src="slides/slide9.webp" alt="slide 9" /></div>
-        <div class="swiper-slide"><img src="slides/slide10.webp" alt="slide 10" /></div>
-        <div class="swiper-slide"><img src="slides/slide11.webp" alt="slide 11" /></div>
-        <div class="swiper-slide"><img src="slides/slide12.webp" alt="slide 12" /></div>
-        <div class="swiper-slide"><img src="slides/slide13.webp" alt="slide 13" /></div>
-        <div class="swiper-slide"><img src="slides/slide14.webp" alt="slide 14" /></div>
-        <div class="swiper-slide"><img src="slides/slide15.webp" alt="slide 15" /></div>
-        <div class="swiper-slide"><img src="slides/slide16.webp" alt="slide 16" /></div>
-        <div class="swiper-slide"><img src="slides/slide17.webp" alt="slide 17" /></div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide1.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide2.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide3.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide4.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide5.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide6.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide7.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide8.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide9.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide10.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide11.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide12.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide13.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide14.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide15.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide16.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide17.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
       </div>
-      <!-- If we need pagination -->
+      <!-- nav dots -->
       <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
+      <!-- navigation buttons -->
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
