@@ -1,4 +1,4 @@
-import { showCalculator, showGbList, showNewGb } from './main.js'
+import { showCalculator, showGbList, showNewGb, showHelp, hideHelp } from './main.js'
 export default class nav {
   constructor() {
     const navLogo = document.querySelector('.top-nav-logo')
@@ -92,6 +92,7 @@ export default class nav {
       updateActive('bot', evt.target)
       //todo: this is the help nav, needs to slide up the help slideshow
       console.log('Do slideshow here')
+      showHelp()
     }
     bottomNav2.addEventListener('click', doBottomNav2)
 

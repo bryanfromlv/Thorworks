@@ -1,0 +1,17 @@
+.swiper {
+  position: absolute;
+  width: 800px;
+  /*! height is required or swiper gets confused where to put arrows & dots */
+  /* we will have to use a media query if we decide to use smaller images */
+  height: 500px;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+  transition: all 500ms ease-in-out;
+}
+
+.ss-hide {
+  opacity: 0;
+  bottom: -100%;
+}

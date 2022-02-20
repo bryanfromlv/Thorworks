@@ -10,12 +10,24 @@ const gb_list = new gbList(document.querySelector('.list-section'))
 const calculator = new calc()
 // const devUtils = new dev_utils() //!
 // devUtils.buildGbs() //! comment these out after first run, only use to create test gb's
-export { store, gb_list, navBar, calculator, showCalculator, showGbList, showNewGb, checkCalcNav }
+export {
+  store,
+  gb_list,
+  navBar,
+  calculator,
+  showCalculator,
+  showGbList,
+  showNewGb,
+  showHelp,
+  hideHelp,
+  checkCalcNav,
+}
 
 const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
 const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
+const helpSlideshow = document.querySelector('.swiper')
 //! dynamic media query using window.matchMedia
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
@@ -118,6 +130,14 @@ const showCalculator = () => {
   calcForm.classList.remove('hide')
   listsection.classList.add('hide')
   newGbForm.classList.add('hide')
+}
+
+const showHelp = () => {
+  helpSlideshow.classList.remove('ss-hide')
+}
+
+const hideHelp = () => {
+  helpSlideshow.classList.add('ss-hide')
 }
 
 // console.log(`main.js loaded`)

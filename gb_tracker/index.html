@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="./css/gbList.css">
   <link rel="stylesheet" href="./css/newGb.css">
   <link rel="stylesheet" href="./css/calc.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/slideshow.css">
   <!-- favicon generator code -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -34,6 +36,39 @@
   <script src="gbList.js" type="module"></script>
   <script src="calc.js" type="module"></script>
   <script src="newGb.js" type="module"></script>
+  <!-- swiper -->
+  <script type="module">
+      import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+      const settings = {
+        // Optional parameters
+        effect: 'cube',
+        speed: 600, // default 300
+        autoHeight: true,
+        rewind: true,
+        // disable preloading of all images for lazy loading
+        preloadImages: false,
+        // enable lazy loading
+        lazy: {
+          enabled: true,
+          // checkInView: true,
+          loadOnTransitionStart: true,
+          loadPrevNext: true,
+        },
+        checkInView: true,
+
+        // nav dots
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      }
+      const swiper = new Swiper('.swiper', settings)
+    </script>
   <!--! <script src="dev_utils.js" type="module"></script> -->
   <title>Forge of Empires GB Tracker</title>
 </head>
@@ -373,14 +408,88 @@
         </div>
       </div>
     </div>
-    <!-- help slideshow modal -->
-    <div class="modal-bkg" id="ss_modal_bkg"></div>
-    <div class="ss-container">
-      <div class="ss-wrapper">
-        <div class="ss-track">
-          <!-- put img tags here -->
+    <!--! help slideshow modal -->
+    <div class="modal-bkg" id="helpss_modal_bkg"></div>
+    <!-- Slider main container -->
+    <div class="swiper ss-hide">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img data-src="slides/slide1.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide2.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide3.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide4.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide5.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide6.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide7.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide8.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide9.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide10.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide11.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide12.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide13.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide14.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide15.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide16.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+          <img data-src="slides/slide17.webp" class="swiper-lazy" />
+          <div class="swiper-lazy-preloader"></div>
         </div>
       </div>
+      <!-- nav dots -->
+      <div class="swiper-pagination"></div>
+      <!-- navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
     </div>
 
     <!-- orientation modal -->
