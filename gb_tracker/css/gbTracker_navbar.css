@@ -49,7 +49,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 50;
   user-select: none;
 }
 
@@ -95,6 +95,7 @@
   position: fixed;
   bottom: 0px;
   width: 100%;
+  z-index: 50;
   background-color: var(--botnav-bgclr);
   color: var(--botnav-clr);
   user-select: none;

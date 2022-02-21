@@ -54,7 +54,6 @@
           loadOnTransitionStart: true,
           loadPrevNext: true,
         },
-        checkInView: true,
 
         // nav dots
         pagination: {
@@ -409,9 +408,18 @@
       </div>
     </div>
     <!--! help slideshow modal -->
-    <div class="modal-bkg" id="helpss_modal_bkg"></div>
-    <!-- Slider main container -->
+    <div class="help-ss-modal-bkg ss-bkg-hide"></div>
+    <!-- Slideshow main container -->
     <div class="swiper ss-hide">
+      <!-- slideshow close button -->
+      <!-- <button class="ss-close-btn">X</button> -->
+      <img
+          src="images/ssCloseBtn.svg"
+          alt="close button"
+          height="30px"
+          class="ss-close-btn"
+          id="ss_close_btn"
+      />
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->

@@ -1,4 +1,4 @@
-import { showCalculator, showGbList, showNewGb, showHelp, hideHelp } from './main.js'
+import { showCalculator, showGbList, showNewGb, showHelp } from './main.js'
 export default class nav {
   constructor() {
     const navLogo = document.querySelector('.top-nav-logo')
@@ -79,6 +79,11 @@ export default class nav {
       showCalculator()
     }
 
+    this.deactivateHelpMenu = () => {
+      bottomNav2.classList.remove('bottom-nav-item-active')
+      this.botActiveItem = null
+    }
+
     //! bottom nav
     const doBottomNav1 = evt => {
       evt.target.classList.add('bottom-nav-item-active')
@@ -88,10 +93,9 @@ export default class nav {
     bottomNav1.addEventListener('click', doBottomNav1)
 
     const doBottomNav2 = evt => {
-      evt.target.classList.add('bottom-nav-item-active')
-      updateActive('bot', evt.target)
-      //todo: this is the help nav, needs to slide up the help slideshow
-      console.log('Do slideshow here')
+      //! we don't need to activate this menu item (it screws up navigation)
+      // evt.target.classList.add('bottom-nav-item-active')
+      // updateActive('bot', evt.target)
       showHelp()
     }
     bottomNav2.addEventListener('click', doBottomNav2)

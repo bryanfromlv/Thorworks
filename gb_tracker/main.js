@@ -19,7 +19,6 @@ export {
   showGbList,
   showNewGb,
   showHelp,
-  hideHelp,
   checkCalcNav,
 }
 
@@ -28,6 +27,8 @@ const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
 const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
 const helpSlideshow = document.querySelector('.swiper')
+const helpSlideshowBackground = document.querySelector('.help-ss-modal-bkg')
+const helpCloseBtn = document.querySelector('.ss-close-btn')
 //! dynamic media query using window.matchMedia
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
@@ -77,7 +78,7 @@ orientModalOkBtn.addEventListener('click', hideOrientContainer)
 // export this function, it is used by gbList & newGb scripts
 const checkCalcNav = () => {
   if (!store.getCurGbKey()) {
-    console.log(`disabling calc nav`)
+    // console.log(`disabling calc nav`)
     calcLink.classList.remove('top-nav-item-active') // not needed?
     calcLink.classList.add('nav-item-disabled')
     return true
@@ -134,10 +135,13 @@ const showCalculator = () => {
 
 const showHelp = () => {
   helpSlideshow.classList.remove('ss-hide')
+  helpSlideshowBackground.classList.remove('ss-bkg-hide')
 }
 
 const hideHelp = () => {
   helpSlideshow.classList.add('ss-hide')
+  helpSlideshowBackground.classList.add('ss-bkg-hide')
 }
+helpCloseBtn.addEventListener('click', hideHelp)
 
 // console.log(`main.js loaded`)

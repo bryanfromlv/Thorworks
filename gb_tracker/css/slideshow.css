@@ -6,12 +6,45 @@
   height: 500px;
   bottom: 5%;
   left: 50%;
+  z-index: 70;
   transform: translateX(-50%);
   user-select: none;
-  transition: all 500ms ease-in-out;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out, bottom 500ms ease-in-out;
 }
 
 .ss-hide {
   opacity: 0;
-  bottom: -100%;
+  bottom: 100%;
+}
+
+.help-ss-modal-bkg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 60;
+  background-color: black;
+  opacity: 0.6;
+  visibility: visible;
+  transition: all 500ms ease-in-out;
+}
+
+.ss-bkg-hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ss-close-btn {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: 15;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.ss-close-btn:hover {
+  transform: scale(1.2);
 }
