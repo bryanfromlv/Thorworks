@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,41 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
   </style>
   <!-- Style sheets -->
+  <!-- loader must be inline -->
+  <style>
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #333333;
+      transition: opacity 0.75s, visibility 0.75s;
+    }
+    .loader--hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader::after {
+      content: "";
+      width: 75px;
+      height: 75px;
+      border: 15px solid #dddddd;
+      border-top-color: #009578;
+      border-radius: 50%;
+      animation: loading 0.75s ease infinite;
+    }
+    @keyframes loading {
+      from {
+        transform: rotate(0turn);
+      }
+
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  </style>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/gbtracker_navbar.css">
@@ -25,7 +61,19 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <!-- scripts -->
-  <!-- tippy first -->
+  <!-- loader must be inline -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.querySelector(".loader")
+      loader.classList.add("loader--hidden")
+      loader.addEventListener("transitionend", () => {
+        if (document.querySelector(".loader")) {
+          document.body.removeChild(loader)
+        }
+      })
+    })
+  </script>
+  <!-- tippy -->
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
   <!-- the rest are modules -->
@@ -38,50 +86,51 @@
   <script src="newGb.js" type="module"></script>
   <!-- swiper -->
   <script type="module">
-      import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
-      const settings = {
-        // Optional parameters
-        effect: 'cube',
-        speed: 600, // default 300
-        autoHeight: true,
-        rewind: true,
-        // disable preloading of all images for lazy loading
-        preloadImages: false,
-        // enable lazy loading
-        lazy: {
-          enabled: true,
-          // checkInView: true,
-          loadOnTransitionStart: true,
-          loadPrevNext: true,
-        },
+    import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+    const settings = {
+      // Optional parameters
+      effect: 'cube',
+      speed: 600, // default 300
+      autoHeight: true,
+      rewind: true,
+      // disable preloading of all images for lazy loading
+      preloadImages: false,
+      // enable lazy loading
+      lazy: {
+        enabled: true,
+        // checkInView: true,
+        loadOnTransitionStart: true,
+        loadPrevNext: true,
+      },
 
-        // nav dots
-        pagination: {
-          el: '.swiper-pagination',
-        },
+      // nav dots
+      pagination: {
+        el: '.swiper-pagination',
+      },
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      }
-      const swiper = new Swiper('.swiper', settings)
-    </script>
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    }
+    const swiper = new Swiper('.swiper', settings)
+  </script>
   <!--! <script src="dev_utils.js" type="module"></script> -->
   <title>Forge of Empires GB Tracker</title>
 </head>
 
 <body>
+  <div class="loader"></div>
   <nav class="top-nav">
     <ul class="top-nav-list">
       <li class="top-nav-logo push-left">
-        <img src="images/thor_bkg_logo.svg" height="30" alt="Home" title="Home" />
+        <img src="images/thor_bkg_logo.svg" height="25" alt="Home" title="Home" />
       </li>
-      <li class='top-nav-item-active'>GB List</li>
+      <li class="top-nav-item-active">GB List</li>
       <li>New GB</li>
       <li>Calculator</li>
-      <li class="top-nav-copyright push-right">&#169; Thorworks 2022</li>
+      <li class="nav-copyright push-right">&#169; Thorworks 2022</li>
     </ul>
   </nav>
   <h1>Forge of Empires GB Tracker</h1>
@@ -143,11 +192,13 @@
         </select>
         <div>
           <label for="level_input" class="level-label">Level</label>
-          <input type="number" name="level" placeholder="level" class="noNumArrows level-input" id="level_input" required>
+          <input type="number" name="level" placeholder="level" class="noNumArrows level-input" id="level_input"
+            required>
         </div>
         <div>
           <label for="goal_input" class="goal-label">Goal</label>
-          <input type="number" placeholder="FP to level" class="noNumArrows goal-input" name="goal" id="goal_input" required>
+          <input type="number" placeholder="FP to level" class="noNumArrows goal-input" name="goal" id="goal_input"
+            required>
         </div>
       </div>
       <div class='p-row'>
@@ -193,7 +244,7 @@
       </div>
       <!--! Begin main grid display -->
       <div class="calc-main grid-container" id="calc_main">
-        <!-- title row -->       
+        <!-- title row -->
         <div>Pos</div>
         <div>Reward</div>
         <div></div>
@@ -205,7 +256,7 @@
         <div>Needed</div>
         <div>Ready</div>
         <div>Locked</div>
-        <!-- p1 row -->    
+        <!-- p1 row -->
         <div class="position">P1</div>
         <div name="p1reward">0</div>
         <input type="radio" name="p1" value="mx19" tabindex="-1" checked>
@@ -217,7 +268,7 @@
         <div name="p1needed" id="p1n">0</div>
         <div name="p1ready">✘</div>
         <div name="p1locked">✘</div>
-        <!-- p2 row -->    
+        <!-- p2 row -->
         <div class="position">P2</div>
         <div name="p2reward">0</div>
         <input type="radio" name="p2" value="mx19" tabindex="-1" checked>
@@ -229,7 +280,7 @@
         <div name="p2needed" id="p2n">0</div>
         <div name="p2ready">✘</div>
         <div name="p2locked">✘</div>
-        <!-- p3 row -->    
+        <!-- p3 row -->
         <div class="position">P3</div>
         <div name="p3reward">0</div>
         <input type="radio" name="p3" value="mx19" tabindex="-1" checked>
@@ -241,7 +292,7 @@
         <div name="p3needed" id="p3n">0</div>
         <div name="p3ready">✘</div>
         <div name="p3locked">✘</div>
-        <!-- p4 row -->    
+        <!-- p4 row -->
         <div class="position">P4</div>
         <div name="p4reward">0</div>
         <input type="radio" name="p4" value="mx19" tabindex="-1" checked>
@@ -253,7 +304,7 @@
         <div name="p4needed" id="p4n">0</div>
         <div name="p4ready">✘</div>
         <div name="p4locked">✘</div>
-        <!-- p5 row -->    
+        <!-- p5 row -->
         <div class="position">P5</div>
         <div name="p5reward">0</div>
         <input type="radio" name="p5" value="mx19" tabindex="-1" checked>
@@ -295,7 +346,7 @@
           <h2 class="modal-title">Enter your name</h2>
         </div>
         <div class="modal-body">
-          Enter the nickname you wish to use in your post text.<br/>
+          Enter the nickname you wish to use in your post text.<br />
         </div>
         <div class="modal-footer">
           <div class="postText-modal-option-row">
@@ -304,7 +355,7 @@
           <div class="modal-btn-row">
             <button type="button" id="newUser_save_btn" class="modal-btn">Save</button>
             <button type="button" id="newUser_cancel_btn" class="modal-btn">Cancel</button>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
@@ -341,7 +392,7 @@
           <h2 class="modal-title">Delete GB?</h2>
         </div>
         <div class="modal-body">
-          Are you sure you want to delete this GB?.<br/><strong>This action cannot be undone!</strong>
+          Are you sure you want to delete this GB?.<br /><strong>This action cannot be undone!</strong>
         </div>
         <div class="modal-footer">
           <div class="modal-btn-row">
@@ -359,7 +410,7 @@
           <h2 class="modal-title">No Saved GB's</h2>
         </div>
         <div class="modal-body">
-          You have no saved GB's.<br/> Please create one.
+          You have no saved GB's.<br /> Please create one.
         </div>
         <div class="modal-footer">
           <div class="modal-btn-row">
@@ -397,7 +448,7 @@
           <h2 class="modal-title">Duplicate GB</h2>
         </div>
         <div class="modal-body">
-          <span id="duplicate_gb_name"></span> is already saved,<br/>do you want to replace it?
+          <span id="duplicate_gb_name"></span> is already saved,<br />do you want to replace it?
         </div>
         <div class="modal-footer">
           <div class="modal-btn-row">
@@ -414,12 +465,11 @@
       <!-- slideshow close button -->
       <!-- <button class="ss-close-btn">X</button> -->
       <img
-          src="images/ssCloseBtn.svg"
-          alt="close button"
-          height="30px"
-          class="ss-close-btn"
-          id="ss_close_btn"
-      />
+        src="images/ssCloseBtn.svg"
+        alt="close button"
+        height="30px"
+        class="ss-close-btn"
+        id="ss_close_btn" />
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
@@ -511,10 +561,13 @@
       </div>
     </div>
   </main>
+
+  <!-- bottom nav -->
   <footer class="bottom-nav">
     <ul class="bottom-nav-list">
-      <li>Home</li>
-      <li>Help</li>
+      <li class="push-right">Home</li>
+      <li class="push-left">Help</li>
+      <!-- <li class="nav-copyright">&#169; Thorworks 2022</li> -->
     </ul>
   </footer>
 
@@ -528,4 +581,5 @@
     <source src="./audio/intruder-alert.mp3" type="audio/mpeg">
   </audio>
 </body>
+
 </html>

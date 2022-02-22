@@ -1,13 +1,6 @@
 b {
   font-weight: 500;
-} /* 
-
-.list-section {
-  width: 40%;
-  margin: 2rem auto;
-  background-color: var(--light-background);
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-} */
+}
 
 .display-card {
   background-color: var(--section-background);
