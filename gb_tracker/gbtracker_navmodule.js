@@ -3,11 +3,11 @@ export default class nav {
   constructor() {
     const navLogo = document.querySelector('.top-nav-logo')
     // gb list
-    const topNav1 = document.querySelector('.top-nav-list > li:nth-of-type(2)')
+    const topNav1 = document.querySelector('.top-nav-list > li:nth-of-type(2) > button')
     // new gb
-    const topNav2 = document.querySelector('.top-nav-list > li:nth-of-type(3)')
+    const topNav2 = document.querySelector('.top-nav-list > li:nth-of-type(3) > button')
     // calculator
-    const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4)')
+    const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4) > button')
     // const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
     const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
     const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')

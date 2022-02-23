@@ -25,7 +25,7 @@ export {
 const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
-const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
+const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4) > button')
 const helpSlideshow = document.querySelector('.swiper')
 const helpSlideshowBackground = document.querySelector('.help-ss-modal-bkg')
 const helpCloseBtn = document.querySelector('.ss-close-btn')
