@@ -1,13 +1,15 @@
 .new-gb-form {
-  position: absolute;
-  top: 9rem;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
-  min-width: 33rem;
   background: var(--section-background);
+  margin: 0.2rem auto;
+  border-radius: 15px;
   -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.new-gb-form > .title {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .new-gb-form input {

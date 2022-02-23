@@ -4,18 +4,18 @@
   /*! height is required or swiper gets confused where to put arrows & dots */
   /* we will have to use a media query if we decide to use smaller images */
   height: 500px;
-  bottom: 5%;
+  top: 5%;
   left: 50%;
   z-index: 70;
   transform: translateX(-50%);
   user-select: none;
   opacity: 1;
-  transition: opacity 500ms ease-in-out, bottom 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out, top 500ms ease-in-out;
 }
 
 .ss-hide {
   opacity: 0;
-  bottom: 100%;
+  top: -100%;
 }
 
 .help-ss-modal-bkg {
