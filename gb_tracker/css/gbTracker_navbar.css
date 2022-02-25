@@ -49,7 +49,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 50;
   user-select: none;
 }
 
@@ -75,6 +75,14 @@
 
 .top-nav-list > li > button:hover {
   color: var(--topnav-hvrclr);
+}
+
+.top-nav-list > li:nth-of-type(2) {
+  margin-left: auto;
+}
+
+.top-nav-list > li:nth-of-type(4) {
+  margin-right: auto;
 }
 
 .top-nav-list > li.top-nav-logo {
@@ -115,6 +123,7 @@
 .bottom-nav-list {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5em;
   margin: 0 1em;
   padding: 0.25em 0;
@@ -130,21 +139,29 @@
 }
 
 .bot-nav-copyright {
+  display: none;
+  position: fixed;
+  right: 10px;
   font-size: 0.7rem;
   pointer-events: none;
 }
 
 /* media queries */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .bottom-nav-list {
     gap: 2em;
+    /* padding: 0; */
   }
   .top-nav-copyright {
     display: none;
   }
-  /* we're removing the copyright from the DOM
-     so we need to adjust the auto margins */
-  .top-nav-list li:nth-of-type(4) {
-    margin-right: auto;
+  .bot-nav-copyright {
+    display: initial;
+  }
+}
+/* iPhone 12 pro */
+@media screen and (max-width: 850px) {
+  .bottom-nav-list {
+    padding: 0;
   }
 }

@@ -48,7 +48,7 @@ input[type='checkbox']:hover {
   color: hsl(0, 0%, 85%);
   cursor: default;
   text-align: center;
-  margin-top: 0.2rem;
+  margin: 1rem 0;
 }
 
 .list-section {
@@ -69,11 +69,9 @@ input[type='checkbox']:hover {
   background: var(--title-background);
   padding: 0.4rem;
 }
-.title h4 {
-  cursor: default;
-}
 
-/*! begin modal styles */
+/*! generic modal controls  */
+/** used for: nogb modal,   */
 .modal-content {
   user-select: none;
 }
@@ -83,160 +81,11 @@ input[type='checkbox']:hover {
   width: 100%;
   height: 100%;
   top: 0;
-  overflow: auto;
   background: rgb(0, 0, 0);
+  z-index: 60;
   opacity: 0;
   visibility: hidden;
   transition: 700ms;
-}
-
-.modal-container {
-  position: absolute;
-  top: -9.5rem; /* -9rem hidden --> 9.5rem on screen */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  background: white;
-  padding: 1rem;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.orient-bkg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  top: 0;
-  overflow: auto;
-  background-color: blue;
-  opacity: 0;
-  visibility: hidden;
-  transition: 500ms ease-in-out;
-}
-
-.orient-bkg-show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.orient-modal-container {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  z-index: 110;
-  top: -25vh; /* -25vh hidden --> 50vh on screen */
-  left: 40px;
-  /* width: calc(100% - 80px); */
-  width: calc(100vw - 80px);
-  background: white;
-  padding: 1rem;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  transition: top 500ms ease-in-out, opacity 500ms ease-in-out;
-}
-
-.orient-modal-body {
-  text-align: center;
-}
-
-.orient-modal-container-show {
-  opacity: 1;
-  top: 35vh;
-}
-
-.orient-modal-btn-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.deleteGb-modal-container {
-  position: fixed;
-  top: -25vh; /* -25vh hidden --> 50vh on screen */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  background: white;
-  padding: 1rem;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.postText-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.newUser-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.postText-modal-option-row {
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.modal-header {
-  margin-bottom: 0.2rem;
-  text-align: center;
-}
-
-.modal-body {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.modal-btn-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.modal-bottom-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.modal-btn {
-  border: 1px solid #1c6ea4;
-  border-radius: 20px;
-  padding: 0.2rem 0.5rem;
-  transition: 200ms;
-}
-
-.modal-btn:hover {
-  cursor: pointer;
-  border-color: red;
-  background: #1c6ea4;
-  color: white;
-  transform: scale(1.2, 1.2);
-}
-
-/* this changes color on mousedown and back to default on mouseup */
-.modal-btn:active {
-  background-color: green;
-  transform: scale(1, 1);
 }
 
 /* turns on the background */
@@ -251,11 +100,25 @@ input[type='checkbox']:hover {
   visibility: hidden;
 }
 
+.modal-container {
+  position: absolute;
+  top: -9.5rem; /* -9rem hidden --> 9.5rem on screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  background: white;
+  z-index: 70;
+  padding: 0.5rem 0;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
 /* slides in container from the top with bounce effect */
 .modal-container-show {
   animation: dropModal 700ms ease-in forwards;
 }
-
 @keyframes dropModal {
   0% {
     opacity: 0;
@@ -282,6 +145,199 @@ input[type='checkbox']:hover {
     top: 9.5rem;
   }
 }
+
+/* slides up container */
+.modal-container-hide {
+  animation: raiseModal 500ms ease-out forwards;
+}
+@keyframes raiseModal {
+  from {
+    opacity: 1;
+    top: 15rem;
+  }
+  to {
+    opacity: 0;
+    top: -11rem;
+  }
+}
+
+.modal-header {
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.modal-body {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-bottom-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.modal-btn-row > button,
+.modal-bottom-row > button {
+  font-size: inherit;
+}
+
+.modal-btn {
+  border: 1px solid #1c6ea4;
+  border-radius: 20px;
+  padding: 0.2rem 0.5rem;
+  transition: 200ms;
+}
+
+.modal-btn:hover {
+  cursor: pointer;
+  border-color: red;
+  background: #1c6ea4;
+  color: white;
+}
+
+/*! orientation modal  */
+.orient-bkg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  overflow: auto;
+  background-color: blue;
+  opacity: 0;
+  visibility: hidden;
+  transition: 500ms ease-in-out;
+}
+
+.orient-bkg-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.orient-modal-container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 110;
+  top: -25vh; /* -25vh hidden --> 50vh on screen */
+  left: 40px;
+  width: calc(100vw - 80px);
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: top 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.orient-modal-body {
+  text-align: center;
+}
+
+.orient-modal-container-show {
+  opacity: 1;
+  top: 35vh;
+}
+
+.orient-modal-btn-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/*! delete gb modal  */
+.deleteGb-modal-container {
+  position: fixed;
+  top: -25vh; /* -25vh hidden --> 50vh on screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  background: white;
+  z-index: 70;
+  padding: 0.5rem 0;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.deleteGb-modal-container-show {
+  animation: dropDeleteGbModal 700ms ease-in forwards;
+}
+@keyframes dropDeleteGbModal {
+  0% {
+    opacity: 0;
+    /* top: -9.5rem; */
+    top: -25vh;
+  }
+  50% {
+    opacity: 0.6;
+    /* top: 10rem; */
+    top: 42vh;
+  }
+  65% {
+    opacity: 0.8;
+    /* top: 9rem; */
+    top: 38vh;
+  }
+  80% {
+    opacity: 0.9;
+    /* top: 9.75rem; */
+    top: 41vh;
+  }
+  95% {
+    /* top: 9.25rem; */
+    top: 39vh;
+  }
+  100% {
+    background: coral;
+    opacity: 1;
+    top: 40vh;
+  }
+}
+
+/*! post text modal  */
+.postText-modal-container {
+  position: absolute;
+  top: -11rem; /* -11rem hidden --> 15rem on screen */
+  left: 62%;
+  width: 20%;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*! new user modal  */
+.newUser-modal-container {
+  position: absolute;
+  top: -11rem; /* -11rem hidden --> 15rem on screen */
+  left: 62%;
+  width: 20%;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.postText-modal-option-row {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
 /* modified version for post text modal */
 .postText-modal-container-show {
   animation: dropPostTextModal 700ms ease-in forwards;
@@ -318,58 +374,7 @@ input[type='checkbox']:hover {
     top: 15rem;
   }
 }
-/* modified version for delete gb modal */
-.deleteGb-modal-container-show {
-  animation: dropDeleteGbModal 700ms ease-in forwards;
-}
 
-@keyframes dropDeleteGbModal {
-  0% {
-    opacity: 0;
-    /* top: -9.5rem; */
-    top: -25vh;
-  }
-  50% {
-    opacity: 0.6;
-    /* top: 10rem; */
-    top: 42vh;
-  }
-  65% {
-    opacity: 0.8;
-    /* top: 9rem; */
-    top: 38vh;
-  }
-  80% {
-    opacity: 0.9;
-    /* top: 9.75rem; */
-    top: 41vh;
-  }
-  95% {
-    /* top: 9.25rem; */
-    top: 39vh;
-  }
-  100% {
-    background: coral;
-    opacity: 1;
-    top: 40vh;
-  }
-}
-
-/* slides up container */
-.modal-container-hide {
-  animation: raiseModal 500ms ease-out forwards;
-}
-
-@keyframes raiseModal {
-  from {
-    opacity: 1;
-    top: 15rem;
-  }
-  to {
-    opacity: 0;
-    top: -11rem;
-  }
-}
 /* modified version for post text modal */
 .postText-modal-container-hide {
   animation: raisePostTextModal 500ms ease-out forwards;
@@ -401,8 +406,20 @@ input[type='checkbox']:hover {
   }
 }
 /*! end modal styles */
-@media screen and (max-width: 700px) {
+
+/* media queries */
+/* smaller phones */
+@media screen and (max-width: 750px) {
   .list-section {
     width: 100%;
+  }
+  .calc-form {
+    width: 100%;
+  }
+}
+/* iPhone 12 pro */
+@media screen and (max-width: 850px) {
+  .heading {
+    margin: 0.2rem 0 0;
   }
 }

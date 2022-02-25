@@ -1,7 +1,3 @@
-b {
-  font-weight: 500;
-}
-
 .display-card {
   background-color: var(--section-background);
   border: black solid 1px;
@@ -14,6 +10,12 @@ b {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
+}
+
+#display-noGbs {
+  text-align: center;
+  height: 2rem;
+  font-size: 1.5rem;
 }
 
 .card-top-row {
@@ -116,7 +118,10 @@ b {
   font-weight: 500;
 }
 
-#display-noGbs {
-  text-align: center;
-  margin: 0.5rem 0;
-}
+/* media queries */
+/* smaller phones */
+/* @media screen and (max-width: 750px) {
+} */
+/* iPhone 12 pro */
+/* @media screen and (max-width: 850px) {
+} */

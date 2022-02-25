@@ -216,9 +216,3 @@ input[type='radio'] {
 .tippy-box[data-theme~='bryan'][data-placement^='right'] > .tippy-arrow::before {
   border-right-color: tomato;
 }
-/* media queries */
-@media screen and (max-width: 700px) {
-  .calc-form {
-    width: 100%;
-  }
-}

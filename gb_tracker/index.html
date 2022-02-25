@@ -124,13 +124,13 @@
   <div class="loader"></div>
   <nav class="top-nav">
     <ul class="top-nav-list">
-      <li class="top-nav-logo push-left">
+      <li class="top-nav-logo">
         <img src="images/thor_bkg_logo.svg" height="25" alt="Home" title="Home" />
       </li>
       <li><button class="top-nav-item-active">GB List</button></li>
       <li><button>New GB</button></li>
       <li><button>Calculator</button></li>
-      <li class="top-nav-copyright push-right">&#169; Thorworks 2022</li>
+      <li class="top-nav-copyright">&#169; Thorworks 2022</li>
     </ul>
   </nav>
   <h3 class="heading">Forge of Empires GB Tracker</h3>
@@ -337,8 +337,81 @@
         <div class="calc-post-btn">Post</div>
       </div>
     </form>
-    <!--! Modals -->
-    <!-- post text new user modal -->
+    <!--! no gb modal -->
+    <div class="modal-bkg" id="nogb_modal_bkg"></div>
+    <div class="modal-container" id="nogb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">No Saved GB's</h2>
+        </div>
+        <div class="modal-body">
+          You have no saved GB's.<br /> Please create one.
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="newGb_btn" class="modal-btn">New GB</button>
+            <button type="button" id="newGb_close_btn" class="modal-btn">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! delete gb confirmation modal -->
+    <div class="modal-bkg" id="deleteGb_modal_bkg"></div>
+    <div class="deleteGb-modal-container" id="deleteGb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Delete GB?</h2>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this GB?.<br /><strong>This action cannot be undone!</strong>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="deleteGb_btn" class="modal-btn">Delete GB</button>
+            <button type="button" id="deleteGb_cancel_btn" class="modal-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! newGb modal -->
+    <div class="modal-bkg" id="newgb_modal_bkg"></div>
+    <div class="modal-container" id="newGb_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Success!</h2>
+        </div>
+        <div class="modal-body">
+          <p><span id="newGb_confirm_gbName"></span><br> was saved to your browsers local storage
+          </p>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="close_btn" class="modal-btn">Close</button>
+            <button type="button" id="add_btn" class="modal-btn">Add GB</button>
+            <button type="button" id="calc_btn" class="modal-btn">Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! duplicate modal -->
+    <div class="modal-bkg" id="duplicate_modal_bkg"></div>
+    <div class="modal-container" id="duplicate_modal_container">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Duplicate GB</h2>
+        </div>
+        <div class="modal-body">
+          <span id="duplicate_gb_name"></span> is already saved,<br />do you want to replace it?
+        </div>
+        <div class="modal-footer">
+          <div class="modal-btn-row">
+            <button type="button" id="replace_btn" class="modal-btn">Replace</button>
+            <button type="button" id="cancel_btn" class="modal-btn">cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! post text new user modal -->
     <div class="modal-bkg" id="newUser_modal_bkg"></div>
     <div class="newUser-modal-container" id="newUser_modal_container">
       <div class="modal-content">
@@ -359,7 +432,7 @@
         </div>
       </div>
     </div>
-    <!-- post text modal -->
+    <!--! post text modal -->
     <div class="modal-bkg" id="postText_modal_bkg"></div>
     <div class="postText-modal-container" id="postText_modal_container">
       <div class="modal-content">
@@ -380,80 +453,6 @@
           </div>
           <div class="modal-bottom-row">
             <button type="button" id="postText_changeName_btn" class="modal-btn">Change Name</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- delete gb confirmation modal -->
-    <div class="modal-bkg" id="deleteGb_modal_bkg"></div>
-    <div class="deleteGb-modal-container" id="deleteGb_modal_container">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Delete GB?</h2>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this GB?.<br /><strong>This action cannot be undone!</strong>
-        </div>
-        <div class="modal-footer">
-          <div class="modal-btn-row">
-            <button type="button" id="deleteGb_btn" class="modal-btn">Delete GB</button>
-            <button type="button" id="deleteGb_cancel_btn" class="modal-btn">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- no gb modal -->
-    <div class="modal-bkg" id="nogb_modal_bkg"></div>
-    <div class="modal-container" id="nogb_modal_container">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">No Saved GB's</h2>
-        </div>
-        <div class="modal-body">
-          You have no saved GB's.<br /> Please create one.
-        </div>
-        <div class="modal-footer">
-          <div class="modal-btn-row">
-            <button type="button" id="newGb_btn" class="modal-btn">New GB</button>
-            <button type="button" id="newGb_close_btn" class="modal-btn">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- newGb modal -->
-    <div class="modal-bkg" id="newgb_modal_bkg"></div>
-    <div class="modal-container" id="newGb_modal_container">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Success!</h2>
-        </div>
-        <div class="modal-body">
-          <p><span id="newGb_confirm_gbName"></span><br> was saved to your browsers local storage
-          </p>
-        </div>
-        <div class="modal-footer">
-          <div class="modal-btn-row">
-            <button type="button" id="close_btn" class="modal-btn">Close</button>
-            <button type="button" id="add_btn" class="modal-btn">Add GB</button>
-            <button type="button" id="calc_btn" class="modal-btn">Calculator</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- duplicate modal -->
-    <div class="modal-bkg" id="duplicate_modal_bkg"></div>
-    <div class="modal-container" id="duplicate_modal_container">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Duplicate GB</h2>
-        </div>
-        <div class="modal-body">
-          <span id="duplicate_gb_name"></span> is already saved,<br />do you want to replace it?
-        </div>
-        <div class="modal-footer">
-          <div class="modal-btn-row">
-            <button type="button" id="replace_btn" class="modal-btn">Replace</button>
-            <button type="button" id="cancel_btn" class="modal-btn">cancel</button>
           </div>
         </div>
       </div>
@@ -550,7 +549,7 @@
     </div>
     </div>
 
-    <!-- orientation modal -->
+    <!--! orientation modal -->
     <div class="orient-bkg"></div>
     <div class="orient-modal-container">
       <div class="orient-modal-body">
@@ -565,9 +564,9 @@
   <!-- bottom nav -->
   <footer class="bottom-nav">
     <ul class="bottom-nav-list">
-      <li class="push-right">Home</li>
+      <li>Home</li>
       <li>Help</li>
-      <li class="bot-nav-copyright push-right">&#169; Thorworks 2022</li>
+      <li class="bot-nav-copyright">&#169; Thorworks 2022</li>
     </ul>
   </footer>
 

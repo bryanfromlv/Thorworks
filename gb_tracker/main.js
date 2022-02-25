@@ -29,7 +29,6 @@ const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4) > but
 const helpSlideshow = document.querySelector('.swiper')
 const helpSlideshowBackground = document.querySelector('.help-ss-modal-bkg')
 const helpCloseBtn = document.querySelector('.ss-close-btn')
-//! dynamic media query using window.matchMedia
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
 const orientModalContainer = document.querySelector('.orient-modal-container')
