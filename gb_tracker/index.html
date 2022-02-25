@@ -324,8 +324,6 @@
         <input type="number" name="calcOwner" class="calc-owner-input noNumArrows" value="" id="calc_owner_input">
         <div>Other: </div>
         <input type="number" name="calcOther" class="calc-other-input noNumArrows" value="" id="calc_other_input">
-        <!-- <div class="otheralert-txt hide-otheralert-txt" id="other_alert">Intruder!</div>
-        <div class="snipezone-txt hide-snipezone-txt" id="snipe_zone">Snipe Zone!</div> -->
         <div class="calc-enable-tooltips">
           <label>Tooltips</label>
           <input type="checkbox" id="calc_enable_tooltips" tabindex="-1" />
@@ -386,15 +384,15 @@
         </div>
         <div class="modal-footer">
           <div class="modal-btn-row">
-            <button type="button" id="close_btn" class="modal-btn">Close</button>
-            <button type="button" id="add_btn" class="modal-btn">Add GB</button>
-            <button type="button" id="calc_btn" class="modal-btn">Calculator</a>
+            <button type="button" id="newGb_close_btn" class="modal-btn">Close</button>
+            <button type="button" id="newGb_add_btn" class="modal-btn">Add GB</button>
+            <button type="button" id="newGb_calc_btn" class="modal-btn">Calculator</a>
           </div>
         </div>
       </div>
     </div>
     <!--! duplicate modal -->
-    <div class="modal-container" id="duplicate_modal_container">
+    <div class="dupGb-modal-container dupGb-modal-container-hide" id="dupGb_modal_container">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title">Duplicate GB</h2>
@@ -404,8 +402,8 @@
         </div>
         <div class="modal-footer">
           <div class="modal-btn-row">
-            <button type="button" id="replace_btn" class="modal-btn">Replace</button>
-            <button type="button" id="cancel_btn" class="modal-btn">cancel</button>
+            <button type="button" id="dupGb-replace_btn" class="modal-btn">Replace</button>
+            <button type="button" id="dupGb-cancel_btn" class="modal-btn">cancel</button>
           </div>
         </div>
       </div>

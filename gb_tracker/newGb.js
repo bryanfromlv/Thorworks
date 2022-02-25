@@ -15,6 +15,14 @@ let savedKeys = []
 
 const newGbForm = document.querySelector('#new_gb_form')
 const listDisplay = document.querySelector('#list_section')
+const modalBkg = document.querySelector('#modal_bkg')
+const confirmModalContainer = document.querySelector('#newGb_modal_container')
+const dupModalContainer = document.querySelector('#dupGb_modal_container')
+const dupReplaceBtn = document.querySelector('#dupGb-replace_btn')
+const dupCancelBtn = document.querySelector('#dupGb-cancel_btn')
+const newGbCloseButton = document.querySelector('#newGb_close_btn')
+const newGbAddButton = document.querySelector('#newGb_add_btn')
+const newGbCalcButton = document.querySelector('#newGb_calc_btn')
 
 function initNewGb() {
   savedKeys = store.getAllGbKeys()
@@ -57,42 +65,32 @@ function initNewGb() {
   })
 
   const doDuplicateModal = key => {
-    console.log('doDuplicateModal')
     // insert duplicate gb name/level
     let dupNameSpan = document.querySelector('#duplicate_gb_name')
     let name = key.slice(0, -2)
     let level = key.slice(-2)
     dupNameSpan.innerText = `${name} level ${level}`
-    // fade in modal background and slide in the modal
-    let modalBkg = document.querySelector('#duplicate_modal_bkg')
-    let duplicateModalContainer = document.querySelector('#duplicate_modal_container')
-    modalBkg.classList.add('modal-show')
-    duplicateModalContainer.classList.remove('modal-container-hide')
-    duplicateModalContainer.classList.add('modal-container-show')
+    // show the modal
+    modalBkg.classList.remove('modal-bkg-hide')
+    dupModalContainer.classList.remove('dupGb-modal-container-hide')
   }
 
   const doNewGbModal = gb => {
-    // console.log('doNewGbModal()')
     // insert new gb name/level
     let gbNameSpan = document.querySelector('#newGb_confirm_gbName')
     gbNameSpan.innerText = `${gb.name} level ${gb.level}`
-    // fade in modal background and slide in the modal
-    let modalBkg = document.querySelector('#newgb_modal_bkg')
-    let confirmModalContainer = document.querySelector('#newGb_modal_container')
-    modalBkg.classList.add('modal-show')
+    // show the modal
+    modalBkg.classList.remove('modal-bkg-hide')
     confirmModalContainer.classList.remove('modal-container-hide')
     confirmModalContainer.classList.add('modal-container-show')
   }
 
   //! handle modal buttons
-  const closeButton = document.querySelector('#close_btn')
-  closeButton.addEventListener('click', () => {
+  newGbCloseButton.addEventListener('click', () => {
     // we have to reset the form here because we're blocking the submit event
     newGbForm.reset()
-    // all this code handles removing the modal (with animations)
-    let modalBkg = document.querySelector('#newgb_modal_bkg')
-    let confirmModalContainer = document.querySelector('#newGb_modal_container')
-    modalBkg.classList.remove('modal-show')
+    // remove the modal
+    modalBkg.classList.add('modal-bkg-hide')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // now remove the newGb form and show main content
@@ -100,15 +98,11 @@ function initNewGb() {
     navBar.activateGbList()
   })
 
-  const addButton = document.querySelector('#add_btn')
-  addButton.addEventListener('click', () => {
-    // console.log('add button clicked')
+  newGbAddButton.addEventListener('click', () => {
     // we have to reset the form here because we're blocking the submit event
     newGbForm.reset()
-    // all this code handles removing the modal (with animations)
-    let modalBkg = document.querySelector('#newgb_modal_bkg')
-    let confirmModalContainer = document.querySelector('#newGb_modal_container')
-    modalBkg.classList.remove('modal-show')
+    // remove the modal
+    modalBkg.classList.add('modal-bkg-hide')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // enable the calculator menu item if disabled
@@ -116,17 +110,13 @@ function initNewGb() {
     // and this leaves us in the newGb form display so we can add more gb's
   })
 
-  const calcButton = document.querySelector('#calc_btn')
-  calcButton.addEventListener('click', () => {
-    // console.log('calculator button clicked')
+  newGbCalcButton.addEventListener('click', () => {
     // tell the calculator to calculate the new gb (curGbKey is already saved at this point)
     calculator.calculate(store.getCurGbKey())
     // we have to reset the form here because we're blocking the submit event
     resetNewGbForm()
-    // all this code handles removing the modal (with animations)
-    let modalBkg = document.querySelector('#newgb_modal_bkg')
-    let confirmModalContainer = document.querySelector('#newGb_modal_container')
-    modalBkg.classList.remove('modal-show')
+    // remove the modal
+    modalBkg.classList.add('modal-bkg-hide')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
     // now remove the newGb form and show calculator content
@@ -137,9 +127,7 @@ function initNewGb() {
     navBar.activateCalc()
   })
 
-  const replaceButton = document.querySelector('#replace_btn')
-  replaceButton.addEventListener('click', () => {
-    // console.log('replace button clicked')
+  dupReplaceBtn.addEventListener('click', () => {
     // delete the duplicate in storage
     let name = document.querySelector('#gb_select').value
     let level = document.querySelector('#level_input').value
@@ -152,25 +140,20 @@ function initNewGb() {
     calculator.calculate(deletedKey)
     // reset the form
     resetNewGbForm()
-    // all this code handles removing the modal (with animations)
-    let modalBkg = document.querySelector('#duplicate_modal_bkg')
-    let duplicateModalContainer = document.querySelector('#duplicate_modal_container')
+    // remove the modal
+    let modalBkg = document.querySelector('#modal_bkg')
     modalBkg.classList.remove('modal-show')
-    duplicateModalContainer.classList.remove('modal-container-show')
-    duplicateModalContainer.classList.add('modal-container-hide')
+    dupModalContainer.classList.remove('modal-container-show')
+    dupModalContainer.classList.add('modal-container-hide')
   })
 
-  const cancelButton = document.querySelector('#cancel_btn')
-  cancelButton.addEventListener('click', () => {
-    // console.log('cancel button clicked')
+  dupCancelBtn.addEventListener('click', () => {
     // reset the form
     resetNewGbForm()
-    // all this code handles removing the modal (with animations)
-    let modalBkg = document.querySelector('#duplicate_modal_bkg')
-    let duplicateModalContainer = document.querySelector('#duplicate_modal_container')
-    modalBkg.classList.remove('modal-show')
-    duplicateModalContainer.classList.remove('modal-container-show')
-    duplicateModalContainer.classList.add('modal-container-hide')
+    // remove the modal
+    let modalBkg = document.querySelector('#modal_bkg')
+    modalBkg.classList.add('modal-hide')
+    dupModalContainer.classList.add('dupGb-modal-container-hide')
   })
 
   const validate = () => {
