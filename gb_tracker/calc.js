@@ -51,7 +51,9 @@ export default class calc {
       document.getElementsByName('p4'),
       document.getElementsByName('p5'),
     ]
-    // console.table(this._mxrbGroups)
+    //! common modal background
+    this.modalBkg = document.querySelector('#modal_bkg')
+
     this.init()
     // console.log(`calc instantiated`)
   }
@@ -92,6 +94,16 @@ export default class calc {
         content: '',
       })
     )
+    //! enable/disable tooltip instances
+    this.toggleTooltips = enable => {
+      this._pTooltips.forEach(tooltip => {
+        if (enable) {
+          tooltip[0].enable()
+        } else {
+          tooltip[0].disable()
+        }
+      })
+    }
     //! set tooltips checkbox to saved state
     if (store.getTooltipsFlag() == 'true') {
       this._tooltipCB.checked = true
@@ -199,11 +211,9 @@ export default class calc {
       } else {
         alert('You must enter a user name or nickname')
       }
-
       // hide the modal
-      let modalBkg = document.querySelector('#newUser_modal_bkg')
+      this.modalBkg.classList.add('modal-bkg-hide')
       let modalContainer = document.querySelector('#newUser_modal_container')
-      modalBkg.classList.remove('modal-show')
       modalContainer.classList.remove('postText-modal-container-show')
       modalContainer.classList.add('postText-modal-container-hide')
     })
@@ -218,9 +228,8 @@ export default class calc {
     //! add event listener to post modal new user cancel button
     document.querySelector('#newUser_cancel_btn').addEventListener('click', () => {
       // hide the modal and do nothing
-      let modalBkg = document.querySelector('#newUser_modal_bkg')
       let modalContainer = document.querySelector('#newUser_modal_container')
-      modalBkg.classList.remove('modal-show')
+      this.modalBkg.classList.add('modal-bkg-hide')
       modalContainer.classList.remove('postText-modal-container-show')
       modalContainer.classList.add('postText-modal-container-hide')
     })
@@ -259,18 +268,16 @@ export default class calc {
     //! add event listener to post modal close button
     document.querySelector('#postText_close_btn').addEventListener('click', () => {
       // hide the modal and do nothing
-      let modalBkg = document.querySelector('#postText_modal_bkg')
       let modalContainer = document.querySelector('#postText_modal_container')
-      modalBkg.classList.remove('modal-show')
+      this.modalBkg.classList.add('modal-bkg-hide')
       modalContainer.classList.remove('postText-modal-container-show')
       modalContainer.classList.add('postText-modal-container-hide')
     })
     //! add event listener to post modal change name button
     document.querySelector('#postText_changeName_btn').addEventListener('click', () => {
       // hide the post modal
-      let modalBkg = document.querySelector('#postText_modal_bkg')
       let modalContainer = document.querySelector('#postText_modal_container')
-      modalBkg.classList.remove('modal-show')
+      this.modalBkg.classList.add('modal-bkg-hide')
       modalContainer.classList.remove('postText-modal-container-show')
       modalContainer.classList.add('postText-modal-container-hide')
       this.doNewUserModal()
@@ -288,6 +295,7 @@ export default class calc {
     }
     // console.log(`calc initalized`)
   } //! end init()
+
   //! set curGbKey in localStorage and load the GB object from localStorage
   setGb = gbKey => {
     // console.log(`setGb(${gbKey})`)
@@ -296,23 +304,41 @@ export default class calc {
     this._myGb = store.getSavedGb(gbKey)
     // console.log(this._myGb)
   }
-  //! enable/disable tooltip instances
-  toggleTooltips = enable => {
-    this._pTooltips.forEach(tooltip => {
-      if (enable) {
-        tooltip[0].enable()
-      } else {
-        tooltip[0].disable()
-      }
+
+  //! noGb modal
+  doNoGbModal = () => {
+    //console.log(`doNoGbModal()`)
+    // show the modal
+    this.modalBkg.classList.remove('modal-bkg-hide')
+    let modalContainer = document.querySelector('#nogb_modal_container')
+    modalContainer.classList.remove('modal-container-hide')
+    modalContainer.classList.add('modal-container-show')
+    // add event listeners to modal buttons
+    let closeButton = document.querySelector('#newGb_close_btn')
+    closeButton.addEventListener('click', () => {
+      // remove the modal
+      this.modalBkg.classList.add('modal-bkg-hide')
+      modalContainer.classList.remove('modal-container-show')
+      modalContainer.classList.add('modal-container-hide')
+    })
+    let newgbBtn = document.querySelector('#newGb_btn')
+    newgbBtn.addEventListener('click', () => {
+      // console.log('newgbBtn clicked, launch newGb form')
+      showNewGb()
+      navBar.activateNewGb()
+      // remove the modal
+      this.modalBkg.classList.add('modal-bkg-hide')
+      modalContainer.classList.remove('modal-container-show')
+      modalContainer.classList.add('modal-container-hide')
     })
   }
+
   //! post text new user modal
   doNewUserModal = () => {
     // console.log(`doNewUserModal`)
-    // fade in modal background and slide in the new user modal
-    let modalBkg = document.querySelector('#newUser_modal_bkg')
+    // show the modal
     let modalContainer = document.querySelector('#newUser_modal_container')
-    modalBkg.classList.add('modal-show')
+    this.modalBkg.classList.remove('modal-bkg-hide')
     modalContainer.classList.remove('postText-modal-container-hide')
     modalContainer.classList.add('postText-modal-container-show')
     // focus the text input and clear it
@@ -330,9 +356,8 @@ export default class calc {
     // update the modal display text
     this._postTextField.innerText = postText
     // show the modal
-    let modalBkg = document.querySelector('#postText_modal_bkg')
     let modalContainer = document.querySelector('#postText_modal_container')
-    modalBkg.classList.add('modal-show')
+    this.modalBkg.classList.remove('modal-bkg-hide')
     modalContainer.classList.remove('postText-modal-container-hide')
     modalContainer.classList.add('postText-modal-container-show')
   }
@@ -368,34 +393,7 @@ export default class calc {
     // console.log(`finalPostText: ${finalPostText}`)
     return finalPostText
   }
-  //! noGb modal
-  doNoGbModal = () => {
-    //console.log(`doNoGbModal()`)
-    // fade in modal background and slide in the newGb_confirm modal
-    let modalBkg = document.querySelector('#nogb_modal_bkg')
-    let modalContainer = document.querySelector('#nogb_modal_container')
-    modalBkg.classList.add('modal-show')
-    modalContainer.classList.remove('modal-container-hide')
-    modalContainer.classList.add('modal-container-show')
-    // add event listeners to modal buttons
-    let closeButton = document.querySelector('#newGb_close_btn')
-    closeButton.addEventListener('click', () => {
-      // all this code handles removing the modal (with animations)
-      modalBkg.classList.remove('modal-show')
-      modalContainer.classList.remove('modal-container-show')
-      modalContainer.classList.add('modal-container-hide')
-    })
-    let newgbBtn = document.querySelector('#newGb_btn')
-    newgbBtn.addEventListener('click', () => {
-      // console.log('newgbBtn clicked, launch newGb form')
-      showNewGb()
-      navBar.activateNewGb()
-      // all this code handles removing the modal (with animations)
-      modalBkg.classList.remove('modal-show')
-      modalContainer.classList.remove('modal-container-show')
-      modalContainer.classList.add('modal-container-hide')
-    })
-  }
+
   //! handle mx radio button change events
   mxrbChange = evt => {
     switch (evt.target.name) {

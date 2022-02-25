@@ -83,19 +83,19 @@ input[type='checkbox']:hover {
   top: 0;
   background: rgb(0, 0, 0);
   z-index: 60;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.6;
+  visibility: visible;
   transition: 700ms;
 }
 
 /* turns on the background */
-.modal-show {
+/* .modal-bkg-show {
   visibility: visible;
   opacity: 0.6;
-}
+} */
 
 /* turns off the background */
-.modal-hide {
+.modal-bkg-hide {
   opacity: 0;
   visibility: hidden;
 }
