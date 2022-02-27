@@ -4,8 +4,22 @@ export default class gbList {
     this._listSection = listSection
     this._gbList = []
     this._gbToDelete = ''
+    this.modalBkg = document.querySelector('#modal_bkg')
+    this.confirmModalContainer = document.querySelector('#newGb_modal_container')
+    this.confirmDeleteModalContainer = document.querySelector('#deleteGb_modal_container')
+    this.confirmDeleteBtn = document.querySelector('#deleteGb_btn')
+    this.cancelBtn = document.querySelector('#deleteGb_cancel_btn')
+
+    this.init()
     this.build()
     // console.log(`gbList instantiated`)
+  }
+
+  //! add event listeners to modal buttons
+  init = () => {
+    // add event listeners to delete & cancel buttons
+    this.confirmDeleteBtn.addEventListener('click', this.doDelete)
+    this.cancelBtn.addEventListener('click', this.doCancel)
   }
 
   clearDisplay = () => {
@@ -515,31 +529,20 @@ export default class gbList {
   //! put up new gb modal
   doNewGbModal = gb => {
     // console.log('doNewGbModal()')
-    // fade in modal background and slide in the modal
-    let modalBkg = document.querySelector('#newgb_modal_bkg')
-    let confirmModalContainer = document.querySelector('#newGb_modal_container')
-    modalBkg.classList.add('modal-show')
-    confirmModalContainer.classList.remove('modal-container-hide')
-    confirmModalContainer.classList.add('modal-container-show')
+    // show the modal
+    this.modalBkg.classList.remove('modal-bkg-hide')
+    this.confirmModalContainer.classList.remove('modal-container-hide')
+    this.confirmModalContainer.classList.add('modal-container-show')
   }
 
   //! put up delete confirmation modal
   confirmDelete = gbKey => {
-    // console.log(`confirmDelete(${gbKey})`)
-    // console.log(this._gbList)
     //! important, we have to store a permanent reference to the gbKey (major bug fix)
     this._gbToDelete = gbKey
-    // fade in modal background and slide in the modal
-    let modalBkg = document.querySelector('#deleteGb_modal_bkg')
-    let confirmDeleteModalContainer = document.querySelector('#deleteGb_modal_container')
-    modalBkg.classList.add('modal-show')
-    confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-hide')
-    confirmDeleteModalContainer.classList.add('deleteGb-modal-container-show')
-    // add event listeners to delete & cancel buttons
-    let confirmDeleteBtn = document.querySelector('#deleteGb_btn')
-    confirmDeleteBtn.addEventListener('click', this.doDelete)
-    let cancelBtn = document.querySelector('#deleteGb_cancel_btn')
-    cancelBtn.addEventListener('click', this.doCancel)
+    // show the modal
+    this.modalBkg.classList.remove('modal-bkg-hide')
+    this.confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-hide')
+    this.confirmDeleteModalContainer.classList.add('deleteGb-modal-container-show')
   }
 
   //! internal utility methods
@@ -566,36 +569,25 @@ export default class gbList {
       calculator.calculate(newGbKey)
     } else {
       //! bug fix-  we have to delete the curGb key
-      // console.log(`deleting final curGbKey`)
       store.deleteCurGbKey()
     }
     // disable calculator menu item if no gb's (this is a main.js function)
     checkCalcNav()
-    //! remove the event listeners (major bug fix)
-    let cancelBtn = document.querySelector('#deleteGb_cancel_btn')
-    evt.target.removeEventListener('click', this.doDelete)
-    cancelBtn.removeEventListener('click', this.doCancel)
     // clear this._gbToDelete after gb is deleted
     this._gbToDelete = ''
     // hide the modal
     this.hideConfirmDeleteModal()
   }
 
-  doCancel = evt => {
-    //! remove the event listeners (major bug fix)
-    let confirmDeleteBtn = document.querySelector('#deleteGb_btn')
-    confirmDeleteBtn.removeEventListener('click', this.doDelete)
-    evt.target.removeEventListener('click', this.doCancel)
+  doCancel = () => {
     // hide the modal
     this.hideConfirmDeleteModal()
   }
 
   hideConfirmDeleteModal = () => {
-    let modalBkg = document.querySelector('#deleteGb_modal_bkg')
-    let confirmDeleteModalContainer = document.querySelector('#deleteGb_modal_container')
-    modalBkg.classList.remove('modal-show')
-    confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-show')
-    confirmDeleteModalContainer.classList.add('deleteGb-modal-container-hide')
+    this.modalBkg.classList.add('modal-bkg-hide')
+    this.confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-show')
+    this.confirmDeleteModalContainer.classList.add('deleteGb-modal-container-hide')
   }
 
   doCalc = gbKey => {

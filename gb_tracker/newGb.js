@@ -10,11 +10,8 @@ import {
 import gb from './gb.js'
 export { initNewGb, resetNewGbForm }
 
-let gbKey = ''
-let savedKeys = []
-
+// let savedKeys = [] not needed?
 const newGbForm = document.querySelector('#new_gb_form')
-const listDisplay = document.querySelector('#list_section')
 const modalBkg = document.querySelector('#modal_bkg')
 const confirmModalContainer = document.querySelector('#newGb_modal_container')
 const dupModalContainer = document.querySelector('#dupGb_modal_container')
@@ -25,7 +22,7 @@ const newGbAddButton = document.querySelector('#newGb_add_btn')
 const newGbCalcButton = document.querySelector('#newGb_calc_btn')
 
 function initNewGb() {
-  savedKeys = store.getAllGbKeys()
+  // savedKeys = store.getAllGbKeys() not needed?
   //! Major problem solved! preventDefault() here blocks submit event
   //! but only after validation (which requires the submit event)
   newGbForm.addEventListener('submit', evt => {
@@ -156,6 +153,7 @@ function initNewGb() {
     dupModalContainer.classList.add('dupGb-modal-container-hide')
   })
 
+  //! final code block
   const validate = () => {
     // console.log('validate()')
     return newGbForm.reportValidity()

@@ -52,7 +52,7 @@ input[type='checkbox']:hover {
 }
 
 .list-section {
-  margin: 0.2rem auto;
+  margin: 0.2rem auto 2.5rem;
   background-color: var(--section-background);
   border-radius: 15px;
   min-width: 40rem;
@@ -71,7 +71,7 @@ input[type='checkbox']:hover {
 }
 
 /*! generic modal controls  */
-/** used for: nogb modal,   */
+/** used for: nogb, deletegb,   */
 .modal-content {
   user-select: none;
 }
@@ -79,20 +79,14 @@ input[type='checkbox']:hover {
 .modal-bkg {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   background: rgb(0, 0, 0);
   z-index: 60;
   opacity: 0.6;
   visibility: visible;
-  transition: 700ms;
+  transition: 500ms;
 }
-
-/* turns on the background */
-/* .modal-bkg-show {
-  visibility: visible;
-  opacity: 0.6;
-} */
 
 /* turns off the background */
 .modal-bkg-hide {
@@ -102,10 +96,10 @@ input[type='checkbox']:hover {
 
 .modal-container {
   position: absolute;
-  top: -9rem; /* -9rem hidden --> 9.5rem on screen */
+  top: -25vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 35%;
+  width: 30%;
   background: coral;
   z-index: 70;
   padding: 0.5rem 0;
@@ -122,26 +116,26 @@ input[type='checkbox']:hover {
 @keyframes dropModal {
   0% {
     opacity: 0;
-    top: -9.5rem;
+    top: -25vh;
   }
   50% {
     opacity: 0.6;
-    top: 10rem;
+    top: 27vh;
   }
   65% {
     opacity: 0.8;
-    top: 9rem;
+    top: 23vh;
   }
   80% {
     opacity: 0.9;
-    top: 9.75rem;
+    top: 26vh;
   }
   95% {
-    top: 9.25rem;
+    top: 24vh;
   }
   100% {
     opacity: 1;
-    top: 9.5rem;
+    top: 25vh;
   }
 }
 
@@ -152,11 +146,11 @@ input[type='checkbox']:hover {
 @keyframes raiseModal {
   from {
     opacity: 1;
-    top: 9.5rem;
+    top: 25vh;
   }
   to {
     opacity: 0;
-    top: -9.5rem;
+    top: -25vh;
   }
 }
 
@@ -199,6 +193,169 @@ input[type='checkbox']:hover {
   border-color: red;
   background: #1c6ea4;
   color: white;
+}
+
+/*! delete gb modal  */
+.deleteGb-modal-container {
+  position: fixed;
+  top: -25vh; /* -25vh hidden --> 50vh on screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  background: coral;
+  z-index: 70;
+  padding: 0.5rem 0;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.deleteGb-modal-container-show {
+  animation: dropDeleteGbModal 500ms ease-in forwards;
+}
+@keyframes dropDeleteGbModal {
+  0% {
+    opacity: 0;
+    top: -25vh;
+  }
+  50% {
+    opacity: 0.6;
+    top: 27vh;
+  }
+  65% {
+    opacity: 0.8;
+    top: 23vh;
+  }
+  80% {
+    opacity: 0.9;
+    top: 26vh;
+  }
+  95% {
+    top: 24vh;
+  }
+  100% {
+    opacity: 1;
+    top: 25vh;
+  }
+}
+
+.deleteGb-modal-container-hide {
+  animation: raiseDeleteGbModal 500ms ease-out forwards;
+}
+@keyframes raiseDeleteGbModal {
+  from {
+    opacity: 1;
+    top: 25vh;
+  }
+  to {
+    opacity: 0;
+    top: -25vh;
+  }
+}
+
+/*! post text modal  */
+.postText-modal-container {
+  position: absolute;
+  top: -11rem; /* -11rem hidden --> 15rem on screen */
+  left: 62%;
+  width: 20%;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.postText-modal-option-row {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.postText-modal-container-show {
+  animation: dropPostTextModal 700ms ease-in forwards;
+}
+@keyframes dropPostTextModal {
+  0% {
+    opacity: 0;
+    /* top: -9.5rem; */
+    top: -11rem;
+  }
+  50% {
+    opacity: 0.6;
+    /* top: 10rem; */
+    top: 15.5rem;
+  }
+  65% {
+    opacity: 0.8;
+    /* top: 9rem; */
+    top: 14.5rem;
+  }
+  80% {
+    opacity: 0.9;
+    /* top: 9.75rem; */
+    top: 15.25rem;
+  }
+  95% {
+    /* top: 9.25rem; */
+    top: 14.75rem;
+  }
+  100% {
+    background: coral;
+    opacity: 1;
+    top: 15rem;
+  }
+}
+
+.postText-modal-container-hide {
+  animation: raisePostTextModal 500ms ease-out forwards;
+}
+@keyframes raisePostTextModal {
+  from {
+    opacity: 1;
+    top: 9.5rem;
+  }
+  to {
+    opacity: 0;
+    top: -9.5rem;
+  }
+}
+
+/*! new user modal  */
+.newUser-modal-container {
+  position: absolute;
+  top: -11rem; /* -11rem hidden --> 15rem on screen */
+  left: 62%;
+  width: 20%;
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*! duplicate gb modal  */
+.dupGb-modal-container {
+  position: absolute;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  background: coral;
+  z-index: 70;
+  padding: 0.5rem 0;
+  border-radius: 15px;
+  opacity: 1;
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: 500ms ease;
+}
+
+.dupGb-modal-container-hide {
+  opacity: 0;
+  top: -10rem;
 }
 
 /*! orientation modal  */
@@ -251,180 +408,6 @@ input[type='checkbox']:hover {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
-}
-
-/*! delete gb modal  */
-.deleteGb-modal-container {
-  position: fixed;
-  top: -25vh; /* -25vh hidden --> 50vh on screen */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  background: white;
-  z-index: 70;
-  padding: 0.5rem 0;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.deleteGb-modal-container-show {
-  animation: dropDeleteGbModal 700ms ease-in forwards;
-}
-@keyframes dropDeleteGbModal {
-  0% {
-    opacity: 0;
-    /* top: -9.5rem; */
-    top: -25vh;
-  }
-  50% {
-    opacity: 0.6;
-    /* top: 10rem; */
-    top: 42vh;
-  }
-  65% {
-    opacity: 0.8;
-    /* top: 9rem; */
-    top: 38vh;
-  }
-  80% {
-    opacity: 0.9;
-    /* top: 9.75rem; */
-    top: 41vh;
-  }
-  95% {
-    /* top: 9.25rem; */
-    top: 39vh;
-  }
-  100% {
-    background: coral;
-    opacity: 1;
-    top: 40vh;
-  }
-}
-
-/*! post text modal  */
-.postText-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-/*! new user modal  */
-.newUser-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.postText-modal-option-row {
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-/* modified version for post text modal */
-.postText-modal-container-show {
-  animation: dropPostTextModal 700ms ease-in forwards;
-}
-
-@keyframes dropPostTextModal {
-  0% {
-    opacity: 0;
-    /* top: -9.5rem; */
-    top: -11rem;
-  }
-  50% {
-    opacity: 0.6;
-    /* top: 10rem; */
-    top: 15.5rem;
-  }
-  65% {
-    opacity: 0.8;
-    /* top: 9rem; */
-    top: 14.5rem;
-  }
-  80% {
-    opacity: 0.9;
-    /* top: 9.75rem; */
-    top: 15.25rem;
-  }
-  95% {
-    /* top: 9.25rem; */
-    top: 14.75rem;
-  }
-  100% {
-    background: coral;
-    opacity: 1;
-    top: 15rem;
-  }
-}
-
-/* modified version for post text modal */
-.postText-modal-container-hide {
-  animation: raisePostTextModal 500ms ease-out forwards;
-}
-
-@keyframes raisePostTextModal {
-  from {
-    opacity: 1;
-    top: 9.5rem;
-  }
-  to {
-    opacity: 0;
-    top: -9.5rem;
-  }
-}
-/* modified version for delete gb modal */
-.deleteGb-modal-container-hide {
-  animation: raiseDeleteGbModal 500ms ease-out forwards;
-}
-
-@keyframes raiseDeleteGbModal {
-  from {
-    opacity: 1;
-    top: 50vh;
-  }
-  to {
-    opacity: 0;
-    top: -25vh;
-  }
-}
-
-/*! duplicate gb modal  */
-.dupGb-modal-container {
-  position: absolute;
-  top: 25vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35%;
-  background: coral;
-  z-index: 70;
-  padding: 0.5rem 0;
-  border-radius: 15px;
-  opacity: 1;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  transition: 500ms ease;
-}
-
-.dupGb-modal-container-hide {
-  opacity: 0;
-  top: -10rem;
 }
 /*! end modal styles */
 
