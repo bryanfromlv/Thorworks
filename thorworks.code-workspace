@@ -5,6 +5,10 @@
     }
   ],
   "settings": {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": true,
+    "workbench.editor.enablePreview": false
   }
 }

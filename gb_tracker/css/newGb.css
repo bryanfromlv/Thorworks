@@ -69,7 +69,7 @@
   margin-left: 0.5rem;
 }
 /* media queries */
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
   .new-gb-form {
     width: 100%;
   }

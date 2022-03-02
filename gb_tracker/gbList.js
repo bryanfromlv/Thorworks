@@ -541,8 +541,8 @@ export default class gbList {
     this._gbToDelete = gbKey
     // show the modal
     this.modalBkg.classList.remove('modal-bkg-hide')
-    this.confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-hide')
-    this.confirmDeleteModalContainer.classList.add('deleteGb-modal-container-show')
+    this.confirmDeleteModalContainer.classList.remove('modal-container-hide')
+    this.confirmDeleteModalContainer.classList.add('modal-container-show')
   }
 
   //! internal utility methods
@@ -586,8 +586,8 @@ export default class gbList {
 
   hideConfirmDeleteModal = () => {
     this.modalBkg.classList.add('modal-bkg-hide')
-    this.confirmDeleteModalContainer.classList.remove('deleteGb-modal-container-show')
-    this.confirmDeleteModalContainer.classList.add('deleteGb-modal-container-hide')
+    this.confirmDeleteModalContainer.classList.remove('modal-container-show')
+    this.confirmDeleteModalContainer.classList.add('modal-container-hide')
   }
 
   doCalc = gbKey => {

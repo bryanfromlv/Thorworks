@@ -111,7 +111,7 @@ input[type='checkbox']:hover {
 
 /* slides in container from the top with bounce effect */
 .modal-container-show {
-  animation: dropModal 700ms ease-in forwards;
+  animation: dropModal 600ms ease-in forwards;
 }
 @keyframes dropModal {
   0% {
@@ -130,7 +130,7 @@ input[type='checkbox']:hover {
     opacity: 0.9;
     top: 26vh;
   }
-  95% {
+  90% {
     top: 24vh;
   }
   100% {

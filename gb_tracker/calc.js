@@ -347,7 +347,6 @@ export default class calc {
   }
   //! post text modal
   doPostTextModal = () => {
-    // console.log(`doPostTextModal()`)
     // show the copy button (hidden in event listener)
     document.querySelector('#postText_copy_btn').style.display = 'block'
     // prepare the final text to be displayed and copied in the modal
@@ -358,8 +357,8 @@ export default class calc {
     // show the modal
     let modalContainer = document.querySelector('#postText_modal_container')
     this.modalBkg.classList.remove('modal-bkg-hide')
-    modalContainer.classList.remove('postText-modal-container-hide')
-    modalContainer.classList.add('postText-modal-container-show')
+    modalContainer.classList.remove('modal-container-hide')
+    modalContainer.classList.add('modal-container-show')
   }
   //! prepare post text
   preparePostText = () => {
