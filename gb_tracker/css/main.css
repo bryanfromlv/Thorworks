@@ -195,65 +195,6 @@ input[type='checkbox']:hover {
   color: white;
 }
 
-/*! delete gb modal  */
-.deleteGb-modal-container {
-  position: fixed;
-  top: -25vh; /* -25vh hidden --> 50vh on screen */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  background: coral;
-  z-index: 70;
-  padding: 0.5rem 0;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-.deleteGb-modal-container-show {
-  animation: dropDeleteGbModal 500ms ease-in forwards;
-}
-@keyframes dropDeleteGbModal {
-  0% {
-    opacity: 0;
-    top: -25vh;
-  }
-  50% {
-    opacity: 0.6;
-    top: 27vh;
-  }
-  65% {
-    opacity: 0.8;
-    top: 23vh;
-  }
-  80% {
-    opacity: 0.9;
-    top: 26vh;
-  }
-  95% {
-    top: 24vh;
-  }
-  100% {
-    opacity: 1;
-    top: 25vh;
-  }
-}
-
-.deleteGb-modal-container-hide {
-  animation: raiseDeleteGbModal 500ms ease-out forwards;
-}
-@keyframes raiseDeleteGbModal {
-  from {
-    opacity: 1;
-    top: 25vh;
-  }
-  to {
-    opacity: 0;
-    top: -25vh;
-  }
-}
-
 /*! post text modal  */
 .postText-modal-container {
   position: absolute;

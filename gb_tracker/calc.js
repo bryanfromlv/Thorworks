@@ -314,14 +314,14 @@ export default class calc {
     modalContainer.classList.remove('modal-container-hide')
     modalContainer.classList.add('modal-container-show')
     // add event listeners to modal buttons
-    let closeButton = document.querySelector('#newGb_close_btn')
+    let closeButton = document.querySelector('#noGbClose_btn')
     closeButton.addEventListener('click', () => {
       // remove the modal
       this.modalBkg.classList.add('modal-bkg-hide')
       modalContainer.classList.remove('modal-container-show')
       modalContainer.classList.add('modal-container-hide')
     })
-    let newgbBtn = document.querySelector('#newGb_btn')
+    let newgbBtn = document.querySelector('#noGbNew_btn')
     newgbBtn.addEventListener('click', () => {
       // console.log('newgbBtn clicked, launch newGb form')
       showNewGb()
