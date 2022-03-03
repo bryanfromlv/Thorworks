@@ -28,11 +28,8 @@ export default class calc {
     this._tooltipsEnabled
     this._audioCB = document.querySelector('#calc_enable_audio')
     this._audioEnabled
-    this._postBtn = document.querySelector('.calc-post-btn')
-    this._newUserField = document.querySelector('#postText_username')
     this._userName = store.getPostName()
     this._postTextArray = []
-    this._postTextField = document.querySelector('#postText_modal_body')
     this._mxChoices = []
     this._snipeSoundFlag = true
     this._otherSoundFlag = true
@@ -51,9 +48,17 @@ export default class calc {
       document.getElementsByName('p4'),
       document.getElementsByName('p5'),
     ]
-    //! common modal background
+    //! modals
     this.modalBkg = document.querySelector('#modal_bkg')
-
+    this._noGbModalContainer = document.querySelector('#nogb_modal_container')
+    this._noGbCloseBtn = document.querySelector('#noGbClose_btn')
+    this._noGbNewBtn = document.querySelector('#noGbNew_btn')
+    this._postBtn = document.querySelector('.calc-post-btn')
+    this._postTextField = document.querySelector('#postText_modal_body')
+    this._newUserField = document.querySelector('#postText_username')
+    this._postModalCopyBtn = document.querySelector('#postText_copy_btn')
+    this._postModalContainer = document.querySelector('#postText_modal_container')
+    this._newUserModalContainer = document.querySelector('#newUser_modal_container')
     this.init()
     // console.log(`calc instantiated`)
   }
@@ -190,13 +195,21 @@ export default class calc {
         store.setAudioFlag(false)
       }
     })
+    //! add event listener to noGb close button
+    this._noGbCloseBtn.addEventListener('click', () => {
+      this.hideNoGbModal()
+    })
+    //! add event listener to noGb new button
+    this._noGbNewBtn.addEventListener('click', () => {
+      showNewGb()
+      navBar.activateNewGb()
+      this.hideNoGbModal()
+    })
     //! add event listener to post button
     this._postBtn.addEventListener('click', () => {
       if (this._userName) {
-        // console.log(`savedName found: ${savedName}`)
         this.doPostTextModal()
       } else {
-        // console.log(`First time using Post Text`)
         this.doNewUserModal()
       }
     })
@@ -205,17 +218,13 @@ export default class calc {
       // grab the text, save to localStorage, and save to class property
       let userName = this._newUserField.value
       if (userName) {
-        // console.log(`userName: ${userName}`)
         store.savePostName(userName) // storage.js function
         this._userName = userName
       } else {
         alert('You must enter a user name or nickname')
       }
       // hide the modal
-      this.modalBkg.classList.add('modal-bkg-hide')
-      let modalContainer = document.querySelector('#newUser_modal_container')
-      modalContainer.classList.remove('postText-modal-container-show')
-      modalContainer.classList.add('postText-modal-container-hide')
+      this.hideNewUserModal()
     })
     //! add event listener to post modal new user input
     //! convert enter key to button click
@@ -228,12 +237,9 @@ export default class calc {
     //! add event listener to post modal new user cancel button
     document.querySelector('#newUser_cancel_btn').addEventListener('click', () => {
       // hide the modal and do nothing
-      let modalContainer = document.querySelector('#newUser_modal_container')
-      this.modalBkg.classList.add('modal-bkg-hide')
-      modalContainer.classList.remove('postText-modal-container-show')
-      modalContainer.classList.add('postText-modal-container-hide')
+      this.hideNewUserModal()
     })
-    //! add event listener to 'include fp' checkbox
+    //! add event listener to post modal 'include fp' checkbox
     document.querySelector('#include_fp').addEventListener('click', () => {
       // all we have to do here is update the post text displayed
       // in the modal body, it will be copied on copy button click
@@ -244,7 +250,7 @@ export default class calc {
       document.querySelector('#postText_copy_btn').style.display = 'block'
     })
     //! add event listener to post modal copy button
-    document.querySelector('#postText_copy_btn').addEventListener('click', evt => {
+    this._postModalCopyBtn.addEventListener('click', evt => {
       let textToCopy = this._postTextField.innerText
       // write to clipboard
       navigator.clipboard.writeText(textToCopy).then(
@@ -252,8 +258,8 @@ export default class calc {
           /* clipboard successfully set */
           // hide the copy button
           evt.target.style.display = 'none'
-          document.querySelector('#postText_modal_body').innerText = `"${textToCopy}"
-          was copied to your clipboard. You may now close this window`
+          document.querySelector('#postText_modal_body').innerHTML = `"${textToCopy}"
+          was copied to your clipboard.<br>You may now close this window`
         },
         function (err) {
           /* clipboard write failed */
@@ -268,20 +274,15 @@ export default class calc {
     //! add event listener to post modal close button
     document.querySelector('#postText_close_btn').addEventListener('click', () => {
       // hide the modal and do nothing
-      let modalContainer = document.querySelector('#postText_modal_container')
-      this.modalBkg.classList.add('modal-bkg-hide')
-      modalContainer.classList.remove('postText-modal-container-show')
-      modalContainer.classList.add('postText-modal-container-hide')
+      this.hidePostModal()
     })
     //! add event listener to post modal change name button
     document.querySelector('#postText_changeName_btn').addEventListener('click', () => {
-      // hide the post modal
-      let modalContainer = document.querySelector('#postText_modal_container')
-      this.modalBkg.classList.add('modal-bkg-hide')
-      modalContainer.classList.remove('postText-modal-container-show')
-      modalContainer.classList.add('postText-modal-container-hide')
+      // hide the modal
+      this.hidePostModal()
       this.doNewUserModal()
     })
+
     //! current GB check
     let curGbKey = store.getCurGbKey()
     // console.log(`current GB check: ${curGbKey}`)
@@ -305,60 +306,55 @@ export default class calc {
     // console.log(this._myGb)
   }
 
+  hideNoGbModal = () => {
+    this.modalBkg.classList.add('modal-bkg-hide')
+    this._noGbModalContainer.classList.remove('modal-container-show')
+    this._noGbModalContainer.classList.add('modal-container-hide')
+  }
+
+  hidePostModal = () => {
+    this.modalBkg.classList.add('modal-bkg-hide')
+    this._postModalContainer.classList.remove('modal-container-show')
+    this._postModalContainer.classList.add('modal-container-hide')
+  }
+
+  hideNewUserModal = () => {
+    this.modalBkg.classList.add('modal-bkg-hide')
+    this._newUserModalContainer.classList.remove('modal-container-show')
+    this._newUserModalContainer.classList.add('modal-container-hide')
+  }
+
   //! noGb modal
   doNoGbModal = () => {
-    //console.log(`doNoGbModal()`)
     // show the modal
     this.modalBkg.classList.remove('modal-bkg-hide')
-    let modalContainer = document.querySelector('#nogb_modal_container')
-    modalContainer.classList.remove('modal-container-hide')
-    modalContainer.classList.add('modal-container-show')
-    // add event listeners to modal buttons
-    let closeButton = document.querySelector('#noGbClose_btn')
-    closeButton.addEventListener('click', () => {
-      // remove the modal
-      this.modalBkg.classList.add('modal-bkg-hide')
-      modalContainer.classList.remove('modal-container-show')
-      modalContainer.classList.add('modal-container-hide')
-    })
-    let newgbBtn = document.querySelector('#noGbNew_btn')
-    newgbBtn.addEventListener('click', () => {
-      // console.log('newgbBtn clicked, launch newGb form')
-      showNewGb()
-      navBar.activateNewGb()
-      // remove the modal
-      this.modalBkg.classList.add('modal-bkg-hide')
-      modalContainer.classList.remove('modal-container-show')
-      modalContainer.classList.add('modal-container-hide')
-    })
+    this._noGbModalContainer.classList.remove('modal-container-hide')
+    this._noGbModalContainer.classList.add('modal-container-show')
   }
 
   //! post text new user modal
   doNewUserModal = () => {
-    // console.log(`doNewUserModal`)
     // show the modal
-    let modalContainer = document.querySelector('#newUser_modal_container')
     this.modalBkg.classList.remove('modal-bkg-hide')
-    modalContainer.classList.remove('postText-modal-container-hide')
-    modalContainer.classList.add('postText-modal-container-show')
+    this._newUserModalContainer.classList.remove('modal-container-hide')
+    this._newUserModalContainer.classList.add('modal-container-show')
     // focus the text input and clear it
     this._newUserField.focus()
     this._newUserField.value = ''
   }
   //! post text modal
   doPostTextModal = () => {
-    // show the copy button (hidden in event listener)
-    document.querySelector('#postText_copy_btn').style.display = 'block'
+    // show the copy button (hidden in copy button event listener)
+    this._postModalCopyBtn.style.display = 'block'
     // prepare the final text to be displayed and copied in the modal
     let postText = this.preparePostText()
     // console.log(`initial postText: ${postText}`)
     // update the modal display text
     this._postTextField.innerText = postText
     // show the modal
-    let modalContainer = document.querySelector('#postText_modal_container')
     this.modalBkg.classList.remove('modal-bkg-hide')
-    modalContainer.classList.remove('modal-container-hide')
-    modalContainer.classList.add('modal-container-show')
+    this._postModalContainer.classList.remove('modal-container-hide')
+    this._postModalContainer.classList.add('modal-container-show')
   }
   //! prepare post text
   preparePostText = () => {
