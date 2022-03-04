@@ -70,8 +70,7 @@ input[type='checkbox']:hover {
   padding: 0.4rem;
 }
 
-/*! generic modal controls  */
-/** used for: nogb, deletegb,   */
+/*! generic modal styles  */
 .modal-content {
   user-select: none;
 }
@@ -96,7 +95,7 @@ input[type='checkbox']:hover {
 
 .modal-container {
   position: absolute;
-  top: -25vh;
+  bottom: 105vh;
   left: 50%;
   transform: translateX(-50%);
   width: 30%;
@@ -116,26 +115,25 @@ input[type='checkbox']:hover {
 @keyframes dropModal {
   0% {
     opacity: 0;
-    top: -25vh;
+    bottom: 105vh;
   }
-  50% {
+  60% {
     opacity: 0.6;
-    top: 27vh;
+    bottom: 40vh;
   }
-  65% {
+  70% {
     opacity: 0.8;
-    top: 23vh;
+    bottom: 44vh;
   }
   80% {
-    opacity: 0.9;
-    top: 26vh;
+    bottom: 40vh;
   }
   90% {
-    top: 24vh;
+    bottom: 42vh;
   }
   100% {
     opacity: 1;
-    top: 25vh;
+    bottom: 40vh;
   }
 }
 
@@ -146,11 +144,11 @@ input[type='checkbox']:hover {
 @keyframes raiseModal {
   from {
     opacity: 1;
-    top: 25vh;
+    bottom: 40vh;
   }
   to {
     opacity: 0;
-    top: -25vh;
+    bottom: 105vh;
   }
 }
 
@@ -195,108 +193,10 @@ input[type='checkbox']:hover {
   color: white;
 }
 
-/*! post text modal  */
-.postText-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
+/*! post text modal tweak  */
 .postText-modal-option-row {
   margin-bottom: 0.5rem;
   text-align: center;
-}
-
-.postText-modal-container-show {
-  animation: dropPostTextModal 700ms ease-in forwards;
-}
-@keyframes dropPostTextModal {
-  0% {
-    opacity: 0;
-    /* top: -9.5rem; */
-    top: -11rem;
-  }
-  50% {
-    opacity: 0.6;
-    /* top: 10rem; */
-    top: 15.5rem;
-  }
-  65% {
-    opacity: 0.8;
-    /* top: 9rem; */
-    top: 14.5rem;
-  }
-  80% {
-    opacity: 0.9;
-    /* top: 9.75rem; */
-    top: 15.25rem;
-  }
-  95% {
-    /* top: 9.25rem; */
-    top: 14.75rem;
-  }
-  100% {
-    background: coral;
-    opacity: 1;
-    top: 15rem;
-  }
-}
-
-.postText-modal-container-hide {
-  animation: raisePostTextModal 500ms ease-out forwards;
-}
-@keyframes raisePostTextModal {
-  from {
-    opacity: 1;
-    top: 9.5rem;
-  }
-  to {
-    opacity: 0;
-    top: -9.5rem;
-  }
-}
-
-/*! new user modal  */
-.newUser-modal-container {
-  position: absolute;
-  top: -11rem; /* -11rem hidden --> 15rem on screen */
-  left: 62%;
-  width: 20%;
-  background: white;
-  padding: 1rem;
-  border-radius: 15px;
-  opacity: 0;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-}
-
-/*! duplicate gb modal  */
-.dupGb-modal-container {
-  position: absolute;
-  top: 25vh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35%;
-  background: coral;
-  z-index: 70;
-  padding: 0.5rem 0;
-  border-radius: 15px;
-  opacity: 1;
-  -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
-  transition: 500ms ease;
-}
-
-.dupGb-modal-container-hide {
-  opacity: 0;
-  top: -10rem;
 }
 
 /*! orientation modal  */
