@@ -26,14 +26,15 @@ const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
 const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4) > button')
-const helpSlideshow = document.querySelector('.swiper')
-const helpSlideshowBackground = document.querySelector('.help-ss-modal-bkg')
+const helpSlideshow = document.querySelector('.slide-show')
 const helpCloseBtn = document.querySelector('.ss-close-btn')
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
 const orientModalContainer = document.querySelector('.orient-modal-container')
 const orientModalOkBtn = document.querySelector('#orient_ok_btn')
 const storageTest = store.storageAvailable('localStorage')
+// initialize screen tracker for use by help slideshow
+let prevScreen = listsection
 
 if (!storageTest) {
   // Too bad, no localStorage for us
@@ -93,7 +94,7 @@ let focusableContent = calcForm.querySelectorAll('input[type="number"]')
 let firstFocusableElement = focusableContent[0]
 let lastFocusableElement = focusableContent[focusableContent.length - 1]
 document.addEventListener('keydown', evt => {
-  let isTabPressed = evt.key === 'Tab' || evt.keyCode === 9
+  let isTabPressed = evt.key === 'Tab'
   if (!isTabPressed) {
     return
   }
@@ -117,6 +118,8 @@ const showGbList = () => {
   listsection.classList.remove('hide')
   newGbForm.classList.add('hide')
   calcForm.classList.add('hide')
+  helpSlideshow.classList.add('hide')
+  prevScreen = listsection
 }
 
 const showNewGb = () => {
@@ -124,22 +127,28 @@ const showNewGb = () => {
   listsection.classList.add('hide')
   calcForm.classList.add('hide')
   newGbForm.classList.remove('hide')
+  helpSlideshow.classList.add('hide')
+  prevScreen = newGbForm
 }
 
 const showCalculator = () => {
   calcForm.classList.remove('hide')
   listsection.classList.add('hide')
   newGbForm.classList.add('hide')
+  helpSlideshow.classList.add('hide')
+  prevScreen = calcForm
 }
 
 const showHelp = () => {
-  helpSlideshow.classList.remove('ss-hide')
-  helpSlideshowBackground.classList.remove('ss-bkg-hide')
+  helpSlideshow.classList.remove('hide')
+  listsection.classList.add('hide')
+  newGbForm.classList.add('hide')
+  calcForm.classList.add('hide')
 }
 
 const hideHelp = () => {
-  helpSlideshow.classList.add('ss-hide')
-  helpSlideshowBackground.classList.add('ss-bkg-hide')
+  helpSlideshow.classList.add('hide')
+  prevScreen.classList.remove('hide')
 }
 helpCloseBtn.addEventListener('click', hideHelp)
 

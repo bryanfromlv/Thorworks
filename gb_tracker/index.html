@@ -21,10 +21,12 @@
       background: #333333;
       transition: opacity 0.75s, visibility 0.75s;
     }
+
     .loader--hidden {
       opacity: 0;
       visibility: hidden;
     }
+
     .loader::after {
       content: "";
       width: 75px;
@@ -34,6 +36,7 @@
       border-radius: 50%;
       animation: loading 0.75s ease infinite;
     }
+
     @keyframes loading {
       from {
         transform: rotate(0turn);
@@ -45,13 +48,12 @@
     }
   </style>
   <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/gbtracker_navbar.css">
   <link rel="stylesheet" href="./css/gbList.css">
   <link rel="stylesheet" href="./css/newGb.css">
   <link rel="stylesheet" href="./css/calc.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./css/slideshow.css">
   <!-- favicon generator code -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -106,13 +108,14 @@
       // nav dots
       pagination: {
         el: '.swiper-pagination',
+        type: "fraction",
       },
 
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      },
+      }
     }
     const swiper = new Swiper('.swiper', settings)
   </script>
@@ -133,7 +136,9 @@
       <li class="top-nav-copyright">&#169; Thorworks 2022</li>
     </ul>
   </nav>
-  <h3 class="heading">Forge of Empires GB Tracker</h3>
+  <h3 class="heading" id="main_heading">Forge of Empires GB Tracker</h3>
+  <!--! common modal background  -->
+  <div class="modal-bkg modal-bkg-hide" id="modal_bkg"></div>
   <main>
     <!--! Main gb list section (cards) -->
     <!-- content for the list display section is injected by gbList.js -->
@@ -336,8 +341,99 @@
       </div>
     </form>
 
-    <!--! common modal background  -->
-    <div class="modal-bkg modal-bkg-hide" id="modal_bkg"></div>
+    <!--! help slideshow -->
+    <!-- Slideshow main container -->
+    <div class="slide-show hide">
+      <!-- slideshow close button -->
+      <img
+        src="images/ssCloseBtn.svg"
+        alt="close button"
+        height="30px"
+        class="ss-close-btn"
+        id="ss_close_btn" />
+      <!-- Swiper main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img data-src="slides/slide1.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide2.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide3.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide4.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide5.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide6.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide7.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide8.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide9.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide10.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide11.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide12.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide13.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide14.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide15.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide16.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img data-src="slides/slide17.webp" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+        </div>
+        <!-- nav indicator -->
+        <div class="swiper-pagination"></div>
+        <!-- navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!--? begin modals -->
     <!--! no gb modal -->
     <div class="modal-container" id="nogb_modal_container">
       <div class="modal-content">
@@ -452,97 +548,6 @@
         </div>
       </div>
     </div>
-    <!--! help slideshow modal -->
-    <div class="help-ss-modal-bkg ss-bkg-hide"></div>
-    <!-- Slideshow main container -->
-    <div class="swiper ss-hide">
-      <!-- slideshow close button -->
-      <img
-        src="images/ssCloseBtn.svg"
-        alt="close button"
-        height="30px"
-        class="ss-close-btn"
-        id="ss_close_btn" />
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <img data-src="slides/slide1.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide2.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide3.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide4.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide5.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide6.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide7.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide8.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide9.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide10.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide11.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide12.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide13.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide14.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide15.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide16.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-        <div class="swiper-slide">
-          <img data-src="slides/slide17.webp" class="swiper-lazy" />
-          <div class="swiper-lazy-preloader"></div>
-        </div>
-      </div>
-      <!-- nav dots -->
-      <div class="swiper-pagination"></div>
-      <!-- navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-    </div>
-
     <!--! orientation modal -->
     <div class="orient-bkg"></div>
     <div class="orient-modal-container">
@@ -555,7 +560,7 @@
     </div>
   </main>
 
-  <!-- bottom nav -->
+  <!--? bottom nav -->
   <footer class="bottom-nav">
     <ul class="bottom-nav-list">
       <li>Home</li>
@@ -574,5 +579,4 @@
     <source src="./audio/intruder-alert.mp3" type="audio/mpeg">
   </audio>
 </body>
-
 </html>

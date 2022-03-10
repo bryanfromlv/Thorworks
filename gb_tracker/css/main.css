@@ -12,6 +12,8 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   background: #185a9d;
   background: -moz-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
   background: -webkit-linear-gradient(left, #185a9d 0%, #1eb5c8 50%, #43cea2 100%);
@@ -22,6 +24,8 @@ body {
 
 main {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1,
@@ -70,6 +74,43 @@ input[type='checkbox']:hover {
   padding: 0.4rem;
 }
 
+/*! slideshow styles  */
+.slide-show {
+  position: relative;
+  margin: 0.25rem auto 0;
+  width: 800px;
+  height: 500px;
+  user-select: none;
+}
+
+.ss-hide {
+  display: none;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 0;
+  color: coral;
+}
+
+.ss-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.ss-close-btn:hover {
+  transform: scale(1.2);
+}
+
 /*! generic modal styles  */
 .modal-content {
   user-select: none;
@@ -78,13 +119,14 @@ input[type='checkbox']:hover {
 .modal-bkg {
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: 0;
   background: rgb(0, 0, 0);
   z-index: 60;
   opacity: 0.6;
+  pointer-events: none;
   visibility: visible;
-  transition: 500ms;
+  transition: all 500ms;
 }
 
 /* turns off the background */
