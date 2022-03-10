@@ -15,14 +15,22 @@ const newGbForm = document.querySelector('#new_gb_form')
 const modalBkg = document.querySelector('#modal_bkg')
 const confirmModalContainer = document.querySelector('#newGb_modal_container')
 const dupModalContainer = document.querySelector('#dupGb_modal_container')
-const dupReplaceBtn = document.querySelector('#dupGb-replace_btn')
-const dupCancelBtn = document.querySelector('#dupGb-cancel_btn')
+const dupReplaceBtn = document.querySelector('#dupGb_replace_btn')
+const dupCancelBtn = document.querySelector('#dupGb_cancel_btn')
 const newGbCloseButton = document.querySelector('#newGb_close_btn')
 const newGbAddButton = document.querySelector('#newGb_add_btn')
 const newGbCalcButton = document.querySelector('#newGb_calc_btn')
 const saveBtn = document.querySelector('#saveButton')
 const gbNameSpan = document.querySelector('#newGb_confirm_gbName')
 const dupNameSpan = document.querySelector('#duplicate_gb_name')
+const gbSelect = document.querySelector('#gb_select')
+const gbLevel = document.querySelector('#level_input')
+const gbGoal = document.querySelector('#goal_input')
+const gbP1 = document.querySelector('#p1_input')
+const gbP2 = document.querySelector('#p2_input')
+const gbP3 = document.querySelector('#p3_input')
+const gbP4 = document.querySelector('#p4_input')
+const gbP5 = document.querySelector('#p5_input')
 
 function initNewGb() {
   // savedKeys = store.getAllGbKeys() not needed?
@@ -38,21 +46,17 @@ function initNewGb() {
     if (validate()) {
       // console.log('validity passed, saving new gb')
       //check for duplicate and put up modal
-      let name = document.querySelector('#gb_select').value
-      let level = document.querySelector('#level_input').value
-      let key = `${name}${level}`
+      let key = `${gbSelect.value}${gbLevel.value}`
       let savedGbKeys = store.getAllGbKeys()
       let duplicate = false
-      let duplicateKey
       for (let x = 0; x < savedGbKeys.length; x++) {
         if (savedGbKeys[x] == key) {
           duplicate = true
-          duplicateKey = key
         }
       }
       if (duplicate) {
         //do duplicate modal and reset the form (via modal button handlers)
-        doDuplicateModal(duplicateKey)
+        doDuplicateModal()
       } else {
         let newGb = buildGb()
         finalSave(newGb)
@@ -63,11 +67,9 @@ function initNewGb() {
     }
   })
 
-  const doDuplicateModal = key => {
+  const doDuplicateModal = () => {
     // insert duplicate gb name/level
-    let name = key.slice(0, -2)
-    let level = key.slice(-2)
-    dupNameSpan.innerText = `${name} level ${level}`
+    dupNameSpan.innerText = `${gbSelect.value} level ${gbLevel.value}`
     // show the modal
     modalBkg.classList.remove('modal-bkg-hide')
     dupModalContainer.classList.remove('modal-container-hide')
@@ -88,6 +90,12 @@ function initNewGb() {
     modalBkg.classList.add('modal-bkg-hide')
     confirmModalContainer.classList.remove('modal-container-show')
     confirmModalContainer.classList.add('modal-container-hide')
+  }
+
+  const removeDupModal = () => {
+    modalBkg.classList.add('modal-bkg-hide')
+    dupModalContainer.classList.remove('modal-container-show')
+    dupModalContainer.classList.add('modal-container-hide')
   }
 
   newGbCloseButton.addEventListener('click', () => {
@@ -128,9 +136,7 @@ function initNewGb() {
 
   dupReplaceBtn.addEventListener('click', () => {
     // delete the duplicate in storage
-    let name = document.querySelector('#gb_select').value
-    let level = document.querySelector('#level_input').value
-    let deletedKey = `${name}${level}`
+    let deletedKey = `${gbSelect.value}${gbLevel.value}`
     gb_list.doDelete(deletedKey)
     // and save the duplicate
     let newGb = buildGb()
@@ -140,18 +146,14 @@ function initNewGb() {
     // reset the form
     resetNewGbForm()
     // remove the modal
-    modalBkg.classList.remove('modal-show')
-    dupModalContainer.classList.remove('modal-container-show')
-    dupModalContainer.classList.add('modal-container-hide')
+    removeDupModal()
   })
 
   dupCancelBtn.addEventListener('click', () => {
     // reset the form
     resetNewGbForm()
     // remove the modal
-    modalBkg.classList.remove('modal-show')
-    dupModalContainer.classList.remove('modal-container-show')
-    dupModalContainer.classList.add('modal-container-hide')
+    removeDupModal()
   })
 
   //! final code block
@@ -163,14 +165,14 @@ function initNewGb() {
   const buildGb = () => {
     //console.log('saveBtnHandler()')
     // let's do the gb property assignments for now (maybe not here)
-    let name = document.querySelector('#gb_select').value
-    let level = document.querySelector('#level_input').value
-    let goal = Number(document.querySelector('#goal_input').value)
-    let p1 = Number(document.querySelector('#p1_input').value)
-    let p2 = Number(document.querySelector('#p2_input').value)
-    let p3 = Number(document.querySelector('#p3_input').value)
-    let p4 = Number(document.querySelector('#p4_input').value)
-    let p5 = Number(document.querySelector('#p5_input').value)
+    let name = gbSelect.value
+    let level = gbLevel.value
+    let goal = Number(gbGoal.value)
+    let p1 = Number(gbP1.value)
+    let p2 = Number(gbP2.value)
+    let p3 = Number(gbP3.value)
+    let p4 = Number(gbP4.value)
+    let p5 = Number(gbP5.value)
     // build the gb object
     let newGb = new gb(name, level, goal, p1, p2, p3, p4, p5)
     return newGb

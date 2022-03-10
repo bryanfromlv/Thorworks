@@ -247,7 +247,7 @@ export default class calc {
       // update the modal display text
       this._postTextField.innerText = newPostText
       // show the copy button (hidden in event listener)
-      document.querySelector('#postText_copy_btn').style.display = 'block'
+      document.querySelector('#postText_copy_btn').style.display = 'initial'
     })
     //! add event listener to post modal copy button
     this._postModalCopyBtn.addEventListener('click', evt => {

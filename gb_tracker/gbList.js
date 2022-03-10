@@ -546,8 +546,15 @@ export default class gbList {
   }
 
   //! internal utility methods
-  doDelete = evt => {
-    let gbKey = this._gbToDelete
+  doDelete = param => {
+    // param will be a gbKey string when doDelete is called from dupGb modal in newGb.js
+    // otherwise it's a mouse event from above, so we filter it here (mouse evt is not used)
+    let gbKey
+    if (typeof param === 'string') {
+      gbKey = param
+    } else {
+      gbKey = this._gbToDelete
+    }
     // store a reference to curGbKey
     let curKey = store.getCurGbKey()
     // remove the card from display
