@@ -25,7 +25,7 @@ export {
 const listsection = document.querySelector('#list_section')
 const newGbForm = document.querySelector('#new_gb_form')
 const calcForm = document.querySelector('#calc_form')
-const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4) > button')
+const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
 const helpSlideshow = document.querySelector('.slide-show')
 const helpCloseBtn = document.querySelector('.ss-close-btn')
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')

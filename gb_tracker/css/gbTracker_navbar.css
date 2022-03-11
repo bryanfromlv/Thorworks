@@ -25,7 +25,7 @@
   margin-right: auto;
 }
 
-.top-nav-list > li > button.top-nav-item-active {
+.top-nav-item-active {
   pointer-events: none;
   color: var(--topnav-active-clr);
 }
@@ -62,18 +62,10 @@
 
 .top-nav-list > li {
   list-style-type: none;
-}
-
-.top-nav-list > li > button {
-  background: none;
-  color: var(--topnav-clr);
-  border: none;
-  font-size: inherit;
-  padding: 0.3em 0.5em;
   cursor: pointer;
 }
 
-.top-nav-list > li > button:hover {
+.top-nav-list > li:hover {
   color: var(--topnav-hvrclr);
 }
 
@@ -131,11 +123,11 @@
 
 .bottom-nav-list li {
   list-style-type: none;
+  cursor: pointer;
 }
 
 .bottom-nav-list li:hover {
   color: var(--botnav-hvrclr);
-  cursor: pointer;
 }
 
 .bot-nav-copyright {

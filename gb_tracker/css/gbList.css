@@ -75,10 +75,11 @@
   background-color: green;
   color: white;
   border-radius: 15px;
-  padding: 0 0.5em;
+  padding: 0.1em 0.5em;
   cursor: pointer;
+  outline: none;
   border: none;
-  transition: background-color 250ms ease-in;
+  transition: background-color 250ms;
 }
 
 .delete-btn:hover {
@@ -89,10 +90,11 @@
   background-color: green;
   color: white;
   border-radius: 15px;
-  padding: 0 0.5em;
+  padding: 0.1em 0.5em;
   cursor: pointer;
+  outline: none;
   border: none;
-  transition: background-color 250ms ease-in;
+  transition: background-color 250ms;
 }
 
 .calc-btn:hover {

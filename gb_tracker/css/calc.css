@@ -125,19 +125,18 @@ input[type='radio'] {
 /*! post button styles  */
 .calc-post-btn {
   background-color: var(--section-background);
-  font-size: 1rem;
   font-weight: 500;
-  border: 1px solid #1c6ea4;
-  border-radius: 20px;
+  border: 1px solid blue;
+  border-radius: 15px;
+  outline: none;
   margin: 0 0.5rem;
   transition: 200ms;
 }
 
 .calc-post-btn:hover {
   cursor: pointer;
-  font-weight: 700;
   border-color: red;
-  background: #1c6ea4;
+  background: blue;
   color: white;
 }
 
