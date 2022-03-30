@@ -9,9 +9,8 @@ export default class nav {
     // calculator
     const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4)')
     // const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
-    const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
-    const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
-    // const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
+    const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
+    const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
     // utility
     this.topActiveItem
     this.botActiveItem

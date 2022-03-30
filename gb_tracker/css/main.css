@@ -49,6 +49,7 @@ input[type='checkbox']:hover {
 }
 
 .heading {
+  font-size: 1.5rem;
   color: hsl(0, 0%, 85%);
   cursor: default;
   text-align: center;
@@ -56,7 +57,7 @@ input[type='checkbox']:hover {
 }
 
 .list-section {
-  margin: 0.2rem auto 2.5rem;
+  margin: 1rem auto 2.5rem;
   background-color: var(--section-background);
   border-radius: 15px;
   min-width: 40rem;
@@ -96,6 +97,7 @@ input[type='checkbox']:hover {
   position: absolute;
   bottom: 0;
   color: coral;
+  z-index: 10;
 }
 
 .ss-close-btn {
@@ -295,18 +297,20 @@ input[type='checkbox']:hover {
 /*! end modal styles */
 
 /* media queries */
-/* smaller phones */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 730px) {
   .list-section {
-    width: 100%;
+    width: 95%;
+  }
+  .new-gb-form {
+    width: 95%;
   }
   .calc-form {
-    width: 100%;
+    width: 95%;
   }
 }
-/* iPhone 12 pro */
-@media screen and (max-width: 850px) {
+/* hide the heading below 400px */
+@media screen and (max-height: 400px) {
   .heading {
-    margin: 0.2rem 0 0;
+    display: none;
   }
 }

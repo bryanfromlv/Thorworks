@@ -1,7 +1,7 @@
 .new-gb-form {
   text-align: center;
   background: var(--section-background);
-  margin: 0.2rem auto;
+  margin: 1rem auto;
   border-radius: 15px;
   -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
@@ -69,10 +69,4 @@
 
 .p-labels {
   margin-left: 0.5rem;
-}
-/* media queries */
-@media screen and (max-width: 600px) {
-  .new-gb-form {
-    width: 100%;
-  }
 }

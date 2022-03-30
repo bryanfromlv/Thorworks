@@ -130,30 +130,42 @@
   color: var(--botnav-hvrclr);
 }
 
+/* hide the dummy li, activated in media query */
+.bottom-nav-list > li:nth-of-type(1) {
+  display: none;
+}
+
+.bottom-nav-list > li:nth-of-type(2) {
+  margin-left: auto;
+}
+
+.bottom-nav-list > li:nth-of-type(3) {
+  margin-right: auto;
+}
+
+/* hide the copyright, activated in media query */
 .bot-nav-copyright {
   display: none;
-  position: fixed;
-  right: 10px;
+  /* position: fixed;
+  right: 20px;
+  bottom: 6px; */
   font-size: 0.7rem;
   pointer-events: none;
 }
 
 /* media queries */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 730px) {
   .bottom-nav-list {
     gap: 2em;
-    /* padding: 0; */
+  }
+  .bottom-nav-list > li:nth-of-type(1) {
+    display: initial;
+    opacity: 0;
   }
   .top-nav-copyright {
     display: none;
   }
   .bot-nav-copyright {
     display: initial;
-  }
-}
-/* iPhone 12 pro */
-@media screen and (max-width: 850px) {
-  .bottom-nav-list {
-    padding: 0;
   }
 }
