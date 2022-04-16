@@ -21,16 +21,36 @@ nav {
 
 h1 {
   color: var(--primary-clr);
-  margin-top: 0.25rem;
+  margin: 0.25rem auto;
   user-select: none;
 }
 
 h2 {
   color: var(--primary-bkg-clr);
+  margin: 0.5rem auto;
+  user-select: none;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pi-back-btn {
+  color: var(--primary-clr);
+  background-color: var(--primary-bkg-clr);
+  font-weight: 600;
+  padding: 0.1em 0.75em;
+  margin: 0.5rem auto;
+  border-radius: 1em;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.pi-back-btn:hover {
+  font-weight: 800;
+  color: var(--primary-bkg-clr);
+  background-color: var(--primary-clr);
 }

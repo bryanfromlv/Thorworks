@@ -110,6 +110,11 @@ article > p {
   transition: all 300ms ease-in;
 }
 
+/* hide the honeypot */
+.special-h {
+  display: none;
+}
+
 /* applied via javascript */
 .contact-form-control-focused {
   opacity: 1;

@@ -120,17 +120,17 @@
         />
         <p class="contact-form-title">E-Mail Thordarsen</p>
         <!--! for dev only  -->
-        <form
+        <!-- <form
           class="contact-form"
           action="http://localhost:8080/thorworks/contactFormHandler.php"
           method="post"
-        >
-          <!--! for distribution only  -->
-          <!-- <form
+        > -->
+        <!--! for distribution only  -->
+        <form
           class="contact-form"
           action="https://thordarsen.net/contactFormHandler.php"
           method="post"
-        > -->
+        >
           <div class="contact-form-group">
             <label for="name" class="contact-form-label">Name or Game Name</label>
             <input
@@ -168,6 +168,14 @@
               required
             ></textarea>
           </div>
+          <input
+            type="text"
+            class="special-h"
+            name="world"
+            id="world"
+            autocomplete="off"
+            tabindex="-1"
+          />
           <div class="contact-btn-row">
             <button type="submit" name="send" class="contact-send-btn">SEND MESSAGE</button>
           </div>
