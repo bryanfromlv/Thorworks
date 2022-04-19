@@ -75,7 +75,7 @@ export default class nav {
     const doTopNav3 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('./pi/index.html', '_self')
+      window.open('./pi/', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
 
@@ -95,8 +95,6 @@ export default class nav {
     bottomNav2.addEventListener('click', doBottomNav2)
 
     const doBottomNav3 = evt => {
-      evt.target.classList.add('bottom-nav-item-active')
-      updateActive('bot', evt.target)
       window.open('https://www.youtube.com/channel/UCWCx7Ys_RxhPS9aiogsFeUw', '_blank')
     }
     bottomNav3.addEventListener('click', doBottomNav3)

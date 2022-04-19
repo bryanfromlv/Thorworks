@@ -14,19 +14,20 @@
     <!-- style sheets -->
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/main_navbar.css" />
-    <link rel="stylesheet" href="pi.css" />
+    <link rel="stylesheet" href="lab.css" />
     <!-- import & instantiate nav module -->
     <script type="module">
-      import nav from './pi_navmodule.js'
+      import nav from './lab_navmodule.js'
       const navBar = new nav()
     </script>
+    <script src="./lab.js" defer></script>
     <title>Raspberry Pi</title>
   </head>
   <body>
     <nav class="top-nav">
       <ul class="top-nav-list">
         <li class="top-nav-logo push-left">
-          <img src="../images/thor_bkg_logo.svg" alt="logo" height="30" />
+          <img src="../images/thor_bkg_logo.svg" alt="logo" height="25" />
         </li>
         <li class="nav-dropdown-1">
           FoE
@@ -36,14 +37,15 @@
             <li>Aztecs Guide</li>
           </ul>
         </li>
-        <li>Lab</li>
-        <li class="top-nav-item-active">Pi</li>
+        <li class="top-nav-item-active">Lab</li>
+        <li>Pi</li>
         <li class="top-nav-copyright push-right">&#169; Thorworks 2022</li>
       </ul>
     </nav>
     <main>
-      <h1>Raspberry Pi</h1>
-      <h2>(still under construction)</h2>
+      <h1>Web Lab</h1>
+      <h2>(still under development)</h2>
+      <button class="lab-home-btn">Home</button>
     </main>
   </body>
 </html>

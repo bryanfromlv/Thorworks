@@ -8,7 +8,6 @@ export default class nav {
     const dd1Item3 = document.querySelector('.nav_dropdown_list_1  li:nth-of-type(3)')
     const topNav2 = document.querySelector('.top-nav-list > li:nth-of-type(3)')
     const topNav3 = document.querySelector('.top-nav-list > li:nth-of-type(4)')
-    const topNav4 = document.querySelector('.top-nav-list > li:nth-of-type(5)')
     // const bottomNav1 = document.querySelector('.bottom-nav-list > li:nth-of-type(1)')
     // const bottomNav2 = document.querySelector('.bottom-nav-list > li:nth-of-type(2)')
     // const bottomNav3 = document.querySelector('.bottom-nav-list > li:nth-of-type(3)')
@@ -19,7 +18,7 @@ export default class nav {
     this.topActiveItem
     this.botActiveItem
     const updateActive = (loc, el) => {
-      console.log(`${el.innerText} clicked`)
+      // console.log(`${el.innerText} clicked`)
       if (this.topActiveItem) {
         this.topActiveItem.classList.remove('top-nav-item-active')
       }
@@ -59,23 +58,16 @@ export default class nav {
     const doTopNav2 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
+      window.open('../lab/', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
     const doTopNav3 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
+      window.open('../pi/', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
-
-    const doTopNav4 = evt => {
-      evt.target.classList.add('top-nav-item-active')
-      updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
-    }
-    topNav4.addEventListener('click', doTopNav4)
 
     //! bottom nav
     // const doBottomNav1 = (evt) => {

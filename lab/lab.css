@@ -1,8 +1,8 @@
 :root {
-  --primary-clr: hsl(350, 80%, 75%);
+  --primary-clr: hsl(0, 0%, 10%);
   --secondary-clr: blue;
-  --primary-bkg-clr: #fffdea;
-  --sectiontxt-clr: hsl(0, 0%, 10%);
+  --primary-bkg-clr: hsl(54, 100%, 96%);
+  /* --sectiontxt-clr: hsl(0, 17%, 93%); */
   /* --sectiontxt-bkg-clr: whitesmoke; */
 }
 
@@ -34,4 +34,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.lab-home-btn {
+  color: var(--primary-clr);
+  background-color: var(--primary-bkg-clr);
+  font-weight: 600;
+  padding: 0.1em 0.75em;
+  margin: 0.5rem auto;
+  border-radius: 1em;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.lab-home-btn:hover {
+  font-weight: 800;
+  color: var(--primary-bkg-clr);
+  background-color: var(--primary-clr);
 }

@@ -64,13 +64,11 @@
 .top-nav-list > li {
   position: relative;
   list-style-type: none;
-  padding: 0.5em 0.5em;
-  background-color: var(--topnav-bgclr);
+  cursor: pointer;
 }
 
 .top-nav-list > li:hover {
   color: var(--topnav-hvrclr);
-  cursor: pointer;
 }
 
 .top-nav-logo {
@@ -79,6 +77,11 @@
 
 .top-nav-logo:hover {
   cursor: pointer;
+}
+
+.top-nav-logo > img,
+.top-nav-logo-disabled > img {
+  margin-top: 4px;
 }
 
 .top-nav-logo-disabled {
@@ -139,7 +142,6 @@
   align-items: center;
   gap: 5em;
   margin: 0 1em;
-  padding: 0.5em 0;
 }
 
 .bottom-nav-list li {

@@ -97,10 +97,6 @@ figcaption {
   padding-top: 0.25em;
 }
 
-/* :any-link {
-  color: whitesmoke;
-} */
-
 @media screen and (max-width: 600px) {
   .container {
     max-width: 100%;

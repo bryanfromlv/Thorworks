@@ -54,23 +54,16 @@ export default class nav {
     const doTopNav2 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
+      window.open('../lab/', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
     const doTopNav3 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
+      window.open('../pi/', '_self')
     }
     topNav3.addEventListener('click', doTopNav3)
-
-    const doTopNav4 = evt => {
-      evt.target.classList.add('top-nav-item-active')
-      updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
-    }
-    topNav4.addEventListener('click', doTopNav4)
     // console.log(`quick_calcs_navmodule instantiated`)
   }
 }

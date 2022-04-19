@@ -1,6 +1,5 @@
-const backBtn = document.querySelector('.pi-back-btn')
+const homeBtn = document.querySelector('.pi-home-btn')
 
-backBtn.addEventListener('click', () => {
-  console.log('backBtn clicked')
+homeBtn.addEventListener('click', () => {
   window.open('../', '_self')
 })

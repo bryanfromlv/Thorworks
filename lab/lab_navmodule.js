@@ -66,17 +66,17 @@ export default class nav {
     const doTopNav2 = evt => {
       evt.target.classList.add('top-nav-item-active')
       updateActive('top', evt.target)
-      window.open('../construction.html', '_self')
+      window.open('../lab/', '_self')
     }
     topNav2.addEventListener('click', doTopNav2)
 
     // Pi
-    // const doTopNav3 = evt => {
-    //   evt.target.classList.add('top-nav-item-active')
-    //   updateActive('top', evt.target)
-    //   window.open('./construction.html', '_self')
-    // }
-    // topNav3.addEventListener('click', doTopNav3)
+    const doTopNav3 = evt => {
+      evt.target.classList.add('top-nav-item-active')
+      updateActive('top', evt.target)
+      window.open('../pi/', '_self')
+    }
+    topNav3.addEventListener('click', doTopNav3)
 
     //! bottom nav
     // const doBottomNav1 = evt => {
