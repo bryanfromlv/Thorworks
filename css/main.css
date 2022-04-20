@@ -34,12 +34,13 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   color: var(--sectiontxt-clr);
   background-color: var(--primary-bkg-clr);
-  width: fit-content;
-  margin-top: 1rem;
-  position: relative;
+  width: min(800px, 100%);
+  margin: 1rem 0 2rem 0;
   border-radius: 15px;
+  user-select: none;
   -webkit-box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.4);
 }
@@ -70,25 +71,23 @@ article > p {
 
 /* main section styles */
 .main-section {
-  width: 75%;
+  /* width: 75%; */
 }
 
 /* about section styles */
 .about-section {
-  position: relative;
-  width: 75%;
+  /* width: 75%; */
 }
 
 /* contact form styles */
 .contact-section {
-  position: relative;
-  width: 500px;
-  user-select: none;
+  /* min-width: 500px; */
+  width: min(490px, 100%);
 }
 
 .contact-form {
   padding: 0.2em 0 1em 0;
-  width: 80%;
+  width: 95%;
 }
 
 .contact-form-title {

@@ -42,7 +42,7 @@ main {
   background-color: var(--primary-bkg-clr);
   font-weight: 600;
   padding: 0.1em 0.75em;
-  margin: 0.5rem auto;
+  margin: 0.5em auto;
   border-radius: 1em;
   border: 0;
   outline: none;
