@@ -1,7 +1,7 @@
 :root {
   --primary-clr: coral;
   --secondary-clr: blue;
-  --primary-bkg-clr: #fffdea;
+  --primary-bkg-clr: hsl(54, 100%, 96%);
   --sectiontxt-clr: hsl(0, 0%, 10%);
 }
 
@@ -69,19 +69,8 @@ article > p {
   cursor: pointer;
 }
 
-/* main section styles */
-.main-section {
-  /* width: 75%; */
-}
-
-/* about section styles */
-.about-section {
-  /* width: 75%; */
-}
-
 /* contact form styles */
 .contact-section {
-  /* min-width: 500px; */
   width: min(490px, 100%);
 }
 
@@ -165,13 +154,16 @@ article > p {
 
 .contact-send-btn {
   background-color: var(--primary-bkg-clr);
+  font-weight: 600;
+  padding: 0.1em 0.75em;
+  margin: 0.5em auto;
+  border-radius: 1em;
+  outline: none;
   cursor: pointer;
-  user-select: none;
-  border-radius: 25px;
-  padding: 0 0.5em;
 }
 
 .contact-send-btn:hover {
+  font-weight: 800;
   border-color: green;
   background-color: var(--primary-clr);
   color: white;

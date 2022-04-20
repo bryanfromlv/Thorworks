@@ -141,7 +141,7 @@
   display: flex;
   align-items: center;
   gap: 5em;
-  margin: 0 1em;
+  margin: 1px 1em;
 }
 
 .bottom-nav-list li {
