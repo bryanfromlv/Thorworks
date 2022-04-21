@@ -64,6 +64,16 @@ export default class calc {
   }
 
   init = () => {
+    //! Weird bug fix 4/21/22- after uploading new version, post text button would
+    //! submit the calc form! Fixed by adding type="button" to post text button but
+    //! added this event listener to block all submit attempts just in case.
+    //! after thought- I probably inadvertently removed the type while working on modals
+    this._calcForm.addEventListener('submit', evt => {
+      evt.preventDefault()
+      console.dir(`Submit attempt by ${evt.submitter}`)
+      console.log(evt.submitter)
+    })
+
     //! prepare tippy tooltips
     tippy.setDefaultProps({
       theme: 'bryan',
@@ -207,6 +217,7 @@ export default class calc {
     })
     //! add event listener to post button
     this._postBtn.addEventListener('click', () => {
+      // console.log(`post button clicked`)
       if (this._userName) {
         this.doPostTextModal()
       } else {
@@ -344,6 +355,7 @@ export default class calc {
   }
   //! post text modal
   doPostTextModal = () => {
+    // console.log(`doPostTextModal()`)
     // show the copy button (hidden in copy button event listener)
     this._postModalCopyBtn.style.display = 'block'
     // prepare the final text to be displayed and copied in the modal
