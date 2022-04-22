@@ -2,6 +2,8 @@
 :root {
   --field-bkg: whitesmoke;
   --bg-clr: coral;
+  --display-bg-clr: hsl(197, 71%, 85%);
+  /* --display-bg-clr: hsl(16, 100%, 90%); */
 }
 
 /* general styles*/
@@ -50,6 +52,7 @@ legend {
 
 .arc-input > input {
   width: 6ch;
+  text-align: center;
 }
 
 .bottom-button-row {
@@ -58,17 +61,21 @@ legend {
   gap: 2rem;
 }
 
-.btn {
-  font-size: 16px;
-  background-color: white;
-  border-radius: 25px;
-  padding: 0 0.5em;
+.qc-btn {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--field-bkg);
+  border-radius: 1em;
+  border: 1px solid black;
+  outline: none;
+  padding: 0.1em 0.75em;
+  margin: 0.5em auto;
+  cursor: pointer;
 }
 
-.btn:hover {
-  cursor: pointer;
-  background-color: greenyellow;
-  font-weight: 600;
+.qc-btn:hover {
+  background-color: var(--display-bg-clr);
+  /* font-weight: 600; */
 }
 
 /* utility styles */
@@ -91,9 +98,11 @@ legend {
   width: 15em;
 }
 
-.display {
+.qc-display {
+  text-align: center;
   border: 1px solid black;
-  background-color: var(--field-bkg);
+  border-radius: 10px;
+  background-color: var(--display-bg-clr);
   height: 1.5em;
   min-width: 6ch;
   padding: 0 0.5em;
@@ -107,14 +116,15 @@ legend {
 }
 
 .mine-row span {
-  border: 1px solid black;
-  color: white;
-  background-color: blue;
-  padding: 0 0.25em;
-  margin-left: 0.25em;
+  border: 1px solid blue;
+  border-radius: 10px;
+  color: black;
+  background-color: var(--display-bg-clr);
+  padding: 0 1em;
+  margin-left: 0.8em;
 }
 
-.mx-btn > *:hover {
+.mx-btn > * {
   cursor: pointer;
 }
 
