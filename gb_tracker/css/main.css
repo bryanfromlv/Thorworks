@@ -154,7 +154,7 @@ input[type='checkbox']:hover {
 
 /* slides in container from the top with bounce effect */
 .modal-container-show {
-  animation: dropModal 600ms ease-in forwards;
+  animation: dropModal 700ms ease-in forwards;
 }
 @keyframes dropModal {
   0% {
@@ -163,21 +163,21 @@ input[type='checkbox']:hover {
   }
   60% {
     opacity: 0.6;
-    bottom: 40vh;
+    bottom: 60vh;
   }
   70% {
     opacity: 0.8;
-    bottom: 44vh;
+    bottom: 64vh;
   }
   80% {
-    bottom: 40vh;
+    bottom: 60vh;
   }
   90% {
-    bottom: 42vh;
+    bottom: 62vh;
   }
   100% {
     opacity: 1;
-    bottom: 40vh;
+    bottom: 60vh;
   }
 }
 
@@ -188,7 +188,7 @@ input[type='checkbox']:hover {
 @keyframes raiseModal {
   from {
     opacity: 1;
-    bottom: 40vh;
+    bottom: 60vh;
   }
   to {
     opacity: 0;
@@ -306,6 +306,41 @@ input[type='checkbox']:hover {
   }
   .calc-form {
     width: 95%;
+  }
+  /*! We use a different animation for phones- basically centers the modal  */
+  @keyframes dropModal {
+    0% {
+      opacity: 0;
+      bottom: 105vh;
+    }
+    60% {
+      opacity: 0.6;
+      bottom: 40vh;
+    }
+    70% {
+      opacity: 0.8;
+      bottom: 44vh;
+    }
+    80% {
+      bottom: 40vh;
+    }
+    90% {
+      bottom: 42vh;
+    }
+    100% {
+      opacity: 1;
+      bottom: 40vh;
+    }
+  }
+  @keyframes raiseModal {
+    from {
+      opacity: 1;
+      bottom: 40vh;
+    }
+    to {
+      opacity: 0;
+      bottom: 105vh;
+    }
   }
 }
 /* hide the heading below 400px */

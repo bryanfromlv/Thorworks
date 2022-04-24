@@ -543,6 +543,8 @@ export default class gbList {
     this.modalBkg.classList.remove('modal-bkg-hide')
     this.confirmDeleteModalContainer.classList.remove('modal-container-hide')
     this.confirmDeleteModalContainer.classList.add('modal-container-show')
+    //! bug fix- modal would be off screen if scrolled down (multiple gb's)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   //! internal utility methods
