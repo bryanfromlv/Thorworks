@@ -78,9 +78,8 @@ input[type='checkbox']:hover {
 /*! slideshow styles  */
 .slide-show {
   position: relative;
-  margin: 0.25rem auto 0;
+  margin: 2rem auto 3rem;
   width: 800px;
-  height: 500px;
   user-select: none;
 }
 
@@ -88,22 +87,14 @@ input[type='checkbox']:hover {
   display: none;
 }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
 .swiper-pagination {
-  position: absolute;
-  bottom: 0;
   color: coral;
-  z-index: 10;
 }
 
 .ss-close-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -2rem;
+  right: 0px;
   z-index: 10;
   cursor: pointer;
   transition: 300ms ease-in-out;
@@ -297,6 +288,16 @@ input[type='checkbox']:hover {
 /*! end modal styles */
 
 /* media queries */
+/* slideshow has to break at 850px */
+@media screen and (max-width: 850px) {
+  .slide-show {
+    margin: 0 auto 2rem;
+    width: 500px;
+  }
+  .ss-close-btn {
+    top: 0;
+  }
+}
 @media screen and (max-width: 730px) {
   .list-section {
     width: 95%;

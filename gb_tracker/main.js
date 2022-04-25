@@ -28,6 +28,7 @@ const calcForm = document.querySelector('#calc_form')
 const calcLink = document.querySelector('.top-nav-list > li:nth-of-type(4)')
 const helpSlideshow = document.querySelector('.slide-show')
 const helpCloseBtn = document.querySelector('.ss-close-btn')
+const mainHeading = document.querySelector('.heading')
 const mqlOrient = window.matchMedia('(max-width: 640px) and (orientation: portrait)')
 const orientModalBkg = document.querySelector('.orient-bkg')
 const orientModalContainer = document.querySelector('.orient-modal-container')
@@ -141,6 +142,7 @@ const showCalculator = () => {
 
 const showHelp = () => {
   helpSlideshow.classList.remove('hide')
+  mainHeading.classList.add('hide')
   listsection.classList.add('hide')
   newGbForm.classList.add('hide')
   calcForm.classList.add('hide')
@@ -148,6 +150,7 @@ const showHelp = () => {
 
 const hideHelp = () => {
   helpSlideshow.classList.add('hide')
+  mainHeading.classList.remove('hide')
   prevScreen.classList.remove('hide')
 }
 helpCloseBtn.addEventListener('click', hideHelp)

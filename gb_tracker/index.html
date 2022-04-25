@@ -93,7 +93,6 @@
       // Optional parameters
       effect: 'cube',
       speed: 600, // default 300
-      autoHeight: true,
       rewind: true,
       grabCursor: true,
       centeredSlides: true,
@@ -107,13 +106,13 @@
         loadPrevNext: true,
       },
 
-      // nav dots
+      // nav indicator
       pagination: {
         el: '.swiper-pagination',
         type: "fraction",
       },
 
-      // Navigation arrows
+      // nav arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -347,19 +346,16 @@
     <!-- Slideshow main container -->
     <div class="slide-show hide">
       <!-- slideshow close button -->
-      <img
-        src="images/ssCloseBtn.svg"
-        alt="close button"
-        height="30px"
-        class="ss-close-btn"
-        id="ss_close_btn" />
+      <img src="images/ssCloseBtn.svg" class="ss-close-btn" alt="close button" height="30px"/>
       <!-- Swiper main container -->
       <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
+          <!-- 
+              class="swiper-lazy" -->
           <div class="swiper-slide">
-            <img
+            <img 
               class="swiper-lazy"
               data-srcset="slides/slide1_500.webp 500w,
               slides/slide1.webp 800w"
@@ -368,7 +364,7 @@
             <div class="swiper-lazy-preloader"></div>
           </div>
           <div class="swiper-slide">
-            <img
+            <img 
               class="swiper-lazy"
               data-srcset="slides/slide2_500.webp 500w,
               slides/slide2.webp 800w"
@@ -377,7 +373,7 @@
             <div class="swiper-lazy-preloader"></div>
           </div>
           <div class="swiper-slide">
-            <img
+            <img 
               class="swiper-lazy"
               data-srcset="slides/slide3_500.webp 500w,
               slides/slide3.webp 800w"
@@ -385,7 +381,132 @@
             />
             <div class="swiper-lazy-preloader"></div>
           </div>
-          
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide4_500.webp 500w,
+              slides/slide4.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide5_500.webp 500w,
+              slides/slide5.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide6_500.webp 500w,
+              slides/slide6.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide7_500.webp 500w,
+              slides/slide7.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide8_500.webp 500w,
+              slides/slide8.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide9_500.webp 500w,
+              slides/slide9.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide10_500.webp 500w,
+              slides/slide10.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide11_500.webp 500w,
+              slides/slide11.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide12_500.webp 500w,
+              slides/slide12.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide13_500.webp 500w,
+              slides/slide13.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide14_500.webp 500w,
+              slides/slide14.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide15_500.webp 500w,
+              slides/slide15.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide16_500.webp 500w,
+              slides/slide16.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
+          <div class="swiper-slide">
+            <img 
+              class="swiper-lazy"
+              data-srcset="slides/slide17_500.webp 500w,
+              slides/slide17.webp 800w"
+              sizes="(max-width: 850px) 500px, 800px"
+            />
+            <div class="swiper-lazy-preloader"></div>
+          </div>
         </div>
         <!-- nav indicator -->
         <div class="swiper-pagination"></div>
