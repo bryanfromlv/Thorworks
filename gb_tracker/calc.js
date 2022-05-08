@@ -25,7 +25,6 @@ export default class calc {
     this._19Fields = document.querySelectorAll('.mx19btn')
     this._192Fields = document.querySelectorAll('.mx192btn')
     this._tooltipCB = document.querySelector('#calc_enable_tooltips')
-    this._tooltipsEnabled
     this._audioCB = document.querySelector('#calc_enable_audio')
     this._audioEnabled
     this._userName = store.getPostName()
@@ -64,10 +63,7 @@ export default class calc {
   }
 
   init = () => {
-    //! Weird bug fix 4/21/22- after uploading new version, post text button would
-    //! submit the calc form! Fixed by adding type="button" to post text button but
-    //! added this event listener to block all submit attempts just in case.
-    //! after thought- I probably inadvertently removed the type while working on modals
+    // prevent form submission
     this._calcForm.addEventListener('submit', evt => {
       evt.preventDefault()
       console.dir(`Submit attempt by ${evt.submitter}`)
@@ -122,11 +118,9 @@ export default class calc {
     //! set tooltips checkbox to saved state
     if (store.getTooltipsFlag() == 'true') {
       this._tooltipCB.checked = true
-      this._tooltipsEnabled = true
       this.toggleTooltips(true)
     } else {
       this._tooltipCB.checked = false
-      this._tooltipsEnabled
       this.toggleTooltips(false)
     }
     //! set audio enabled property and checkbox to saved state
@@ -310,11 +304,11 @@ export default class calc {
 
   //! set curGbKey in localStorage and load the GB object from localStorage
   setGb = gbKey => {
-    // console.log(`setGb(${gbKey})`)
+    console.log(`setGb(${gbKey})`)
     store.saveCurGb(gbKey)
     this._myGbKey = gbKey
     this._myGb = store.getSavedGb(gbKey)
-    // console.log(this._myGb)
+    // console.dir(this._myGb)
   }
 
   hideNoGbModal = () => {
@@ -403,24 +397,25 @@ export default class calc {
 
   //! handle mx radio button change events
   mxrbChange = evt => {
+    let targetVal = evt.target.value
     switch (evt.target.name) {
       case 'p1':
-        this._myGb.p1.mxChoice = evt.target.value
+        this._myGb.p1.mxChoice = targetVal
         break
       case 'p2':
-        this._myGb.p2.mxChoice = evt.target.value
+        this._myGb.p2.mxChoice = targetVal
         break
       case 'p3':
-        this._myGb.p3.mxChoice = evt.target.value
+        this._myGb.p3.mxChoice = targetVal
         break
       case 'p4':
-        this._myGb.p4.mxChoice = evt.target.value
+        this._myGb.p4.mxChoice = targetVal
         break
       case 'p5':
-        this._myGb.p5.mxChoice = evt.target.value
+        this._myGb.p5.mxChoice = targetVal
         break
       default:
-        console.log(`mx selector error: ${evt.target.name}`)
+        console.error(`mx selector error--> ${evt.target.name}`)
         break
     }
     // console.log(this._myGb)
@@ -433,30 +428,31 @@ export default class calc {
     this._snipeSoundFlag = false
     this._otherSoundFlag = false
     // convert target values to Number type
+    let targetVal = Number(evt.target.value)
     switch (evt.target.id) {
       case 'calc_owner_input':
-        this._myGb.owner = Number(evt.target.value)
+        this._myGb.owner = targetVal
         break
       case 'calc_other_input':
-        this._myGb.other = Number(evt.target.value)
+        this._myGb.other = targetVal
         break
       case 'p1_cur':
-        this._myGb.p1.current = Number(evt.target.value)
+        this._myGb.p1.current = targetVal
         break
       case 'p2_cur':
-        this._myGb.p2.current = Number(evt.target.value)
+        this._myGb.p2.current = targetVal
         break
       case 'p3_cur':
-        this._myGb.p3.current = Number(evt.target.value)
+        this._myGb.p3.current = targetVal
         break
       case 'p4_cur':
-        this._myGb.p4.current = Number(evt.target.value)
+        this._myGb.p4.current = targetVal
         break
       case 'p5_cur':
-        this._myGb.p5.current = Number(evt.target.value)
+        this._myGb.p5.current = targetVal
         break
       default:
-        console.log(`inputChange error- no target identified (${evt.target.id})`)
+        console.error(`inputChange error. No target identified--> ${evt.target.id}`)
         break
     }
     this.calculate()
@@ -469,21 +465,22 @@ export default class calc {
    all this does is update the gb object, updateForm() will handle the display */
   //! main calculations
   calculate = gbKey => {
-    // console.log(`calculate(${gbKey})`)
+    console.log(`calculate(${gbKey})`)
     if (gbKey) {
       this.setGb(gbKey)
     }
-    //! track 1.9/1.92 choices from radio button selectors
-    this._mxChoices = [
-      this._myGb.p1.mxChoice,
-      this._myGb.p2.mxChoice,
-      this._myGb.p3.mxChoice,
-      this._myGb.p4.mxChoice,
-      this._myGb.p5.mxChoice,
-    ]
-    // console.table(this._mxChoices)
+
     //! build array of position objects from current GB object
     this._pArray = [this._myGb.p1, this._myGb.p2, this._myGb.p3, this._myGb.p4, this._myGb.p5]
+    console.table(this._pArray)
+
+    //! track 1.9/1.92 choices from radio button selectors
+    this._mxChoices = []
+    this._pArray.forEach(p => {
+      this._mxChoices.push(p.mxChoice)
+    })
+    // console.log(this._mxChoices)
+
     //! calculate current and left, update current GB object
     let pTotal = 0
     this._pArray.forEach(p => {
@@ -504,16 +501,18 @@ export default class calc {
     let p2Filled = false
     let p3Filled = false
     let p4Filled = false
-    let mx
+    let mx = 0
     // tooltip variables
     let after
     let ttmx
     let total
     let halfLeft = Math.ceil(left / 2)
     // hide the post text button
+    // todo: hide post button in html & change code to just remove hide class
     this._postBtn.classList.add('hide-post-btn')
     // initialize the postText array on each run
     this._postTextArray = []
+
     //! calculate needed, ready, locked, etc for all 5 positions
     for (let x = 0; x < this._pArray.length; x++) {
       let allPrevLocked = false
