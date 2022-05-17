@@ -476,6 +476,7 @@ export default class calc {
     }
 
     //! build array of position objects from current GB object
+    //!NEW this is done in the new gbModel object
     this._pArray = [this._myGb.p1, this._myGb.p2, this._myGb.p3, this._myGb.p4, this._myGb.p5]
     // console.table(this._pArray)
 
