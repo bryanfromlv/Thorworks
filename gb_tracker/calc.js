@@ -1,4 +1,5 @@
 import { store, navBar, gb_list, showNewGb } from './main.js'
+import gbModel from './gbModel.js'
 class result {
   constructor(p) {
     this.p = p
@@ -13,6 +14,7 @@ export default class calc {
     this._initialized = false
     this._myGb = {}
     this._myGbKey = ''
+    this._myGbModel = {} //!NEW
     this._pArray = []
     this._calcForm = document.querySelector('#calc_form')
     this._nameField = document.querySelector('#calc_gbName')
@@ -308,7 +310,10 @@ export default class calc {
     store.saveCurGb(gbKey)
     this._myGbKey = gbKey
     this._myGb = store.getSavedGb(gbKey)
-    // console.dir(this._myGb)
+    //!NEW
+    //! intstantiate gbModel object
+    this._myGbModel = new gbModel(this._myGb)
+    console.dir(this._myGbModel)
   }
 
   hideNoGbModal = () => {
@@ -472,7 +477,7 @@ export default class calc {
 
     //! build array of position objects from current GB object
     this._pArray = [this._myGb.p1, this._myGb.p2, this._myGb.p3, this._myGb.p4, this._myGb.p5]
-    console.table(this._pArray)
+    // console.table(this._pArray)
 
     //! track 1.9/1.92 choices from radio button selectors
     this._mxChoices = []
