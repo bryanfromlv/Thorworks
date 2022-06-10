@@ -37,18 +37,18 @@ export default class quick19 {
       if (myArcObj.val <= 0 || myArcObj.val == '') {
         mineDisplay.innerHTML = 'Enter arc multiplier'
       } else {
-        mineDisplay.innerHTML = Math.round(fpField.value * myArcObj.val)
+        mineDisplay.innerHTML = Math.ceil(fpField.value * myArcObj.val)
       }
 
       switch (mx) {
         case 'mx19':
-          displayText.innerHTML = Math.round(fpField.value * 1.9)
+          displayText.innerHTML = Math.ceil(fpField.value * 1.9)
           break
         case 'mx192':
-          displayText.innerHTML = Math.round(fpField.value * 1.92)
+          displayText.innerHTML = Math.ceil(fpField.value * 1.92)
           break
         case 'mx194':
-          displayText.innerHTML = Math.round(fpField.value * 1.94)
+          displayText.innerHTML = Math.ceil(fpField.value * 1.94)
           break
         default:
           alert(`calculate() error: mx=${mx}`)
