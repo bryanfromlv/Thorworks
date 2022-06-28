@@ -7,13 +7,13 @@ export default class gbModel {
     this._currentValues = []
     // populate the positions array
     for (const prop in this._gb) {
-      if (prop.length == 2 && prop.substring(0, 1) == 'p') {
+      if (prop.length === 2 && prop.substring(0, 1) === 'p') {
         this._positions.push(this._gb[prop])
       }
     }
 
-    let pCounter = 0
-    this._positions.forEach(p => {
+    // let pCounter = 0
+    this._positions.forEach((p, i) => {
       // populate the mx values array
       if (p.mxChoice == 'mx192') {
         this._mxValues.push(p.mx192)
@@ -25,8 +25,8 @@ export default class gbModel {
       //todo: branch out here and calculate needed for each position
       //todo: then branch out and calculate ready, locked, snipezone, intruder??
       //! NO: we just want values needed in calculations- do the rest in class methods.
-      this.calculateNeeded(pCounter)
-      pCounter++
+      this.calculateNeeded(i)
+      // pCounter++
     })
   }
 
@@ -36,7 +36,7 @@ export default class gbModel {
   }
 
   calculateNeeded = position => {
-    console.log(`calculateNeeded(${position})`)
+    // console.log(`calculateNeeded(${position})`)
   }
 }
 // console.log(`gbModel loaded`)

@@ -21,8 +21,8 @@ export default class calc {
     this._goalField = document.querySelector('#calc_goal')
     this._curField = document.querySelector('#calc_cur')
     this._leftField = document.querySelector('#calc_left')
-    this._ownerField = document.querySelector('#calc_owner_input')
-    this._otherField = document.querySelector('#calc_other_input')
+    this._ownerField = document.querySelector('[data-gb-map="owner"]')
+    this._otherField = document.querySelector('[data-gb-map="other"]')
     this._curInputs = document.querySelectorAll('.cur-input')
     this._19Fields = document.querySelectorAll('.mx19btn')
     this._192Fields = document.querySelectorAll('.mx192btn')
@@ -428,38 +428,49 @@ export default class calc {
   }
   //! set gb object values to changed value on input element change
   inputChange = evt => {
-    // console.log(`${evt.target.id} changed`)
     //! enable audio only after user has interacted with the page
     this._snipeSoundFlag = false
     this._otherSoundFlag = false
-    // convert target values to Number type
+
+    //! 06/28/22 new code to replace switch statement
     let targetVal = Number(evt.target.value)
-    switch (evt.target.id) {
-      case 'calc_owner_input':
-        this._myGb.owner = targetVal
-        break
-      case 'calc_other_input':
-        this._myGb.other = targetVal
-        break
-      case 'p1_cur':
-        this._myGb.p1.current = targetVal
-        break
-      case 'p2_cur':
-        this._myGb.p2.current = targetVal
-        break
-      case 'p3_cur':
-        this._myGb.p3.current = targetVal
-        break
-      case 'p4_cur':
-        this._myGb.p4.current = targetVal
-        break
-      case 'p5_cur':
-        this._myGb.p5.current = targetVal
-        break
-      default:
-        console.error(`inputChange error. No target identified--> ${evt.target.id}`)
-        break
+    let gbMap = evt.target.dataset.gbMap
+    console.log(`gbMap= ${gbMap}`)
+    if (gbMap.length === 2) {
+      console.log(`is a position`)
+      this._myGb[gbMap].current = targetVal
+    } else {
+      console.log(`not a position`)
+      this._myGb[gbMap] = targetVal
     }
+    // console.dir(this._myGb)
+
+    // switch (evt.target.id) {
+    //   case 'calc_owner_input':
+    //     this._myGb.owner = targetVal
+    //     break
+    //   case 'calc_other_input':
+    //     this._myGb.other = targetVal
+    //     break
+    //   case 'p1_cur':
+    //     this._myGb[evt.target.dataset.gbMap].current = targetVal
+    //     break
+    //   case 'p2_cur':
+    //     this._myGb.p2.current = targetVal
+    //     break
+    //   case 'p3_cur':
+    //     this._myGb.p3.current = targetVal
+    //     break
+    //   case 'p4_cur':
+    //     this._myGb.p4.current = targetVal
+    //     break
+    //   case 'p5_cur':
+    //     this._myGb.p5.current = targetVal
+    //     break
+    //   default:
+    //     console.error(`inputChange error. No target identified--> ${evt.target.id}`)
+    //     break
+    // }
     this.calculate()
   }
 

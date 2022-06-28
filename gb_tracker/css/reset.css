@@ -5,7 +5,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* line-height: 1.4; */
+  font-family: Roboto, sans-serif;
+  /*! Google font Roboto: 400-regular, 500-medium, 700-bold */
 }
 
 button,
